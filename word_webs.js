@@ -111,7 +111,7 @@ bubble1.addEventListener('blur', () => {
 
 bubble1.addEventListener('keyup', (event) => {
     if(isLetter(event.key)) {
-        letter1.textContent = event.key.toUpperCase().sp;
+        letter1.textContent = event.key.toUpperCase();
     };
 });
 
