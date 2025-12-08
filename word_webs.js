@@ -1,5 +1,7 @@
 const template5SVG = document.getElementById("svg1");
 
+clueLine1 = document.getElementById("tspan10");
+clueLine2 = document.getElementById("tspan11");
 letter1 = document.getElementById("letter1");
 letter2 = document.getElementById("letter2");
 letter3 = document.getElementById("letter3");
@@ -95,6 +97,7 @@ hideAllPaths();
 showPath("12345", aDict);
 showPath("41352", bDict);
 setLetters(" L  E", letterDict);
+setClue("A cult that worships \nrubber could be said to: ___ ___.")
 
 bubble1.addEventListener('focus', () => {
     bubble1.style.outline = "none";
@@ -108,9 +111,16 @@ bubble1.addEventListener('blur', () => {
 
 bubble1.addEventListener('keyup', (event) => {
     if(isLetter(event.key)) {
-        letter1.textContent = event.key.toUpperCase();
+        letter1.textContent = event.key.toUpperCase().sp;
     };
 });
+
+function setClue(text) {
+    line1 = text.toUpperCase().split('\n')[0];
+    line2 = text.toUpperCase().split('\n')[1];
+    clueLine1.textContent = 'CLUE: ' + line1;
+    clueLine2.textContent = line2;
+};
 
 function setLetters(letters, dict) {
     for (let i=0; i<letters.length && i<5; i++) {
