@@ -95,7 +95,7 @@ letter4.textContent  = "D";
 letter5.textContent  = "E";
 hideAllPaths();
 showPath("12345", aDict);
-showPath("41352", bDict);
+showPath("43512", bDict);
 setLetters(" L  E", letterDict);
 setClue("A cult that worships \nrubber could be said to: ___ ___.")
 
