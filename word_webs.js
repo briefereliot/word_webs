@@ -94,10 +94,10 @@ letter3.textContent  = "C";
 letter4.textContent  = "D";
 letter5.textContent  = "E";
 hideAllPaths();
-showPath("12345", aDict);
-showPath("23154", bDict);
-setLetters(" L  E", letterDict);
-setClue("A cult that worships \nrubber could be said to: ___ ___.")
+showPath("43215", aDict);
+showPath("45312", bDict);
+setLetters(" SE R", letterDict);
+setClue("Slash and burn.")
 
 bubble1.addEventListener('focus', () => {
     bubble1.style.outline = "none";
