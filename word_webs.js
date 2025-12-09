@@ -94,10 +94,10 @@ letter3.textContent  = "C";
 letter4.textContent  = "D";
 letter5.textContent  = "E";
 hideAllPaths();
-showPath("43215", aDict);
-showPath("45312", bDict);
-setLetters(" SE R", letterDict);
-setClue("Slash and burn.")
+showPath("21543", aDict);
+showPath("14352", bDict);
+setLetters("W R E", letterDict);
+setClue("A hawkers guarentee: \n\"I ___ by my ___!\"")
 
 bubble1.addEventListener('focus', () => {
     bubble1.style.outline = "none";
