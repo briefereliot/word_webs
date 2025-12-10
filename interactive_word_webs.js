@@ -138,6 +138,7 @@ class Letter {
         this.textBox.style.boxSizing = 'border-box';
         this.textBox.style.width = '4rem';
         this.textBox.style.height = '4rem';
+        this.textBox.style.padding = '0';
         this.textBox.style.textAlign = 'center';
         this.textBox.style.fontFamily = 'Roboto Mono';
         this.textBox.style.fontSize = '3rem';
