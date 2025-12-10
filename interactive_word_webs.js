@@ -51,6 +51,7 @@ class Web {
             };
             if(string === this.answer) {
                 for(let i = 0; i < this.threads[0].length; i++) {
+                    this.letters[this.threads[0][i]-1].disable();
                     setTimeout(() => {
                         this.letters[this.threads[0][i]-1].turnGold();
                     }, 150*i);
@@ -122,8 +123,15 @@ class Letter {
         console.log(this.value);
     };
 
-    turnGold() {
+    disable() {
         this.textBox.disabled = true;
+    }
+
+    enable() {
+        this.textBox.disabled = false;
+    }
+
+    turnGold() {
         this.textBox.style.border = "6px solid gold";
         this.textBox.style.color = "gold"
     }
