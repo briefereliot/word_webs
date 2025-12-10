@@ -1,5 +1,3 @@
-const gameWindow = document.getElementById("game");
-
 class Web {
     constructor(window, string, answer, threads = [],  svgNS = 'http://www.w3.org/2000/svg') {
         this.svgNS = svgNS;
@@ -186,7 +184,26 @@ class Letter {
 
 };
 
-const w1 = new Web(gameWindow,"  EWA ", "DREWAR");
+const dec10 = document.getElementById("dec10");
+const w1 = new Web(dec10,"  EWA ", "DREWAR");
 w1.addThread('125436',2);
 w1.addThread('234561',1);
+
+const dec9 = document.getElementById("dec9");
+const w2 = new Web(dec9,"SE R ", "SETRE");
+w2.addThread('34251',2);
+w2.addThread('45123',1);
+
+const dec8 = document.getElementById("dec8");
+const w3 = new Web(dec8,"  OT", "RIOT");
+w3.addThread('1234',2);
+w3.addThread('4123',1);
+
+const dec7 = document.getElementById("dec7");
+const w4 = new Web(dec7," L  E", "XLATE");
+w4.addThread('51324',2);
+w4.addThread('23451',1);
+
+const carousel = document.getElementById("carousel");
+carousel.scrollTo(carousel.scrollWidth, 0);
 

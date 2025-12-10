@@ -1,15 +1,72 @@
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     font-family: 'Roboto Mono', serif;
+    gap: 1rem;
 }
 
-#full-window {
+ul {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    display: flex;
+    gap: 4vw;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-marker-group: after;
+    anchor-name: --carousel;
+}
+
+
+/*hide the carousel scroll bar*/
+ul {
+  -ms-overflow-style: none; /* For Internet Explorer/Edge legacy */
+  scrollbar-width: none; /* For Firefox */
+}
+ul::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and newer Edge */
+}
+
+ul::scroll-marker-group {
+  position: absolute;
+  position-anchor: --carousel;
+  anchor-name: --scroll-marker-group;
+  top: calc(anchor(bottom) + 1rem);
+  justify-self: anchor-center;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+li::scroll-marker {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: transparent;
+  border: 2px solid black;
+  border-radius: 50%;
+}
+
+li::scroll-marker:target-current {
+  background-color: black;
+}
+
+li {
+    list-style-type: none;
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+}
+
+.puzzle, #heading {
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     flex: 0 1;
+    width: 20rem;
+    margin:auto;
     padding: 1rem;
     border-width: 4px;
     border-radius: 1.5rem;
@@ -17,7 +74,7 @@ body {
     border-style: solid;
 }
 
-#game {
+.game {
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
 }
