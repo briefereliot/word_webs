@@ -4,6 +4,7 @@ class Web {
         this.window = window;
         this.numLetters = string.length;
         this.answer = answer;
+        this.won = false;
         this.threads = [];
         this.letters = [];
         for(let i = 0; i < string.length; i++) {
@@ -12,6 +13,8 @@ class Web {
             let l = new Letter(this.window, String(x)+'%', String(y)+'%',1,!this.#isLetter(string[i]),string[i]);
             this.letters.push(l);
         }
+
+        //create SVG image for connections
         this.svg = document.createElementNS(this.svgNS, "svg");
         this.svg.setAttribute("width", "100%");
         this.svg.setAttribute("height", "100%");
@@ -19,6 +22,13 @@ class Web {
         for(let i = 0; i < threads.length; i++) {
             this.addThread(threads[i]);
         };
+
+        //create hint button
+        this.hintButton = document.createElement('button');
+        this.hintButton.textContent = "THROW ME A BONE";
+        this.hintButton.disabled = true;
+        this.window.parentElement.appendChild(this.hintButton);
+
         this.#initEvents();
     }
 
@@ -43,26 +53,67 @@ class Web {
     #initEvents() {
         //Check for win conditions every time a key is pressed
         this.window.addEventListener('keyup', () => {
-            let string = '';
-            for(let i = 0; i < this.letters.length; i++) {
-                string += this.letters[i].value;
-            };
-            if(string === this.answer) {
-                for(let i = 0; i < this.threads[0].length; i++) {
-                    this.letters[this.threads[0][i]-1].disable();
-                    setTimeout(() => {
-                        this.letters[this.threads[0][i]-1].turnGold();
-                    }, 150*i);
-                };
-                setTimeout(() => {
-                    let congrats = document.createElement("p");
-                    congrats.textContent = "YOU GOT IT!";
-                    congrats.style.color = "gold";
-                    congrats.style.fontWeight = "900";
-                    this.window.appendChild(congrats);
-                },150*this.threads[0].length);
-            };
+            this.#checkWinCondition();
         });
+        //hint button pressed
+        this.hintButton.addEventListener('click', () => {
+            this.#revealOrder();
+        });
+
+        //enable hint button after 45 seconds
+        setTimeout(() => {
+            if(this.won) return;
+            this.hintButton.disabled = false;
+        }, 30000);
+    }
+
+    #checkWinCondition() {
+        let string = '';
+        for(let i = 0; i < this.letters.length; i++) {
+            string += this.letters[i].value;
+        };
+        if(string === this.answer) {
+            this.won = true;
+            this.hintButton.disabled = true;
+            for(let i = 0; i < this.threads[0].length; i++) {
+                this.letters[this.threads[0][i]-1].disable();
+                this.letters[this.threads[0][i]-1].turnBlack();
+                setTimeout(() => {
+                    this.letters[this.threads[0][i]-1].turnGold();
+                }, 150*i);
+            };
+            setTimeout(() => {
+                for(let i = 0; i < this.letters.length; i++) {
+                    this.letters[i].turnGold();
+                    this.letters[i].disable();
+                }
+                let congrats = document.createElement("p");
+                congrats.textContent = "YOU GOT IT!";
+                congrats.style.color = "gold";
+                congrats.style.fontWeight = "900";
+                this.window.appendChild(congrats);
+            },150*this.threads[0].length);
+        };
+    }
+
+    #revealOrder() {
+        if(this.won) return;
+
+        let delay = 0;
+        for(let t = 0; t < this.threads.length; t++) {
+            let thread = this.threads[t];
+            for(let i = 0; i < thread.length; i++) {
+                setTimeout(() => {
+                    if(this.won) return;
+                    this.letters[thread[i]-1].turnGold();
+                }, delay + 500*i);
+                setTimeout(() => {
+                    if(this.won) return;
+                    this.letters[thread[i]-1].turnBlack();
+                }, delay + 500*i +thread.length*500+500);
+            };
+            delay += 1000 + 1000*thread.length;
+        }
     }
 
     #isLetter(str) {
@@ -131,7 +182,12 @@ class Letter {
 
     turnGold() {
         this.textBox.style.border = "6px solid gold";
-        this.textBox.style.color = "gold"
+        this.textBox.style.color = "gold";
+    }
+
+    turnBlack() {
+        this.textBox.style.border = "2px solid black";
+        this.textBox.style.color = "black";
     }
 
     #stylize() {
@@ -183,6 +239,11 @@ class Letter {
 
 
 };
+
+//const dec11 = document.getElementById("dec11");
+//const w5 = new Web(dec11,"E C  P", "EACREP");
+//w5.addThread('45326',2);
+//w5.addThread('34561',1);
 
 const dec10 = document.getElementById("dec10");
 const w1 = new Web(dec10,"  EWA ", "DREWAR");
