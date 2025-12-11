@@ -5,6 +5,7 @@ class Web {
         this.numLetters = string.length;
         this.answer = answer;
         this.won = false;
+        this.hinting = false;
         this.threads = [];
         this.letters = [];
         for(let i = 0; i < string.length; i++) {
@@ -75,12 +76,17 @@ class Web {
         if(string === this.answer) {
             this.won = true;
             this.hintButton.disabled = true;
-            for(let i = 0; i < this.threads[0].length; i++) {
-                this.letters[this.threads[0][i]-1].disable();
-                this.letters[this.threads[0][i]-1].turnBlack();
-                setTimeout(() => {
-                    this.letters[this.threads[0][i]-1].turnGold();
-                }, 150*i);
+            for(let n = 0; n < 3; n++) {
+                for(let i = 0; i < this.letters.length; i++) {
+                    this.letters[i].disable();
+                    this.letters[i].turnBlack();
+                    setTimeout(() => {
+                        this.letters[i].turnGold();
+                        setTimeout(() => {
+                            this.letters[i].turnBlack();
+                        }, 150);
+                    }, 150*(i+1)+150*n*(this.letters.length));
+                };
             };
             setTimeout(() => {
                 for(let i = 0; i < this.letters.length; i++) {
@@ -92,12 +98,14 @@ class Web {
                 congrats.style.color = "gold";
                 congrats.style.fontWeight = "900";
                 this.window.appendChild(congrats);
-            },150*this.threads[0].length);
+            },150*this.letters.length+150*2*(this.letters.length+2));
         };
     }
 
     #revealOrder() {
-        if(this.won) return;
+        if(this.won) return; //prevent won while hinting glitch
+        if(this.hinting) return; //prevent double-click glitch
+        this.hinting = true;
 
         let delay = 0;
         for(let t = 0; t < this.threads.length; t++) {
@@ -114,6 +122,11 @@ class Web {
             };
             delay += 1000 + 1000*thread.length;
         }
+
+        //prevent double-click glitch
+        setTimeout(() => {
+            this.hinting = false;
+        }, delay);
     }
 
     #isLetter(str) {
