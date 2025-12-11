@@ -253,10 +253,10 @@ class Letter {
 
 };
 
-//const dec11 = document.getElementById("dec11");
-//const w5 = new Web(dec11,"E C  P", "EACREP");
-//w5.addThread('45326',2);
-//w5.addThread('34561',1);
+const dec11 = document.getElementById("dec11");
+const w5 = new Web(dec11,"E C  P", "EACREP");
+w5.addThread('45326',2);
+w5.addThread('34561',1);
 
 const dec10 = document.getElementById("dec10");
 const w1 = new Web(dec10,"  EWA ", "DREWAR");
