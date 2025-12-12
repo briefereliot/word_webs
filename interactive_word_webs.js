@@ -253,6 +253,11 @@ class Letter {
 
 };
 
+const dec12 = document.getElementById("dec12");
+const w6 = new Web(dec12," S A", "PSTA");
+w6.addThread('1423',2);
+w6.addThread('2143',1);
+
 const dec11 = document.getElementById("dec11");
 const w5 = new Web(dec11,"E C  P", "EACREP");
 w5.addThread('45326',2);
