@@ -6,6 +6,15 @@ body {
     gap: 1rem;
 }
 
+@media (prefers-color-scheme: dark) {
+    body {
+        color: white;
+        background-color: black;
+    }
+}
+
+
+
 ul {
     margin: 0;
     padding: 0;
@@ -48,9 +57,19 @@ li::scroll-marker {
   border: 2px solid black;
   border-radius: 50%;
 }
+@media (prefers-color-scheme: dark) {
+    li::scroll-marker {
+        border-color: white;
+    }
+}
 
 li::scroll-marker:target-current {
   background-color: black;
+}
+@media (prefers-color-scheme: dark) {
+    li::scroll-marker:target-current {
+        background-color: white;
+    }
 }
 
 li {
@@ -73,6 +92,11 @@ li {
     border-color: black;
     border-style: solid;
 }
+@media (prefers-color-scheme: dark) {
+    .puzzle, #heading {
+        border-color: white;
+    }
+}
 
 .game {
     position: relative;
@@ -94,9 +118,28 @@ p {
 }
 
 input {
+    border-radius: 50%;
+    box-sizing: border-box;
+    color: black;
+    border: 2px solid black;
+    width: 4rem;
+    height: 4rem;
+    padding: 0;
+    text-align: center;
+    font-family: 'Roboto Mono';
+    font-size: 3rem;
+    font-weight: 900;
+    position: absolute;
     transition:
         border-width 100ms,
         border-color 100ms;
+}
+@media (prefers-color-scheme: dark) {
+    input {
+        background-color: black;
+        border-color: white;
+        color: white;
+    }
 }
 
 button {
@@ -111,6 +154,13 @@ button {
     transition:
         opacity 500ms;
 }
+@media (prefers-color-scheme: dark) {
+    button {
+        background-color: black;
+        color: gold;
+        border-color: gold;
+    }
+}
 
 button:disabled {
     opacity: 0;
@@ -119,4 +169,9 @@ button:disabled {
 :disabled {
     background-color: white;
     opacity: 1;
+}
+@media (prefers-color-scheme: dark) {
+    :disabled {
+        background-color: black;
+    }
 }

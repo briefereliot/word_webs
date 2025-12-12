@@ -1,3 +1,5 @@
+const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
 class Web {
     constructor(window, string, answer, threads = [],  svgNS = 'http://www.w3.org/2000/svg') {
         this.svgNS = svgNS;
@@ -161,7 +163,11 @@ class Connection {
         this.line.setAttribute('y1', this.y1);
         this.line.setAttribute('x2', this.x2);
         this.line.setAttribute('y2', this.y2);
-        this.line.setAttribute('stroke', 'black');
+        if(darkMode) {
+                this.line.setAttribute('stroke', 'white');
+            } else {
+                this.line.setAttribute('stroke', 'black');
+            }
         this.line.setAttribute('stroke-width', '4');
         console.log(Connection.patterns[pattern]);
         this.line.setAttribute('stroke-dasharray', Connection.patterns[pattern-1]);
@@ -199,8 +205,14 @@ class Letter {
     }
 
     turnBlack() {
-        this.textBox.style.border = "2px solid black";
-        this.textBox.style.color = "black";
+        if(darkMode) {
+            this.textBox.style.border = "2px solid white";
+            this.textBox.style.color = "white";
+        } else {
+            this.textBox.style.border = "2px solid black";
+            this.textBox.style.color = "black";
+        }
+        
     }
 
     #stylize() {
@@ -208,17 +220,6 @@ class Letter {
         this.textBox.setAttribute("size", "1");
         this.textBox.value = this.value;
         this.textBox.setAttribute("maxlength","1");
-        this.textBox.style.borderRadius = "50%";
-        this.textBox.style.border = "2px solid black";
-        this.textBox.style.boxSizing = 'border-box';
-        this.textBox.style.width = '4rem';
-        this.textBox.style.height = '4rem';
-        this.textBox.style.padding = '0';
-        this.textBox.style.textAlign = 'center';
-        this.textBox.style.fontFamily = 'Roboto Mono';
-        this.textBox.style.fontSize = '3rem';
-        this.textBox.style.fontWeight = '900';
-        this.textBox.style.position = 'absolute';
         this.textBox.style.top = String(this.y);
         this.textBox.style.left = String(this.x);
         this.textBox.style.transform = 'translate(-50%, -50%)';
@@ -226,12 +227,19 @@ class Letter {
 
     #initEvents() {
         this.textBox.addEventListener('focus', () => {
-            this.textBox.style.border = "6px solid black";
-            console.log("pressed");
+            if(darkMode) {
+                this.textBox.style.border = "6px solid white"
+            } else {
+                this.textBox.style.border = "6px solid black";
+            }
         });
 
         this.textBox.addEventListener('blur', () => {
-            this.textBox.style.border = "2px solid black";
+            if(darkMode) {
+                this.textBox.style.border = "2px solid white"
+            } else {
+                this.textBox.style.border = "2px solid black";
+            }
         });
 
         this.textBox.addEventListener('keydown', (event) => {
