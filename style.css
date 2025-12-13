@@ -117,7 +117,7 @@ p {
     text-align: center;
 }
 
-input {
+input[type="text"] {
     border-radius: 50%;
     box-sizing: border-box;
     color: black;
@@ -135,10 +135,25 @@ input {
         border-color 100ms;
 }
 @media (prefers-color-scheme: dark) {
-    input {
+    input[type="text"] {
         background-color: black;
         border-color: white;
         color: white;
+    }
+}
+
+input[type="checkbox"] {
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    accent-color: black;
+}
+@media (prefers-color-scheme: dark) {
+    input[type="checkbox"] {
+        border: 2px solid white;
+        color: black;
+        background-color: black;
+        accent-color: black;
     }
 }
 

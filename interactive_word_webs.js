@@ -212,7 +212,6 @@ class Letter {
             this.textBox.style.border = "2px solid black";
             this.textBox.style.color = "black";
         }
-        
     }
 
     #stylize() {
@@ -260,6 +259,11 @@ class Letter {
 
 
 };
+
+const dec13 = document.getElementById("dec13");
+const w7 = new Web(dec13," A LE", "NAPLE");
+w7.addThread('24351',2);
+w7.addThread('32154',1);
 
 const dec12 = document.getElementById("dec12");
 const w6 = new Web(dec12," S A", "PSTA");
