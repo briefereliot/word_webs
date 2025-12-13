@@ -185,6 +185,7 @@ class Letter {
         this.value = value;
         this.textBox = document.createElement("input");
         this.textBox.readOnly = !this.editable;
+        if(!this.editable) this.textBox.classList.toggle("given");
         this.#stylize();
         this.#initEvents();
         this.window.appendChild(this.textBox);

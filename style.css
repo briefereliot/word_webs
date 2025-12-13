@@ -134,6 +134,11 @@ input[type="text"] {
         border-width 100ms,
         border-color 100ms;
 }
+
+input.given {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
 @media (prefers-color-scheme: dark) {
     input[type="text"] {
         background-color: black;
