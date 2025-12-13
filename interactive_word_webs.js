@@ -295,6 +295,9 @@ const w4 = new Web(dec7," L  E", "XLATE");
 w4.addThread('51324',2);
 w4.addThread('23451',1);
 
-const carousel = document.getElementById("carousel");
-carousel.scrollTo(carousel.scrollWidth, 0);
+setTimeout(() => {
+    const carousel = document.getElementById("carousel");
+    carousel.scrollTo(carousel.scrollWidth, 0);
+}, 500);
+
 
