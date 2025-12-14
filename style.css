@@ -15,8 +15,9 @@ body {
 
 
 
-ul {
+#carousel {
     margin: 0;
+    margin-bottom: 2.5rem;
     padding: 0;
     width: 100vw;
     display: flex;
@@ -30,7 +31,7 @@ ul {
 
 
 /*hide the carousel scroll bar*/
-ul {
+#carousel {
   -ms-overflow-style: none; /* For Internet Explorer/Edge legacy */
   scrollbar-width: none; /* For Firefox */
 }
@@ -72,13 +73,13 @@ li::scroll-marker:target-current {
     }
 }
 
-li {
+#carousel li {
     list-style-type: none;
     flex: 0 0 100%;
     scroll-snap-align: center;
 }
 
-.puzzle, #heading {
+.puzzle, #heading, #instructions {
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -106,9 +107,18 @@ li {
     margin-bottom: 1.5rem;
 }
 
+#instructions ul{
+    padding: 0;
+    padding-left: 1rem;
+}
+
 h1 {
     font-size: 3rem;
     margin: -1rem;
+}
+
+h2 {
+    margin: 0rem;
 }
 
 p {

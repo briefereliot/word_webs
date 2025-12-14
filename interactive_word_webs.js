@@ -261,6 +261,11 @@ class Letter {
 
 };
 
+const iz = document.getElementById("iz");
+const wiz = new Web(iz," L P P", "YLOPOP");
+wiz.addThread('43561',2);
+wiz.addThread('43216',1);
+
 const dec14 = document.getElementById("dec14");
 const w8 = new Web(dec14," P R ", "EPIRT");
 w8.addThread('21543',2);
