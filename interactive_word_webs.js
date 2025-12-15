@@ -262,9 +262,9 @@ class Letter {
 };
 
 const dec15 = document.getElementById("dec15");
-const w9 = new Web(dec15,"  TO", "LOTO");
-w9.addThread('1234',1);
-w9.addThread('1423',2);
+const w9 = new Web(dec15,"   TO", "LOTTO");
+w9.addThread('12345',1);
+w9.addThread('1523',2);
 
 
 const iz = document.getElementById("iz");
