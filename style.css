@@ -107,6 +107,11 @@ li::scroll-marker:target-current {
     margin-bottom: 1.5rem;
 }
 
+.bonus {
+    border: gold;
+    border-style: solid;
+}
+
 #instructions ul{
     padding: 0;
     padding-left: 1rem;
