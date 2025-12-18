@@ -1,19 +1,43 @@
+:root {
+    --bg: #1c1c1d;
+    --text: #a0a0a0;
+    --highlight: rgb(172, 146, 0);
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        --bg: white;
+        --text: black;
+        --highlight: gold;
+    }
+}
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     font-family: 'Roboto Mono', serif;
     gap: 1rem;
+    color: var(--text);
+    background-color: var(--bg);
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        color: white;
-        background-color: black;
-    }
+.foreground {
+    stroke: var(--text);
+    color: var(--text);
 }
 
+.background {
+    stroke: var(--bg);
+    color: var(--bg);
+}
 
+.emphasized {
+    border-width: 6px;
+    border-color: var(--highlight);
+    color: var(--highlight);
+    stroke: var(--highlight);
+}
 
 #carousel {
     margin: 0;
@@ -55,22 +79,12 @@ li::scroll-marker {
   width: 0.5rem;
   height: 0.5rem;
   background-color: transparent;
-  border: 2px solid black;
+  border: 2px solid var(--text);
   border-radius: 50%;
-}
-@media (prefers-color-scheme: dark) {
-    li::scroll-marker {
-        border-color: white;
-    }
 }
 
 li::scroll-marker:target-current {
-  background-color: black;
-}
-@media (prefers-color-scheme: dark) {
-    li::scroll-marker:target-current {
-        background-color: white;
-    }
+  background-color: var(text);
 }
 
 #carousel li {
@@ -90,13 +104,8 @@ li::scroll-marker:target-current {
     padding: 1rem;
     border-width: 4px;
     border-radius: 1.5rem;
-    border-color: black;
+    border-color: var(--text);
     border-style: solid;
-}
-@media (prefers-color-scheme: dark) {
-    .puzzle, #heading {
-        border-color: white;
-    }
 }
 
 .game {
@@ -108,8 +117,7 @@ li::scroll-marker:target-current {
 }
 
 .bonus {
-    border: gold;
-    border-style: solid;
+    border: 4px solid var(--highlight);
 }
 
 #instructions ul{
@@ -135,8 +143,9 @@ p {
 input[type="text"] {
     border-radius: 50%;
     box-sizing: border-box;
-    color: black;
-    border: 2px solid black;
+    color: var(--text);
+    border: 2px solid var(--text);
+    background-color: var(--bg);
     width: 4rem;
     height: 4rem;
     padding: 0;
@@ -150,37 +159,28 @@ input[type="text"] {
         border-color 100ms;
 }
 
+input[type="text"].emphasized {
+    border-width: 6px;
+    border-color: var(--highlight);
+    color: var(--highlight);
+}
+
 input.given {
     text-decoration: underline;
     text-decoration-thickness: 2px;
 }
-@media (prefers-color-scheme: dark) {
-    input[type="text"] {
-        background-color: black;
-        border-color: white;
-        color: white;
-    }
-}
 
 input[type="checkbox"] {
-    border: 2px solid black;
-    background-color: white;
-    color: black;
-    accent-color: black;
-}
-@media (prefers-color-scheme: dark) {
-    input[type="checkbox"] {
-        border: 2px solid white;
-        color: black;
-        background-color: black;
-        accent-color: black;
-    }
+    border: 2px solid var(--text);
+    background-color: var(--bg);
+    color: var(--text);
+    accent-color: var(--text);
 }
 
 button {
-    background-color: gold;
-    color: black;
-    border: 2px solid black;
+    background-color: var(--highlight);
+    color: var(--text);
+    border: 2px solid var(--text);
     font-size: 1rem;
     font-weight: 900;
     border-radius: 0.5rem;
@@ -191,9 +191,9 @@ button {
 }
 @media (prefers-color-scheme: dark) {
     button {
-        background-color: black;
-        color: gold;
-        border-color: gold;
+        background-color: var(--bg);
+        color: var(--highlight);
+        border-color: var(--highlight);
     }
 }
 
@@ -202,11 +202,6 @@ button:disabled {
 }
 
 :disabled {
-    background-color: white;
+    background-color: var(--bg);
     opacity: 1;
-}
-@media (prefers-color-scheme: dark) {
-    :disabled {
-        background-color: black;
-    }
 }

@@ -97,7 +97,7 @@ class Web {
                 }
                 let congrats = document.createElement("p");
                 congrats.textContent = "YOU GOT IT!";
-                congrats.style.color = "gold";
+                //congrats.style.color = "gold";
                 congrats.style.fontWeight = "900";
                 this.window.appendChild(congrats);
             },150*this.letters.length+150*2*(this.letters.length+2));
@@ -159,15 +159,11 @@ class Connection {
         this.x2 = x2;
         this.y2 = y2;
         this.line = document.createElementNS(this.svgNS, "line");
+        this.line.classList.add("foreground");
         this.line.setAttribute('x1', this.x1);
         this.line.setAttribute('y1', this.y1);
         this.line.setAttribute('x2', this.x2);
         this.line.setAttribute('y2', this.y2);
-        if(darkMode) {
-                this.line.setAttribute('stroke', 'white');
-            } else {
-                this.line.setAttribute('stroke', 'black');
-            }
         this.line.setAttribute('stroke-width', '4');
         console.log(Connection.patterns[pattern]);
         this.line.setAttribute('stroke-dasharray', Connection.patterns[pattern-1]);
@@ -201,17 +197,19 @@ class Letter {
     }
 
     turnGold() {
-        this.textBox.style.border = "6px solid gold";
-        this.textBox.style.color = "gold";
+        //this.textBox.style.border = "6px solid gold";
+        //this.textBox.style.color = "gold";
+        this.textBox.classList.add("emphasized");
     }
 
     turnBlack() {
+        this.textBox.classList.remove("emphasized");
         if(darkMode) {
-            this.textBox.style.border = "2px solid white";
-            this.textBox.style.color = "white";
+            //this.textBox.style.border = "2px solid white";
+            //this.textBox.style.color = "white";
         } else {
-            this.textBox.style.border = "2px solid black";
-            this.textBox.style.color = "black";
+            //this.textBox.style.border = "2px solid black";
+            //this.textBox.style.color = "black";
         }
     }
 
@@ -228,17 +226,17 @@ class Letter {
     #initEvents() {
         this.textBox.addEventListener('focus', () => {
             if(darkMode) {
-                this.textBox.style.border = "6px solid white"
+                //this.textBox.style.border = "6px solid white"
             } else {
-                this.textBox.style.border = "6px solid black";
+                //this.textBox.style.border = "6px solid black";
             }
         });
 
         this.textBox.addEventListener('blur', () => {
             if(darkMode) {
-                this.textBox.style.border = "2px solid white"
+                //this.textBox.style.border = "2px solid white"
             } else {
-                this.textBox.style.border = "2px solid black";
+                //this.textBox.style.border = "2px solid black";
             }
         });
 
@@ -260,6 +258,11 @@ class Letter {
 
 
 };
+
+//const dec19 = document.getElementById("dec19");
+//const w13 = new Web(dec19,"E N ", "EANW");
+//w13.addThread('4123',1);
+//w13.addThread('2314',2);
 
 const dec18 = document.getElementById("dec18");
 const w12 = new Web(dec18," ER  ", "EERUP");
