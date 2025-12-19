@@ -41,7 +41,6 @@ body {
 
 #carousel {
     margin: 0;
-    margin-bottom: 2.5rem;
     padding: 0;
     width: 100vw;
     display: flex;
@@ -49,8 +48,6 @@ body {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-    scroll-marker-group: after;
-    anchor-name: --carousel;
 }
 
 
@@ -91,6 +88,10 @@ li::scroll-marker:target-current {
     list-style-type: none;
     flex: 0 0 100%;
     scroll-snap-align: center;
+}
+
+#instructions li {
+    list-style-type: circle;
 }
 
 .puzzle, #heading, #instructions {

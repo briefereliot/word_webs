@@ -259,10 +259,10 @@ class Letter {
 
 };
 
-//const dec19 = document.getElementById("dec19");
-//const w13 = new Web(dec19,"E N ", "EANW");
-//w13.addThread('4123',1);
-//w13.addThread('2314',2);
+const dec19 = document.getElementById("dec19");
+const w13 = new Web(dec19,"E N ", "EANW");
+w13.addThread('4123',1);
+w13.addThread('2314',2);
 
 const dec18 = document.getElementById("dec18");
 const w12 = new Web(dec18," ER  ", "EERUP");
