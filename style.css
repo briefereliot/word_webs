@@ -39,6 +39,10 @@ body {
     stroke: var(--highlight);
 }
 
+.selected {
+    border-width: 6px;
+}
+
 #carousel {
     margin: 0;
     padding: 0;

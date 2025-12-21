@@ -225,19 +225,11 @@ class Letter {
 
     #initEvents() {
         this.textBox.addEventListener('focus', () => {
-            if(darkMode) {
-                //this.textBox.style.border = "6px solid white"
-            } else {
-                //this.textBox.style.border = "6px solid black";
-            }
+            this.textBox.classList.add("selected");
         });
 
         this.textBox.addEventListener('blur', () => {
-            if(darkMode) {
-                //this.textBox.style.border = "2px solid white"
-            } else {
-                //this.textBox.style.border = "2px solid black";
-            }
+            this.textBox.classList.remove("selected");
         });
 
         this.textBox.addEventListener('keydown', (event) => {
@@ -259,11 +251,20 @@ class Letter {
 
 };
 
-const dec20 = document.getElementById("dec20");
-const w20 = new Web(dec20,"E  S ", "EFASR");
-w20.addThread('21354',2);
-w20.addThread('43215',1);
+const dec21b = document.getElementById("dec21b");
+const w16 = new Web(dec21b,"R H A ", "REHSAD");
+w16.addThread('654321',1);
+w16.addThread('435126',2);
 
+const dec21 = document.getElementById("dec21");
+const w15 = new Web(dec21,"NE  ", "NEBA");
+w15.addThread('3241',2);
+w15.addThread('3412',1);
+
+const dec20 = document.getElementById("dec20");
+const w14 = new Web(dec20,"E  S ", "EFASR");
+w14.addThread('21354',2);
+w14.addThread('43215',1);
 
 const dec19 = document.getElementById("dec19");
 const w13 = new Web(dec19,"E N ", "EANW");
@@ -289,18 +290,6 @@ const dec15 = document.getElementById("dec15");
 const w9 = new Web(dec15,"   TO", "LOTTO");
 w9.addThread('12345',1);
 w9.addThread('1523',2);
-
-const iz = document.getElementById("iz");
-const wiz = new Web(iz," L P P", "YLOPOP");
-wiz.addThread('43561',2);
-wiz.addThread('43216',1);
-
-const dec14 = document.getElementById("dec14");
-const w8 = new Web(dec14," P R ", "EPIRT");
-w8.addThread('21543',2);
-w8.addThread('54321',1);
-
-
 
 setTimeout(() => {
     const carousel = document.getElementById("carousel");
