@@ -125,6 +125,13 @@ li::scroll-marker:target-current {
     border: 4px solid var(--highlight);
 }
 
+.christmas {
+    border: none;
+    outline: 4px dashed rgb(0, 68, 0);
+    box-shadow: 0 0 0 4px rgb(128, 0, 0);
+    margin: 4px auto 4px auto;
+}
+
 #instructions ul{
     padding: 0;
     padding-left: 1rem;
