@@ -5,7 +5,8 @@ class Web {
         this.svgNS = svgNS;
         this.window = window;
         this.numLetters = string.length;
-        this.answer = answer;
+        this.answer = []
+        this.answer.push(answer);
         this.won = false;
         this.hinting = false;
         this.threads = [];
@@ -45,6 +46,11 @@ class Web {
         };
     }
 
+    addSolution(solution) {
+        console.log(this.answer);
+        this.answer.push(solution);
+    }
+
     connect(l1, l2, pattern = 1) {
         let x1 = this.#getLetterX(l1,1-(pattern-1)*0.1);
         let x2 = this.#getLetterX(l2,1-(pattern-1)*0.1);
@@ -75,7 +81,7 @@ class Web {
         for(let i = 0; i < this.letters.length; i++) {
             string += this.letters[i].value;
         };
-        if(string === this.answer) {
+        if(this.answer.includes(string)) {
             this.won = true;
             this.hintButton.disabled = true;
             for(let n = 0; n < 3; n++) {
@@ -253,6 +259,7 @@ class Letter {
 
 const dec25 = document.getElementById("dec25");
 const w20 = new Web(dec25," O  ", "LOCA");
+w20.addSolution('AOCL');
 w20.addThread('3214',1);
 w20.addThread('3241',2);
 
@@ -263,6 +270,7 @@ w19.addThread('234561',1);
 
 const dec23 = document.getElementById("dec23");
 const w18 = new Web(dec23,"  I ", "TNIH");
+w18.addSolution('THIN');
 w18.addThread('1432',1);
 w18.addThread('4321',2);
 
