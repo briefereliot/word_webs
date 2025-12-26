@@ -257,6 +257,12 @@ class Letter {
 
 };
 
+const dec26 = document.getElementById("dec26");
+const w21 = new Web(dec26,"  ED ", "AKEDN");
+w21.addThread('25314',2);
+w21.addThread('51234',1);
+
+
 const dec25 = document.getElementById("dec25");
 const w20 = new Web(dec25," O  ", "LOCA");
 w20.addSolution('AOCL');
