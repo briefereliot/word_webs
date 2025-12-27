@@ -257,6 +257,12 @@ class Letter {
 
 };
 
+const dec27 = document.getElementById("dec27");
+const w22 = new Web(dec27,"A L  ", "ABLEG");
+w22.addThread('21543',1);
+w22.addThread('51234',2);
+
+
 const dec26 = document.getElementById("dec26");
 const w21 = new Web(dec26,"  ED ", "AKEDN");
 w21.addThread('25314',2);
@@ -295,15 +301,15 @@ const w15 = new Web(dec21,"NE  ", "NEBA");
 w15.addThread('3241',2);
 w15.addThread('3412',1);
 
-const dec20 = document.getElementById("dec20");
-const w14 = new Web(dec20,"E  S ", "EFASR");
-w14.addThread('21354',2);
-w14.addThread('43215',1);
+//const dec20 = document.getElementById("dec20");
+//const w14 = new Web(dec20,"E  S ", "EFASR");
+//w14.addThread('21354',2);
+//w14.addThread('43215',1);
 
-const dec19 = document.getElementById("dec19");
-const w13 = new Web(dec19,"E N ", "EANW");
-w13.addThread('4123',1);
-w13.addThread('2314',2);
+//const dec19 = document.getElementById("dec19");
+//const w13 = new Web(dec19,"E N ", "EANW");
+//w13.addThread('4123',1);
+//w13.addThread('2314',2);
 
 setTimeout(() => {
     const carousel = document.getElementById("carousel");
