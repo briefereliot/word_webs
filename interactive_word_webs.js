@@ -257,8 +257,13 @@ class Letter {
 
 };
 
+const jan1 = document.getElementById("jan1");
+const w27 = new Web(jan1," K E", "LKAE");
+w27.addThread('1324',2);
+w27.addThread('1432',1);
+
 const dec31 = document.getElementById("dec31");
-const w26 = new Web(dec31,"E N L", "EANGL");
+const w26 = new Web(dec31,"E N L", "EANGL");w27.addThread('1324',2);
 w26.addThread('45123',1);
 w26.addThread('23451',2);
 
