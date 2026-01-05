@@ -52,6 +52,7 @@ body {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
+    align-items: stretch;
 }
 
 
@@ -90,7 +91,9 @@ li::scroll-marker:target-current {
 
 #carousel li {
     list-style-type: none;
-    flex: 0 0 100%;
+    display: flex;
+    justify-content: center;
+    flex: 1 0 100%;
     scroll-snap-align: center;
 }
 
@@ -101,11 +104,10 @@ li::scroll-marker:target-current {
 .puzzle, #heading, #instructions {
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    flex: 0 1;
     width: 20rem;
-    margin:auto;
+    margin: 0 auto 0 auto;
     padding: 1rem;
     border-width: 4px;
     border-radius: 1.5rem;
