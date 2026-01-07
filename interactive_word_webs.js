@@ -257,6 +257,11 @@ class Letter {
 
 };
 
+const jan7 = document.getElementById("jan7");
+const w34 = new Web(jan7," RO  ", "EROUT");
+w34.addThread('5342',2);
+w34.addThread('23451',1);
+
 const jan6 = document.getElementById("jan6");
 const w33 = new Web(jan6,"A  L", "AOFL");
 w33.addThread('4213',2);
