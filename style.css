@@ -101,7 +101,7 @@ li::scroll-marker:target-current {
     list-style-type: circle;
 }
 
-.puzzle, #heading, #instructions {
+.puzzle, .card, #heading, #instructions {
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
