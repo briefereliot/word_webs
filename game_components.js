@@ -51,7 +51,8 @@ export class GameCard {
 
     //Game logic should call when the win conditions are met
     win() {
-        this.won = true
+        this.won = true;
+        this.disable();
         this.hintButton.disable = true;
     }
 
@@ -85,6 +86,10 @@ export class GameCard {
 
     showHintButton() {
         this.hintButton.disabled = false;
+    }
+
+    disable() {
+        this.element.classList.add('disabled');
     }
 }
 

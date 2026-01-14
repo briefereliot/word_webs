@@ -1,24 +1,28 @@
 /*analogs specific styling*/
 :root {
-    --highlight: rgb(187, 58, 178);
+    --highlight: rgb(75, 23, 85);
 }
 
 @media (prefers-color-scheme: light) {
     body {
-        --highlight: rgb(255, 0, 240);
+        --highlight: rgb(255, 124, 246);
     }
 }
 
+#heading {
+    background-color: var(--highlight);
+}
+
 .item {
-    border-radius: 6px;
+    box-sizing: border-box;
+    border-radius: 1rem;
     width: 6rem;
     height: 4rem;
     color: var(--text);
-    border: 2px solid var(--text);
+    border: none;
     background-color: var(--bg);
     transition:
-        border-width 100ms,
-        border-color 100ms;
+        background-color 100ms;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -32,24 +36,35 @@
     font-family: 'Roboto Mono';
     font-weight: 900;
     font-size: 1rem;
+    color: var(--text);
 }
 
 .item.selected {
-    border-width: 6px;
-    border-color: var(--highlight);
+    border: none;
+    background-color: var(--highlight);
 }
 
 .pair {
-    border-radius: 6px;
-    border: 1px solid var(--text);
-    background-color: var(--bg);
+    border-radius: calc(1rem + 4px);
+    border: 2px solid var(--text);
+    background-color: var(--text);
+    color: var(--bg);
     display: flex;
-    padding: 0.5rem;
+    padding: 2px;
     gap: 2px;
     justify-content: center;
+    align-items: center;
+    margin: 0.25rem;
 }
 
 .game {
     display: flex;
     flex-direction: column;
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.disabled {
+    pointer-events: none;
 }
