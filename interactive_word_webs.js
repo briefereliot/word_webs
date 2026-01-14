@@ -262,6 +262,11 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
+const jan14 = document.getElementById("jan14");
+const w42 = new Web(jan14,"   T", "OPST");
+w42.addThread('3412',1);
+w42.addThread('3214',2);
+
 const jan13 = document.getElementById("jan13");
 const w41 = new Web(jan13,"S   K", "STEAK");
 w41.addThread('12453',2);
@@ -296,11 +301,6 @@ const jan8 = document.getElementById("jan8");
 const w35 = new Web(jan8,"  AN", "BRAN");
 w35.addThread('1324',2);
 w35.addThread('1234',1);
-
-const jan7 = document.getElementById("jan7");
-const w34 = new Web(jan7," RO  ", "EROUT");
-w34.addThread('5342',2);
-w34.addThread('23451',1);
 
 setTimeout(() => {
     const carousel = document.getElementById("carousel");
