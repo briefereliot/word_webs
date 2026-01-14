@@ -101,7 +101,7 @@ li::scroll-marker:target-current {
     list-style-type: circle;
 }
 
-.puzzle, #heading, #instructions {
+.puzzle, .card, #heading, #instructions {
     display:flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -110,7 +110,7 @@ li::scroll-marker:target-current {
     margin: 0 auto 0 auto;
     padding: 1rem;
     border-width: 4px;
-    border-radius: 1.5rem;
+    border-radius: 1rem;
     border-color: var(--text);
     border-style: solid;
 }
