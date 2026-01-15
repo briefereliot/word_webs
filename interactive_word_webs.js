@@ -262,6 +262,11 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
+const jan15 = document.getElementById("jan15");
+const w43 = new Web(jan15,"A L  ", "ARLYE");
+w43.addThread('51234',1);
+w43.addThread('25314',2);
+
 const jan14 = document.getElementById("jan14");
 const w42 = new Web(jan14,"   T", "OPST");
 w42.addThread('3412',1);
