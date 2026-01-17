@@ -262,6 +262,16 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
+const jan17 = document.getElementById("jan17");
+const w45 = new Web(jan17,"  LL ", "YALLO");
+w45.addThread('45123',2);
+w45.addThread('23451',1);
+
+const jan16 = document.getElementById("jan16");
+const w44 = new Web(jan16,"S  W ", "SBOWL");
+w44.addThread('2534',2);
+w44.addThread('23451',1);
+
 const jan15 = document.getElementById("jan15");
 const w43 = new Web(jan15,"A L  ", "ARLYE");
 w43.addThread('51234',1);
@@ -291,21 +301,6 @@ const jan11 = document.getElementById("jan11");
 const w38 = new Web(jan11," F W", "OFLW");
 w38.addThread('2143',1);
 w38.addThread('2314',2);
-
-const jan10 = document.getElementById("jan10");
-const w37 = new Web(jan10,"A  A  ", "AEBABK");
-w37.addThread('34561',1);
-w37.addThread('62543',2);
-
-const jan9 = document.getElementById("jan9");
-const w36 = new Web(jan9,"S DE ", "SIDEA");
-w36.addThread('51234',1);
-w36.addThread('23451',2);
-
-const jan8 = document.getElementById("jan8");
-const w35 = new Web(jan8,"  AN", "BRAN");
-w35.addThread('1324',2);
-w35.addThread('1234',1);
 
 setTimeout(() => {
     const carousel = document.getElementById("carousel");
