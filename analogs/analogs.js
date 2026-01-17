@@ -160,6 +160,16 @@ class Item {
 
 const carousel = document.getElementById("carousel");
 
+const testGame2 = new Analogs(carousel, 'NAME THAT GROUP', false);
+testGame2.addPair('see', 'saw');
+testGame2.addPair('Violet', 'Rose');
+testGame2.addPair('lense', 'Chase');
+testGame2.addPair('tulip', 'Iris');
+testGame2.addSolution('Violet', 'tulip');
+testGame2.addSolution('Rose', 'saw');
+testGame2.addSolution('Chase', 'see');
+testGame2.addSolution('Iris', 'lense');
+
 const testGame = new Analogs(carousel, 'A SMALLER PART', false);
 testGame.addPair('Kobe', 'eggs');
 testGame.addPair('fish', 'Bryant');
