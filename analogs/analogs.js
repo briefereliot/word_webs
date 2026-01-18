@@ -218,7 +218,7 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
-const testGame4 = new Analogs(carousel, 'LEET 5p34k', false);
+const testGame4 = new Analogs(carousel, 'LEET 5P34K', false);
 testGame4.addPair('B', 'E');
 testGame4.addPair('six', 'five');
 testGame4.addPair('S', 'three');
@@ -241,7 +241,7 @@ testGame3.addSolution('pencil', 'carbon');
 const testGame2 = new Analogs(carousel, 'NAME THAT GROUP', false);
 testGame2.addPair('see', 'saw');
 testGame2.addPair('Violet', 'Rose');
-testGame2.addPair('lense', 'Chase');
+testGame2.addPair('lens', 'Chase');
 testGame2.addPair('tulip', 'Iris');
 testGame2.addSolution('Violet', 'tulip');
 testGame2.addSolution('Rose', 'saw');
