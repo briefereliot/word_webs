@@ -146,6 +146,10 @@ class Analogs {
             this.animateWin();
         }
     }
+
+    #hint() {
+        return
+    }
 }
 
 class Item {
@@ -213,6 +217,16 @@ class StatusPopUp {
 
 
 const carousel = document.getElementById("carousel");
+
+const testGame4 = new Analogs(carousel, 'LEET 5p34k', false);
+testGame4.addPair('B', 'E');
+testGame4.addPair('six', 'five');
+testGame4.addPair('S', 'three');
+testGame4.addPair('eight', 'G');
+testGame4.addSolution('three', 'E');
+testGame4.addSolution('five', 'S');
+testGame4.addSolution('eight', 'B');
+testGame4.addSolution('six', 'G');
 
 const testGame3 = new Analogs(carousel, 'CORRECTING MISNOMERS', false);
 testGame3.addPair('straw', 'pencil');
