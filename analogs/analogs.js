@@ -107,43 +107,41 @@ class Analogs {
     }
 
     #checkWinConditions() {
-        let reversed = false;
+        let numberCorrectForward = 0;
+        let numberCorrectReverse = 0;
         let numberCorrect = 0;
-        let won = true;
+        let numberBackwards = 0;
         this.pairElements.forEach((pair) => {
             pair.classList.remove('correct');
         })
+
         for(let i=0; i<this.itemElements.length-1; i+= 2) {
             let text1 = this.itemElements[i].getText();
             let text2 = this.itemElements[i+1].getText();
             let forwardPair = text1 + ':' + text2;
             let reversePair = text2 + ':' + text1;
+
             if(this.solution.includes(reversePair)) {
-                if(numberCorrect === 0) {
-                    reversed = true;
-                    this.pairElements[i/2].classList.add('correct');
-                    numberCorrect += 1;
-                } else if(reversed === false) {
-                    won = false;
-                } else {
-                    this.pairElements[i/2].classList.add('correct');
-                    numberCorrect += 1;
-                }
-                
+                numberCorrectReverse += 1;
             }
-            else if(this.solution.includes(forwardPair) && reversed === true) {
-                won = false;
-            }
-            else if(!this.solution.includes(forwardPair)) {
-                won = false;
-            }
-            else {
-                this.pairElements[i/2].classList.add('correct');
-                numberCorrect += 1;
+
+            if(this.solution.includes(forwardPair)) {
+                numberCorrectForward += 1;
             }
         }
-        this.statusP.textContent = `${this.numberOfGuesses} ATTEMPTS, ${numberCorrect}/4 CORRECT`
-        if(won) {
+
+        if(numberCorrectReverse > numberCorrectForward) {
+            numberCorrect = numberCorrectReverse;
+            numberBackwards = numberCorrectForward;
+        } else {
+            numberCorrect = numberCorrectForward;
+            numberBackwards = numberCorrectReverse;
+        }
+
+        let popUp = new StatusPopUp(this.card.gameElement, `${numberCorrect}/4 CORRECT, ${numberBackwards} REVERSED`);
+        this.statusP.textContent = `ATTEMPT NUMBER ${this.numberOfGuesses}`;
+
+        if(numberCorrect === this.pairElements.length) {
             console.log('won');
             this.animateWin();
         }
@@ -200,7 +198,18 @@ class Item {
     }
 }
 
-
+class StatusPopUp {
+    constructor(parent, text, durationSeconds = 3) {
+        this.parent = parent;
+        this.element = document.createElement('dialog');
+        this.element.textContent = text;
+        this.parent.appendChild(this.element);
+        this.element.showModal();
+        setTimeout(() => {
+            this.element.close();
+        }, durationSeconds * 1000);
+    }
+}
 
 
 const carousel = document.getElementById("carousel");

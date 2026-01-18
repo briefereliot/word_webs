@@ -107,3 +107,37 @@ button {
     background-color: var(--highlight);
     border-color: var(--highlight);
 }
+
+dialog {
+    border-radius: 1rem;
+    border-width: 4px;
+    border-color: var(--text);
+    background-color: var(--highlight);
+    transform: translate(0%, -100%);
+    animation: fadeout 0.25s ease-in forwards;
+}
+
+dialog[open] {
+    animation: fadein 0.25s ease-in forwards;
+}
+
+@keyframes fadein{
+    0%{
+        transform: translate(0%, -150%) scale(0);
+        opacity: 0;
+
+    }
+    100% {
+        transform: translate(0%, -150%) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
