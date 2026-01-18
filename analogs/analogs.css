@@ -68,3 +68,35 @@
 .disabled {
     pointer-events: none;
 }
+
+button:disabled {
+    opacity: 100%;
+    background-color: var(--bg);
+    color: var(--disabled);
+    border-color: var(--disabled);
+}
+
+button {
+    position: relative;
+    background-color: var(--highlight);
+}
+
+.button-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: calc(0.5rem - 2px);
+    height: 100%;
+    opacity: 50%;
+    background-color: var(--highlight);
+}
+
+.buttons-div {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.pair.correct {
+    background-color: var(--highlight);
+    border-color: var(--highlight);
+}

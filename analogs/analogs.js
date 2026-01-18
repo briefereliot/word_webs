@@ -1,5 +1,5 @@
 //analogs specific game logic
-import { GameCard } from '../game_components.js';
+import { GameCard, HintButton} from '../game_components.js';
 
 class Analogs {
     constructor(parent, relationship, bonus='false') {
@@ -7,12 +7,38 @@ class Analogs {
         this.itemElements = [];
         this.pairElements = [];
         this.solution = [];
+        this.numberOfGuesses = 0;
 
         //Create DOM elements
-        this.card = new GameCard(parent, true, bonus);
+        this.card = new GameCard(parent, false, bonus);
         this.card.hideTopText();
         this.card.hideBottomText();
         this.card.setTopText(relationship);
+
+        this.statusP = document.createElement('p');
+        this.statusP.textContent = '0 ATTEMPTS, 0/4 CORRECT';
+        this.card.gameElement.appendChild(this.statusP);
+
+        this.buttonsDiv = document.createElement('div');
+        this.buttonsDiv.classList.add('buttons-div');
+        this.submitButton = document.createElement('button');
+        this.submitButton.textContent = 'SUBMIT';
+        this.hintButton = new HintButton(0,5);
+        this.buttonsDiv.appendChild(this.submitButton);
+        this.buttonsDiv.appendChild(this.hintButton.element);
+        this.card.element.appendChild(this.buttonsDiv);
+
+        this.#initEvents();
+
+    }
+
+    #initEvents() {
+        this.submitButton.addEventListener('click', () => {
+            console.log('guessed');
+            this.numberOfGuesses += 1;
+            this.#checkWinConditions();
+            this.hintButton.incrementProgress(31.7);
+        })
     }
 
     addPair(wordOne, wordTwo) {
@@ -27,10 +53,11 @@ class Analogs {
         pairDiv.appendChild(item2.element);
         pairDiv.addEventListener('click', () => {
             this.#switchItems();
-            this.#checkWinConditions();
+            //this.#checkWinConditions();
         })
         this.card.gameElement.appendChild(pairDiv);
         this.itemElements.push(item1, item2);
+        this.pairElements.push(pairDiv);
     }
 
     addSolution(wordOne, wordTwo) {
@@ -54,6 +81,7 @@ class Analogs {
         });
         setTimeout(() => {
             this.card.showTopText();
+            this.statusP.textContent = `YOU GOT IT IN ${this.numberOfGuesses} TRYS!`;
         }, this.itemElements.length * 300);
     }
 
@@ -80,28 +108,45 @@ class Analogs {
 
     #checkWinConditions() {
         let reversed = false;
+        let numberCorrect = 0;
+        let won = true;
+        this.pairElements.forEach((pair) => {
+            pair.classList.remove('correct');
+        })
         for(let i=0; i<this.itemElements.length-1; i+= 2) {
             let text1 = this.itemElements[i].getText();
             let text2 = this.itemElements[i+1].getText();
             let forwardPair = text1 + ':' + text2;
             let reversePair = text2 + ':' + text1;
             if(this.solution.includes(reversePair)) {
-                if(i === 0) {
+                if(numberCorrect === 0) {
                     reversed = true;
+                    this.pairElements[i/2].classList.add('correct');
+                    numberCorrect += 1;
                 } else if(reversed === false) {
-                    return;
+                    won = false;
+                } else {
+                    this.pairElements[i/2].classList.add('correct');
+                    numberCorrect += 1;
                 }
                 
             }
-            if(this.solution.includes(forwardPair) && reversed === true) {
-                return;
+            else if(this.solution.includes(forwardPair) && reversed === true) {
+                won = false;
             }
-            if(!this.solution.includes(forwardPair) && !this.solution.includes(reversePair)) {
-                return;
+            else if(!this.solution.includes(forwardPair)) {
+                won = false;
+            }
+            else {
+                this.pairElements[i/2].classList.add('correct');
+                numberCorrect += 1;
             }
         }
-        console.log('won');
-        this.animateWin();
+        this.statusP.textContent = `${this.numberOfGuesses} ATTEMPTS, ${numberCorrect}/4 CORRECT`
+        if(won) {
+            console.log('won');
+            this.animateWin();
+        }
     }
 }
 
