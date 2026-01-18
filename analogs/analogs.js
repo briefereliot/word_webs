@@ -205,6 +205,16 @@ class Item {
 
 const carousel = document.getElementById("carousel");
 
+const testGame3 = new Analogs(carousel, 'CORRECTING MISNOMERS', false);
+testGame3.addPair('straw', 'pencil');
+testGame3.addPair('pea', 'head');
+testGame3.addPair('fruit', 'meat');
+testGame3.addPair('legume', 'carbon');
+testGame3.addSolution('straw', 'fruit');
+testGame3.addSolution('head', 'meat');
+testGame3.addSolution('pea', 'legume');
+testGame3.addSolution('pencil', 'carbon');
+
 const testGame2 = new Analogs(carousel, 'NAME THAT GROUP', false);
 testGame2.addPair('see', 'saw');
 testGame2.addPair('Violet', 'Rose');

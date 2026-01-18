@@ -1,6 +1,6 @@
 /*analogs specific styling*/
 :root {
-    --highlight: rgb(75, 23, 85);
+    --highlight: rgb(140, 25, 163);
 }
 
 @media (prefers-color-scheme: light) {
@@ -79,6 +79,13 @@ button:disabled {
 button {
     position: relative;
     background-color: var(--highlight);
+}
+@media (prefers-color-scheme: dark) {
+    button {
+        background-color: var(--bg);
+        color: var(--highlight);
+        border-color: var(--highlight);
+    }
 }
 
 .button-progress {
