@@ -246,7 +246,7 @@ testGame2.addPair('tulip', 'Iris');
 testGame2.addSolution('Violet', 'tulip');
 testGame2.addSolution('Rose', 'saw');
 testGame2.addSolution('Chase', 'see');
-testGame2.addSolution('Iris', 'lense');
+testGame2.addSolution('Iris', 'lens');
 
 const testGame = new Analogs(carousel, 'A SMALLER PART', false);
 testGame.addPair('Kobe', 'eggs');
