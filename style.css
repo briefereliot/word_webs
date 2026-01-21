@@ -3,6 +3,8 @@
     --text: #a0a0a0;
     --disabled: #727272;
     --highlight: rgb(58, 58, 58);
+    --word-webs: rgb(121, 99, 0);
+    --analogs: rgb(140, 25, 163);
 }
 
 @media (prefers-color-scheme: light) {
@@ -11,6 +13,8 @@
         --text: black;
         --disabled:#929292;
         --highlight: rgb(172, 172, 172);
+        --word-webs: gold;
+        --analogs: rgb(255, 124, 246);
     }
 }
 
@@ -124,6 +128,14 @@ li::scroll-marker:target-current {
 
 #heading {
     background-color: var(--highlight);
+}
+
+.analogs {
+    background-color: var(--analogs);
+}
+
+.word-webs {
+    background-color: var(--word-webs);
 }
 
 .game {
