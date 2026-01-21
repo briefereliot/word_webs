@@ -1,9 +1,10 @@
+import { GameCard, HintButton} from './game_components.js';
 const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 class Web {
-    constructor(window, string, answer, threads = [],  svgNS = 'http://www.w3.org/2000/svg') {
+    constructor(parent, string, answer, threads = [],  bonus = false, svgNS = 'http://www.w3.org/2000/svg') {
         this.svgNS = svgNS;
-        this.window = window;
+        this.parent = parent;
         this.numLetters = string.length;
         this.answer = []
         this.answer.push(answer);
@@ -11,10 +12,14 @@ class Web {
         this.hinting = false;
         this.threads = [];
         this.letters = [];
+
+        //Create DOM elements
+        this.card = new GameCard(parent, true, bonus);
+        this.card.setBottomText('CLUE: ' + )
         for(let i = 0; i < string.length; i++) {
             let x = this.#getLetterX(i);
             let y = this.#getLetterY(i);
-            let l = new Letter(this.window, String(x)+'%', String(y)+'%',1,!this.#isLetter(string[i]),string[i]);
+            let l = new Letter(this.card.gameElement, String(x)+'%', String(y)+'%',1,!this.#isLetter(string[i]),string[i]);
             this.letters.push(l);
         }
 
@@ -22,16 +27,16 @@ class Web {
         this.svg = document.createElementNS(this.svgNS, "svg");
         this.svg.setAttribute("width", "100%");
         this.svg.setAttribute("height", "100%");
-        this.window.appendChild(this.svg);
+        this.card.gameElement.appendChild(this.svg);
         for(let i = 0; i < threads.length; i++) {
             this.addThread(threads[i]);
         };
 
         //create hint button
-        this.hintButton = document.createElement('button');
-        this.hintButton.textContent = "THROW ME A BONE";
-        this.hintButton.disabled = true;
-        this.window.parentElement.appendChild(this.hintButton);
+        //this.hintButton = document.createElement('button');
+        //this.hintButton.textContent = "THROW ME A BONE";
+        //this.hintButton.disabled = true;
+        //this.window.parentElement.appendChild(this.hintButton);
 
         this.#initEvents();
     }
@@ -61,19 +66,21 @@ class Web {
 
     #initEvents() {
         //Check for win conditions every time a key is pressed
-        this.window.addEventListener('keyup', () => {
+        this.card.element.addEventListener('keyup', () => {
             this.#checkWinCondition();
         });
         //hint button pressed
-        this.hintButton.addEventListener('click', () => {
-            this.#revealOrder();
-        });
+        //this.hintButton.addEventListener('click', () => {
+        //    this.#revealOrder();
+        //});
+
+        this.card.addHintFunction(this.#revealOrder);
 
         //enable hint button after 45 seconds
-        setTimeout(() => {
-            if(this.won) return;
-            this.hintButton.disabled = false;
-        }, 30000);
+        //setTimeout(() => {
+        //    if(this.won) return;
+        //    this.hintButton.disabled = false;
+        //}, 30000);
     }
 
     #checkWinCondition() {
@@ -83,7 +90,8 @@ class Web {
         };
         if(this.answer.includes(string)) {
             this.won = true;
-            this.hintButton.disabled = true;
+            this.card.win();
+            //this.hintButton.disabled = true;
             for(let n = 0; n < 3; n++) {
                 for(let i = 0; i < this.letters.length; i++) {
                     this.letters[i].disable();
@@ -105,7 +113,7 @@ class Web {
                 congrats.textContent = "YOU GOT IT!";
                 //congrats.style.color = "gold";
                 congrats.style.fontWeight = "900";
-                this.window.appendChild(congrats);
+                this.card.gameElement.appendChild(congrats);
             },150*this.letters.length+150*2*(this.letters.length+2));
         };
     }
@@ -178,8 +186,8 @@ class Connection {
 }
 
 class Letter {
-    constructor(window, x, y, z = 1, editable = false, value = "") {
-        this.window = window;
+    constructor(parent, x, y, z = 1, editable = false, value = "") {
+        this.parent = parent;
         this.x = x;
         this.y = y;
         this.z = z;
@@ -190,7 +198,7 @@ class Letter {
         if(!this.editable) this.textBox.classList.toggle("given");
         this.#stylize();
         this.#initEvents();
-        this.window.appendChild(this.textBox);
+        this.parent.appendChild(this.textBox);
         console.log(this.value);
     };
 
