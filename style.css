@@ -2,7 +2,7 @@
     --bg: #1c1c1d;
     --text: #a0a0a0;
     --disabled: #727272;
-    --highlight: rgb(172, 146, 0);
+    --highlight: rgb(58, 58, 58);
 }
 
 @media (prefers-color-scheme: light) {
@@ -10,7 +10,7 @@
         --bg: white;
         --text: black;
         --disabled:#929292;
-        --highlight: gold;
+        --highlight: rgb(172, 172, 172);
     }
 }
 
@@ -22,6 +22,11 @@ body {
     gap: 1rem;
     color: var(--text);
     background-color: var(--bg);
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
 }
 
 .foreground {
@@ -117,6 +122,10 @@ li::scroll-marker:target-current {
     border-style: solid;
 }
 
+#heading {
+    background-color: var(--highlight);
+}
+
 .game {
     position: relative;
     width: 18rem;
@@ -156,42 +165,28 @@ p {
     text-align: center;
 }
 
-input[type="text"] {
-    border-radius: 50%;
-    box-sizing: border-box;
-    color: var(--text);
-    border: 2px solid var(--text);
+.disabled {
+    pointer-events: none;
+}
+
+/*button:disabled {
+    opacity: 100%;
     background-color: var(--bg);
-    width: 4rem;
-    height: 4rem;
-    padding: 0;
-    text-align: center;
-    font-family: 'Roboto Mono';
-    font-size: 3rem;
-    font-weight: 900;
-    position: absolute;
-    transition:
-        border-width 100ms,
-        border-color 100ms;
+    color: var(--disabled);
+    border-color: var(--disabled);
 }
 
-input[type="text"].emphasized {
-    border-width: 6px;
-    border-color: var(--highlight);
-    color: var(--highlight);
+button {
+    position: relative;
+    background-color: var(--highlight);
 }
-
-input.given {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-}
-
-input[type="checkbox"] {
-    border: 2px solid var(--text);
-    background-color: var(--bg);
-    color: var(--text);
-    accent-color: var(--text);
-}
+@media (prefers-color-scheme: dark) {
+    button {
+        background-color: var(--bg);
+        color: var(--highlight);
+        border-color: var(--highlight);
+    }
+}*/
 
 button {
     background-color: var(--highlight);

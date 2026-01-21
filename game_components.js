@@ -11,9 +11,11 @@ export class HintButton {
         this.progressBar = document.createElement('div');
         this.progressBar.classList.add('button-progress');
         this.disable();
-        this.setProgress(progress);
+        this.hide();
+        this.setProgress(0);
         this.element.appendChild(this.progressBar);
         setTimeout(() => {
+            this.setProgress(progress);
             this.show();
         }, delaySeconds * 1000);
     }
@@ -86,7 +88,7 @@ export class GameCard {
         /*this.hintButton = document.createElement('button');
         this.hintButton.textContent = "THROW ME A BONE";
         this.hideHintButton();*/
-        this.hintButton = new HintButton(0,100);
+        this.hintButton = new HintButton();
         
         //Build DOM tree
         this.element.appendChild(this.topTextElement);
@@ -146,11 +148,11 @@ export class GameCard {
     }
 
     hideHintButton() {
-        this.hintButton.disabled = true;
+        this.hintButton.hide();
     }
 
     showHintButton() {
-        this.hintButton.disabled = false;
+        this.hintButton.show();
     }
 
     disable() {
