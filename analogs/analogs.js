@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a7 = new Analogs(carousel, 'SUBDIVIDED', false);
+a7.addAllAndShuffle(false, 'bit', 'byte', 'beat', 'measure', 'pound', 'ton', 'minute', 'degree');
+
 const testGame6 = new Analogs(carousel, 'WHAT IT DOES', false);
 testGame6.addAllAndShuffle(false, 'ram', 'graze', 'brick', 'charge', 'Dodge', 'drive', 'batter', 'hit');
 

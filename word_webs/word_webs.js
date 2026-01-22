@@ -275,6 +275,10 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
+const w50 = new Web(carousel, "A CHC  ", "ANCHCER", "THURSDAY, JANUARY 22ND", "WHY GAMBLE WHEN YOU COULD DAY-TRADE CATTLE FUTURES?")
+w50.addThread('71234', 1);
+w50.addThread('341256', 2);
+
 const w49 = new Web(carousel, "I  E  ", "IRFEGN", "WEDNESDAY, JANUARY 21ST", "POINT AND PINK");
 w49.addThread('321654',1);
 w49.addThread('316542',2);
