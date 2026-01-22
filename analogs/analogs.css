@@ -3,8 +3,10 @@
     --highlight: var(--analogs);
 }
 
-body {
-    --highlight: var(--analogs);
+@media (prefers-color-scheme: light) {
+    body {
+        --highlight: var(--analogs);
+    }
 }
 
 .item {

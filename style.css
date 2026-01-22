@@ -12,6 +12,7 @@
         --bg: white;
         --text: black;
         --disabled:#929292;
+        --highlight: rgb(182, 182, 182);
         --word-webs: gold;
         --analogs: rgb(255, 124, 246);
     }
@@ -137,6 +138,10 @@ li::scroll-marker:target-current {
     background-color: var(--word-webs);
 }
 
+.card.highlight {
+    background-color: var(--highlight);
+}
+
 @media (prefers-color-scheme: dark) {
     #heading, .analogs, .word-webs{
         color: var(--bg);
@@ -181,6 +186,10 @@ p {
     font-size: 1rem;
     margin: 0;
     text-align: center;
+}
+
+.justify-left {
+    text-align: left;
 }
 
 .disabled {
