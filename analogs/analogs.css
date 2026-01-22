@@ -3,6 +3,10 @@
     --highlight: var(--analogs);
 }
 
+body {
+    --highlight: var(--analogs);
+}
+
 .item {
     box-sizing: border-box;
     border-radius: 1rem;

@@ -2,6 +2,11 @@
 :root {
     --highlight: var(--word-webs);
 }
+@media (prefers-color-scheme: light) {
+    body {
+        --highlight: var(--word-webs);
+    }
+}
 
 input[type="text"] {
     border-radius: 50%;
