@@ -279,50 +279,33 @@ const w49 = new Web(carousel, "I  E  ", "IRFEGN", "WEDNESDAY, JANUARY 21ST", "PO
 w49.addThread('321654',1);
 w49.addThread('316542',2);
 
-/**const jan21 = document.getElementById("jan21");
-const w49 = new Web(jan21,"I  E  ", "IRFEGN");
-w49.addThread('321654',1);
-w49.addThread('316542',2);
-
-const jan20 = document.getElementById("jan20");
-const w48 = new Web(jan20,"E  H", "EIRH");
+const w48 = new Web(carousel, "E  H", "EIRH", "TUESDAY, JANUARY 20TH", "NEPOTISM");
 w48.addThread('4231',2);
 w48.addThread('4123',1);
 
-const jan19 = document.getElementById("jan19");
-const w47 = new Web(jan19,"E B ", "ELBA");
+const w47 = new Web(carousel, "E B ", "ELBA", "MONDAY, JANUARY 19TH", "THE YOUNG FARM HAND WAS ____ TO ____.");
 w47.addThread('4321',1);
 w47.addThread('3421',2);
 
-const jan18 = document.getElementById("jan18");
-const w46 = new Web(jan18,"I   E", "IPSLE");
+const w46 = new Web(carousel, "I   E", "IPSLE", "SUNDAY, JANUARY 18TH", "THE MESS ADVOCATES PITCH");
 w46.addThread('21453',2);
 w46.addThread('32154',1);
 
-const jan17 = document.getElementById("jan17");
-const w45 = new Web(jan17,"  LL ", "YALLO");
+const w45 = new Web(carousel, "  LL ", "YALLO", "SATURDAY, JANUARY 17TH", "FRODO'S TRUSTY SHIRT MADE OF MITHRIL CHAINMAIL NEVER LET HIM DOWN; IT WAS A _____ _____.");
 w45.addThread('45123',2);
 w45.addThread('23451',1);
 
-const jan16 = document.getElementById("jan16");
-const w44 = new Web(jan16,"S  W ", "SBOWL");
+const w44 = new Web(carousel, "S  W ", "SBOWL", "FRIDAY, JANUARY 16TH", "A GLASSWORKER'S JOB");
 w44.addThread('2534',2);
 w44.addThread('23451',1);
 
-const jan15 = document.getElementById("jan15");
-const w43 = new Web(jan15,"A L  ", "ARLYE");
+const w43 = new Web(carousel, "A L  ", "ARLYE", "THURSDAY, JANUARY 15TH", "REASON FOR A HANDOFF BEING DISQUALIFIED");
 w43.addThread('51234',1);
 w43.addThread('25314',2);
 
-const jan14 = document.getElementById("jan14");
-const w42 = new Web(jan14,"   T", "OPST");
-w42.addThread('3412',1);
-w42.addThread('3214',2);
-**/
-
-setTimeout(() => {
+/*setTimeout(() => {
     const carousel = document.getElementById("carousel");
     carousel.scrollTo(carousel.scrollWidth, 0);
-}, 500);
+}, 500);*/
 
 

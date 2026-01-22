@@ -1,17 +1,7 @@
 /*analogs specific styling*/
 :root {
-    --highlight: rgb(140, 25, 163);
+    --highlight: var(--analogs);
 }
-
-@media (prefers-color-scheme: light) {
-    body {
-        --highlight: rgb(255, 124, 246);
-    }
-}
-
-/*#heading {
-    background-color: var(--highlight);
-}*/
 
 .item {
     box-sizing: border-box;
@@ -22,7 +12,8 @@
     border: none;
     background-color: var(--bg);
     transition:
-        background-color 100ms;
+        background-color 100ms, 
+        color 100ms;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -37,6 +28,10 @@
     font-weight: 900;
     font-size: 1rem;
     color: var(--text);
+}
+
+.item.item.selected > p {
+    color: var(--bg);
 }
 
 .item.selected {

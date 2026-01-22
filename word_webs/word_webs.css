@@ -1,12 +1,6 @@
 /*word-webs specific styling*/
 :root {
-    --highlight: rgb(121, 99, 0);
-}
-
-@media (prefers-color-scheme: light) {
-    body {
-        --highlight: gold;
-    }
+    --highlight: var(--word-webs);
 }
 
 input[type="text"] {

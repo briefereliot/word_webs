@@ -3,8 +3,8 @@
     --text: #a0a0a0;
     --disabled: #727272;
     --highlight: rgb(58, 58, 58);
-    --word-webs: rgb(121, 99, 0);
-    --analogs: rgb(140, 25, 163);
+    --word-webs: rgb(184, 156, 0);
+    --analogs: rgb(154, 75, 170);
 }
 
 @media (prefers-color-scheme: light) {
@@ -138,6 +138,13 @@ li::scroll-marker:target-current {
     background-color: var(--word-webs);
 }
 
+@media (prefers-color-scheme: dark) {
+    #heading, .analogs, .word-webs{
+        color: var(--bg);
+        border-color: var(--text);
+    }
+}
+
 .game {
     position: relative;
     width: 18rem;
@@ -181,25 +188,6 @@ p {
     pointer-events: none;
 }
 
-/*button:disabled {
-    opacity: 100%;
-    background-color: var(--bg);
-    color: var(--disabled);
-    border-color: var(--disabled);
-}
-
-button {
-    position: relative;
-    background-color: var(--highlight);
-}
-@media (prefers-color-scheme: dark) {
-    button {
-        background-color: var(--bg);
-        color: var(--highlight);
-        border-color: var(--highlight);
-    }
-}*/
-
 button {
     background-color: var(--highlight);
     color: var(--text);
@@ -214,9 +202,9 @@ button {
 }
 @media (prefers-color-scheme: dark) {
     button {
-        background-color: var(--bg);
-        color: var(--highlight);
-        border-color: var(--highlight);
+        background-color: var(--highlight);
+        color: var(--bg);
+        border-color: var(--text);
     }
 }
 
@@ -226,5 +214,6 @@ button:disabled {
 
 :disabled {
     background-color: var(--bg);
+    color: var(--text);
     opacity: 1;
 }
