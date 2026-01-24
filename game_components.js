@@ -2,6 +2,19 @@
 //Import into <game_name>.js to use in game logic
 
 //------------CLASSES------------
+
+//Label Card
+export class LabelCard {
+    constructor(parent, text) {
+        this.parent = parent;
+        this.parent.style.position = 'relative';
+        this.element = document.createElement('div');
+        this.element.textContent = text;
+        this.element.classList.add('label-card');
+        this.parent.appendChild(this.element);
+    }
+}
+
 //Hint button
 export class HintButton {
     constructor(delaySeconds = 30, progress = 100, text = 'THROW ME A BONE') {
