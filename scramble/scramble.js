@@ -12,13 +12,13 @@ class Scramble {
 
         //Load dictionary
         this.baseURL = window.location.href;
-        this.dictionaryURL = new URL("dictionary.json", this.baseURL);
+        this.dictionaryURL = new URL("https://playwordwebs.com/dictionary.json");
         this.dictionary = [];
         this.#loadDictionaryFromUrl(this.dictionaryURL);
 
         //Create game element
         this.element = document.createElement("div");
-        this.element.classList.add("scramble");
+        this.element.classList.add("scramble-game");
 
         //Create dispensers
         this.dispensersDiv = document.createElement("div");

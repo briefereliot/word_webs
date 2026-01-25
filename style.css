@@ -5,7 +5,7 @@
     --highlight: rgb(43, 43, 43);
     --word-webs: rgb(184, 156, 0);
     --analogs: rgb(154, 75, 170);
-    --scramble:  rgb(66, 192, 133);
+    --scramble:  rgb(57, 146, 105);
 }
 
 @media (prefers-color-scheme: light) {
@@ -16,7 +16,7 @@
         --highlight: rgb(182, 182, 182);
         --word-webs: gold;
         --analogs: rgb(255, 124, 246);
-        --scramble:  rgb(66, 192, 133);
+        --scramble:  rgb(105, 219, 166);
     }
 }
 
@@ -140,12 +140,16 @@ li::scroll-marker:target-current {
     background-color: var(--word-webs);
 }
 
+.scramble {
+    background-color: var(--scramble);
+}
+
 .card.highlight {
     background-color: var(--highlight);
 }
 
 @media (prefers-color-scheme: dark) {
-    #heading, .analogs, .word-webs{
+    #heading, .analogs, .word-webs, .scramble{
         color: var(--bg);
         border-color: var(--text);
     }

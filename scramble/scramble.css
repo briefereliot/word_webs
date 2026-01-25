@@ -22,7 +22,7 @@ button:disabled {
     opacity: 0;
 }
 
-.scramble {
+.scramble-game {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
