@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a10 = new Analogs(carousel, 'HOW THE GAME\'S PLAYED', false);
+a10.addAllAndShuffle(false, 'ball', 'pool', 'cue', 'table', 'racket', 'court', 'club', 'course');
+
 const a9 = new Analogs(carousel, 'SAID LIKE THIS:', false);
 a9.addAllAndShuffle(false, 'sugar', 'shook', 'receipt', 'sweet', 'colonel', 'churn', 'zucchini', 'key');
 
@@ -296,7 +299,4 @@ testGame5.addAllAndShuffle(true, 'wizard', 'expert', 'wand', 'duster', 'goat', '
 
 const testGame4 = new Analogs(carousel, 'LEET 5P34K', false);
 testGame4.addAllAndShuffle(false, 'three', 'E', 'five', 'S', 'eight', 'B', 'six', 'G');
-
-const testGame3 = new Analogs(carousel, 'CORRECTING MISNOMERS', false);
-testGame3.addAllAndShuffle(false, 'straw', 'fruit', 'head', 'meat', 'pea', 'legume', 'pencil', 'graphite');
 
