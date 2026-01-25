@@ -19,6 +19,7 @@ class Web {
         this.card.setBottomText('CLUE: ' + hintString);
         this.card.showTopText();
         this.card.showBottomText();
+        console.log(string.length);
         for(let i = 0; i < string.length; i++) {
             let x = this.#getLetterX(i);
             let y = this.#getLetterY(i);
@@ -46,7 +47,6 @@ class Web {
 
     addThread(thread,pattern = 1) {
         this.threads.push(thread);
-        console.log(this.threads);
         for (let i=1; i < thread.length; i++) {
             let l1 = Number(thread[i-1])-1;
             let l2 = Number(thread[i])-1;
@@ -55,7 +55,6 @@ class Web {
     }
 
     addSolution(solution) {
-        console.log(this.answer);
         this.answer.push(solution);
     }
 
@@ -182,7 +181,6 @@ class Connection {
         this.line.setAttribute('x2', this.x2);
         this.line.setAttribute('y2', this.y2);
         this.line.setAttribute('stroke-width', '4');
-        console.log(Connection.patterns[pattern]);
         this.line.setAttribute('stroke-dasharray', Connection.patterns[pattern-1]);
         this.svg.append(this.line);
     }
@@ -202,7 +200,6 @@ class Letter {
         this.#stylize();
         this.#initEvents();
         this.parent.appendChild(this.textBox);
-        console.log(this.value);
     };
 
     disable() {
@@ -275,6 +272,16 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
+const w53 = new Web(carousel, "  KC ", "LSKCA", "SUNDAY, JANUARY 25TH", "_____ _____! LITE BEER'S NEW TAGLINE.")
+w53.addThread('15432', 1);
+w53.addThread('34512', 2);
+
+const b5 = new Web(carousel, "", "X", "NO SUNDAY BONUS THIS WEEK", "SUBMIT YOUR PUZZLES TO SUBMISSIONS@PLAYWORDWEBS.COM FOR A CHANCE TO BE FEATURED AS THE SUNDAY BONUS.", [], true);
+
+const w52 = new Web(carousel, "I S ", "IDSK", "SATURDAY, JANUARY 24TH", "WHEN THE JOCKEY SCRATCHES, IN OTHER WORDS.")
+w52.addThread('3412', 1);
+w52.addThread('2134', 2);
+
 const w51 = new Web(carousel, "E I I ", "ECIVIC", "FRIDAY, JANUARY 23RD", "CORPORATE LOBBYING: THE US GOVERNMENT'S DRUG OF CHOICE.")
 w51.addThread('23456', 1);
 w51.addThread('4521', 2);
@@ -294,22 +301,6 @@ w48.addThread('4123',1);
 const w47 = new Web(carousel, "E B ", "ELBA", "MONDAY, JANUARY 19TH", "THE YOUNG FARM HAND WAS ____ TO ____.");
 w47.addThread('4321',1);
 w47.addThread('3421',2);
-
-const w46 = new Web(carousel, "I   E", "IPSLE", "SUNDAY, JANUARY 18TH", "THE MESS ADVOCATES PITCH");
-w46.addThread('21453',2);
-w46.addThread('32154',1);
-
-const w45 = new Web(carousel, "  LL ", "YALLO", "SATURDAY, JANUARY 17TH", "FRODO'S TRUSTY SHIRT MADE OF MITHRIL CHAINMAIL NEVER LET HIM DOWN; IT WAS A _____ _____.");
-w45.addThread('45123',2);
-w45.addThread('23451',1);
-
-const w44 = new Web(carousel, "S  W ", "SBOWL", "FRIDAY, JANUARY 16TH", "A GLASSWORKER'S JOB");
-w44.addThread('2534',2);
-w44.addThread('23451',1);
-
-const w43 = new Web(carousel, "A L  ", "ARLYE", "THURSDAY, JANUARY 15TH", "REASON FOR A HANDOFF BEING DISQUALIFIED");
-w43.addThread('51234',1);
-w43.addThread('25314',2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");
