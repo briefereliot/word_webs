@@ -5,6 +5,7 @@
     --highlight: rgb(43, 43, 43);
     --word-webs: rgb(184, 156, 0);
     --analogs: rgb(154, 75, 170);
+    --scramble:  rgb(66, 192, 133);
 }
 
 @media (prefers-color-scheme: light) {
@@ -15,6 +16,7 @@
         --highlight: rgb(182, 182, 182);
         --word-webs: gold;
         --analogs: rgb(255, 124, 246);
+        --scramble:  rgb(66, 192, 133);
     }
 }
 
