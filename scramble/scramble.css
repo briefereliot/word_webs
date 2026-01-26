@@ -72,7 +72,7 @@ button:disabled {
 }
 
 .letter {
-    margin:2px;
+    margin:-1px;
     font-size: 1.75rem;
     font-weight: 900;
     border-radius: 0.5rem;
