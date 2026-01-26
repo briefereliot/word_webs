@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a11 = new Analogs(carousel, 'BOTH FOUND IN _', false);
+a11.addAllAndShuffle(true, 'blood', 'coal', 'beer', 'wolves', 'matches', 'words', 'ice', 'houses');
+
 const a10 = new Analogs(carousel, 'HOW THE GAME\'S PLAYED', false);
 a10.addAllAndShuffle(false, 'ball', 'pool', 'cue', 'table', 'racket', 'court', 'club', 'course');
 

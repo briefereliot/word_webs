@@ -272,21 +272,25 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
-const w53 = new Web(carousel, "  KC ", "LSKCA", "SUNDAY, JANUARY 25TH", "_____ _____! LITE BEER'S NEW TAGLINE.")
+const w54 = new Web(carousel, "  FE", "LIFE", "MONDAY, JANUARY 26TH", "FACEBOOK AND GOOGLE BOTH HAVE ONE ON YOU.");
+w54.addThread('1234', 1);
+w54.addThread('3214', 2);
+
+const w53 = new Web(carousel, "  KC ", "LSKCA", "SUNDAY, JANUARY 25TH", "_____ _____! LITE BEER'S NEW TAGLINE.");
 w53.addThread('15432', 1);
 w53.addThread('34512', 2);
 
 const b5 = new Web(carousel, "", "X", "NO SUNDAY BONUS THIS WEEK", "SUBMIT YOUR PUZZLES TO SUBMISSIONS@PLAYWORDWEBS.COM FOR A CHANCE TO BE FEATURED AS THE SUNDAY BONUS.", [], true);
 
-const w52 = new Web(carousel, "I S ", "IDSK", "SATURDAY, JANUARY 24TH", "WHEN THE JOCKEY SCRATCHES, IN OTHER WORDS.")
+const w52 = new Web(carousel, "I S ", "IDSK", "SATURDAY, JANUARY 24TH", "WHEN THE JOCKEY SCRATCHES, IN OTHER WORDS.");
 w52.addThread('3412', 1);
 w52.addThread('2134', 2);
 
-const w51 = new Web(carousel, "E I I ", "ECIVIC", "FRIDAY, JANUARY 23RD", "CORPORATE LOBBYING: THE US GOVERNMENT'S DRUG OF CHOICE.")
+const w51 = new Web(carousel, "E I I ", "ECIVIC", "FRIDAY, JANUARY 23RD", "CORPORATE LOBBYING: THE US GOVERNMENT'S DRUG OF CHOICE.");
 w51.addThread('23456', 1);
 w51.addThread('4521', 2);
 
-const w50 = new Web(carousel, "A CHC  ", "ANCHCER", "THURSDAY, JANUARY 22ND", "WHY GAMBLE WHEN YOU COULD DAY-TRADE CATTLE FUTURES?")
+const w50 = new Web(carousel, "A CHC  ", "ANCHCER", "THURSDAY, JANUARY 22ND", "WHY GAMBLE WHEN YOU COULD DAY-TRADE CATTLE FUTURES?");
 w50.addThread('71234', 1);
 w50.addThread('341256', 2);
 
@@ -297,10 +301,6 @@ w49.addThread('316542',2);
 const w48 = new Web(carousel, "E  H", "EIRH", "TUESDAY, JANUARY 20TH", "NEPOTISM");
 w48.addThread('4231',2);
 w48.addThread('4123',1);
-
-const w47 = new Web(carousel, "E B ", "ELBA", "MONDAY, JANUARY 19TH", "THE YOUNG FARM HAND WAS ____ TO ____.");
-w47.addThread('4321',1);
-w47.addThread('3421',2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");
