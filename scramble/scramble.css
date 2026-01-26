@@ -62,9 +62,9 @@ button:disabled {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    width: 1rem;
-    border: 2px solid var(--text);
-    border-radius: 100vmax;
+    /*width: 1rem;*/
+    /*border: 2px solid var(--text);*/
+    /*border-radius: 0.5rem;*/
     padding: 0.25rem;
     align-items: center;
     justify-content: end;
@@ -72,10 +72,17 @@ button:disabled {
 }
 
 .letter {
-    margin-top: -0.3rem;
-    margin-bottom: -0.25rem;
+    margin:2px;
     font-size: 1.75rem;
     font-weight: 900;
+    border-radius: 0.5rem;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--text);
+    background-color: var(--bg);
+    color: var(--text);
+    aspect-ratio: 1 / 1;
+    text-align: center;
 }
 
 .row {

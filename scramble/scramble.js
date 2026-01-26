@@ -11,8 +11,9 @@ class Scramble {
         this.currentWord = "";
 
         //Load dictionary
-        this.baseURL = window.location.href;
-        this.dictionaryURL = new URL("https://playwordwebs.com/dictionary.json");
+        this.baseURL = window.location.protocol + window.location.host;
+        console.log(this.baseURL);
+        this.dictionaryURL = new URL("dictionary.json", this.baseURL);
         this.dictionary = [];
         this.#loadDictionaryFromUrl(this.dictionaryURL);
 
@@ -155,11 +156,11 @@ class Letter {
 
 const testCard = document.getElementById("test");
 const s1 = new Scramble(testCard);
-s1.addDispenser('ABCDE');
-s1.addDispenser('FGHIJ');
-s1.addDispenser('KLMNO');
-s1.addDispenser('PQRST');
-s1.addDispenser('UVWXY');
+s1.addDispenser('TSIAW');
+s1.addDispenser('LEURC');
+s1.addDispenser('YRIAF');
+s1.addDispenser('TSOHG');
+s1.addDispenser('AMGAM');
 
 setTimeout(() => {
     const carousel = document.getElementById("carousel");
