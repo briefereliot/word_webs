@@ -272,9 +272,9 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
-const w54 = new Web(carousel, "  FE", "LIFE", "MONDAY, JANUARY 26TH", "FACEBOOK AND GOOGLE BOTH HAVE ONE ON YOU.");
-w54.addThread('1234', 1);
-w54.addThread('3214', 2);
+const w54 = new Web(carousel, "A T  ", "ARTSY", "MONDAY, JANUARY 26TH", "A SMOKER'S ETSY SEARCH");
+w54.addThread('12345', 1);
+w54.addThread('32154', 2);
 
 const w53 = new Web(carousel, "  KC ", "LSKCA", "SUNDAY, JANUARY 25TH", "_____ _____! LITE BEER'S NEW TAGLINE.");
 w53.addThread('15432', 1);
