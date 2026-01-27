@@ -1,3 +1,4 @@
+import { GameCard, HintButton, shuffle, StatusPopUp} from '../game_components.js';
 
 class Scramble {
     constructor(parent, dispenserStrings = [],  svgNS = 'http://www.w3.org/2000/svg') {
@@ -21,6 +22,13 @@ class Scramble {
         this.element = document.createElement("div");
         this.element.classList.add("scramble-game");
 
+        //Create current word
+        this.currentWordElement = document.createElement("p");
+        this.currentWordElement.classList.add("current-word");
+        this.currentWordElement.innerText = "_";
+        this.element.appendChild(this.currentWordElement);
+        this.parent.appendChild(this.element);
+
         //Create dispensers
         this.dispensersDiv = document.createElement("div");
         this.dispensersDiv.classList.add("dispensers-div");
@@ -29,11 +37,11 @@ class Scramble {
             this.addDispenser(dispenserStrings[i]);
         }
 
-        //Create current word
-        this.currentWordElement = document.createElement("p");
-        this.currentWordElement.innerText = "_";
-        this.element.appendChild(this.currentWordElement);
-        this.parent.appendChild(this.element);
+        //Create Score element
+        this.scoreElement = document.createElement("p");
+        this.scoreElement.classList.add("score");
+        this.scoreElement.innerText = "SCORE: 0 OUT OF 25";
+        this.element.appendChild(this.scoreElement);
 
         //Create Buttons div
         this.buttonsDiv = document.createElement("div");
@@ -41,11 +49,11 @@ class Scramble {
         this.element.appendChild(this.buttonsDiv);
 
         //Create Enter Button
-        this.enterButton = document.createElement("button");
-        this.enterButton.innerText = "ENTER";
-        this.buttonsDiv.appendChild(this.enterButton);
-        this.enterButton.addEventListener("click", () => {
+        this.enterButton = new HintButton(0,5,"SUBMIT");
+        this.buttonsDiv.appendChild(this.enterButton.element);
+        this.enterButton.element.addEventListener("click", () => {
             this.#submitWord();
+            this.enterButton.setProgress(5);
         });
 
         //Create Undo Button
@@ -65,6 +73,11 @@ class Scramble {
             this.currentWord += letter;
             this.currentWordElement.textContent = this.currentWord;
         }
+        this.enterButton.incrementProgress(24);
+        this.currentWordElement.scrollTo({
+            left: this.currentWordElement.scrollWidth,
+            behavior: 'smooth'
+        });
     }
 
     #isLetter(str) {
@@ -72,13 +85,20 @@ class Scramble {
     }
 
     #submitWord() {
-        console.log(this.dictionary);
         if(this.dictionary.includes(this.currentWord.toLowerCase())) {
-            console.log(`${this.currentWord} is a word`);
+            this.score += this.currentWord.length;
+            this.scoreElement.innerText = `SCORE: ${this.score} OUT OF 25`;
+            this.scoreElement.classList.add('highlight');
+            setTimeout(() => {
+                this.scoreElement.classList.remove('highlight');
+            },1000);
         } else {
             console.log(`${this.currentWord} is not a valid word`);
+                    let popUp = new StatusPopUp(this.element, "NOT IN WORD LIST");
         }
+        this.enterButton.setProgress(5);
         this.currentWord = "";
+        this.currentWordElement.textContent = "_";
     }
 
     async #loadDictionaryFromUrl(url) {
@@ -103,14 +123,13 @@ class Dispenser {
         this.letters = [];
         this.stack = document.createElement("div");
         this.stack.classList.add("dispenser-stack")
-        this.dispenseButton = document.createElement("button");
-        this.dispenseButton.classList.add("dispenser-button")
-        for(let i=0; i<letters.length; i++) {
+        for(let i=letters.length - 1; i>=0; i--) {
             let l = new Letter(this.stack, letters[i]);
             this.letters.push(l);
         }
+        this.letters.at(-1).highlight();
         this.element.appendChild(this.stack);
-        this.element.appendChild(this.dispenseButton);
+        //this.element.appendChild(this.dispenseButton);
         this.#initEvents();
     }
 
@@ -118,14 +137,20 @@ class Dispenser {
         if(this.letters.length > 0) {
             let l = this.letters.pop();
             l.removeFromParent();
+            if (this.letters.length > 0) {
+                this.letters.at(-1).highlight();
+            }
             return l;
+            
         }
         return null;
     }
 
     #initEvents() {
         this.element.addEventListener('click', () => {
-            this.parent.addLetterToWord(this.dispenseLetter().value);
+            if (this.letters.length > 0) {
+                this.parent.addLetterToWord(this.dispenseLetter().value);
+            }
         });
     }
 }
@@ -151,7 +176,9 @@ class Letter {
         return str.length === 1 && str.match(/[a-z]/i);
     }
 
-
+    highlight() {
+        this.element.classList.add('highlight');
+    }
 };
 
 const testCard = document.getElementById("test");
