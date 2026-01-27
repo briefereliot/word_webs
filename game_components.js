@@ -3,6 +3,20 @@
 
 //------------CLASSES------------
 
+//Status Popup
+export class StatusPopUp {
+    constructor(parent, text, durationSeconds = 3) {
+        this.parent = parent;
+        this.element = document.createElement('dialog');
+        this.element.textContent = text;
+        this.parent.appendChild(this.element);
+        this.element.showModal();
+        setTimeout(() => {
+            this.element.close();
+        }, durationSeconds * 1000);
+    }
+}
+
 //Label Card
 export class LabelCard {
     constructor(parent, text) {
