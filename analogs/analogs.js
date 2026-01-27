@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a12 = new Analogs(carousel, 'LABLED', false);
+a12.addAllAndShuffle(false, 'PDO', 'champagne', 'USDA', 'beef', 'FCC', 'laptop', 'NFPA', 'propane');
+
 const a11 = new Analogs(carousel, 'BOTH FOUND IN _', false);
 a11.addAllAndShuffle(true, 'blood', 'coal', 'beer', 'wolves', 'matches', 'words', 'ice', 'houses');
 
@@ -299,7 +302,4 @@ testGame6.addAllAndShuffle(false, 'ram', 'graze', 'brick', 'charge', 'Dodge', 'd
 
 const testGame5 = new Analogs(carousel, 'IN OTHER WORDS', false);
 testGame5.addAllAndShuffle(true, 'wizard', 'expert', 'wand', 'duster', 'goat', 'greatest', 'coat', 'smother');
-
-const testGame4 = new Analogs(carousel, 'LEET 5P34K', false);
-testGame4.addAllAndShuffle(false, 'three', 'E', 'five', 'S', 'eight', 'B', 'six', 'G');
 

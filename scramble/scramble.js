@@ -8,8 +8,10 @@ class Scramble {
         this.parent = parent;
         this.won = false;
         this.score = 0;
+        this.highScore = 0;
         this.dispensers = [];
         this.currentWord = "";
+        this.history = [];
 
         //Load dictionary
         this.baseURL = window.location.protocol + window.location.host;
@@ -40,7 +42,7 @@ class Scramble {
         //Create Score element
         this.scoreElement = document.createElement("p");
         this.scoreElement.classList.add("score");
-        this.scoreElement.innerText = "SCORE: 0 OUT OF 25";
+        this.scoreElement.innerText = "SCORE: 0, BEST: 0";
         this.element.appendChild(this.scoreElement);
 
         //Create Buttons div
@@ -52,18 +54,23 @@ class Scramble {
         this.undoButton = document.createElement("button");
         this.undoButton.innerText = "UNDO";
         this.buttonsDiv.appendChild(this.undoButton);
+        this.undoButton.addEventListener("click", () => {
+            this.undo();
+        });
 
         //Create discard Button
         this.discardButton = document.createElement("button");
         this.discardButton.innerText = "DISCARD";
         this.buttonsDiv.appendChild(this.discardButton);
+        this.discardButton.addEventListener("click", () => {
+            this.#discard();
+        });
 
         //Create Enter Button
         this.enterButton = new HintButton(0,5,"SUBMIT");
         this.element.appendChild(this.enterButton.element);
         this.enterButton.element.addEventListener("click", () => {
             this.#submitWord();
-            this.enterButton.setProgress(5);
         });
     }
 
@@ -74,10 +81,11 @@ class Scramble {
     }
 
     addLetterToWord(letter) {
-        if(this.#isLetter(letter)) {
-            this.currentWord += letter;
+        if(this.#isLetter(letter.value)) {
+            this.currentWord += letter.value;
             this.currentWordElement.textContent = this.currentWord;
         }
+        this.history.push(letter);
         this.enterButton.incrementProgress(24);
         this.currentWordElement.scrollTo({
             left: this.currentWordElement.scrollWidth,
@@ -85,25 +93,69 @@ class Scramble {
         });
     }
 
+    undo() {
+        if(this.history.length > 0) {
+            let item = this.history.pop();
+            if(typeof item === 'string') {
+                console.log(item);
+                this.addScore(-1 * this.#getWordScore(item));
+                this.currentWord = item;
+                this.currentWordElement.textContent = item;
+            } else {
+                item.addToParent();
+                this.dispensers.forEach((dispenser) => {
+                    dispenser.updateHighlight();
+                });
+                this.currentWord = this.currentWord.slice(0,-1);
+                this.currentWordElement.textContent = this.currentWord;
+            }
+            this.enterButton.setProgress(5+24*this.currentWord.length);
+        }
+    }
+
+    addScore(amount) {
+        console.log(amount);
+        this.score += amount;
+        if (this.score > this.highScore) {
+            this.highScore = this.score;
+        }
+        this.scoreElement.innerText = `SCORE: ${this.score}, BEST: ${this.highScore}`;
+        this.scoreElement.classList.add('highlight');
+        setTimeout(() => {
+                this.scoreElement.classList.remove('highlight');
+        },1000);
+    }
+
     #isLetter(str) {
         return str.length === 1 && str.match(/[a-z]/i);
     }
 
     #submitWord() {
-        if(this.dictionary.includes(this.currentWord.toLowerCase())) {
-            this.score += this.currentWord.length;
-            this.scoreElement.innerText = `SCORE: ${this.score} OUT OF 25`;
-            this.scoreElement.classList.add('highlight');
-            setTimeout(() => {
-                this.scoreElement.classList.remove('highlight');
-            },1000);
+        let wordScore = this.#getWordScore(this.currentWord);
+        if(wordScore > 0) {
+            this.addScore(wordScore);
         } else {
             console.log(`${this.currentWord} is not a valid word`);
                     let popUp = new StatusPopUp(this.element, "NOT IN WORD LIST");
         }
         this.enterButton.setProgress(5);
+        this.history.push(this.currentWord);
         this.currentWord = "";
         this.currentWordElement.textContent = "_";
+    }
+
+    #discard() {
+        this.enterButton.setProgress(5);
+        this.history.push(this.currentWord);
+        this.currentWord = "";
+        this.currentWordElement.textContent = "_";
+    }
+
+    #getWordScore(word) {
+        if(this.dictionary.includes(word.toLowerCase())) {
+            return word.length*2 - 4;
+        }
+        return 0;
     }
 
     async #loadDictionaryFromUrl(url) {
@@ -129,8 +181,8 @@ class Dispenser {
         this.stack = document.createElement("div");
         this.stack.classList.add("dispenser-stack")
         for(let i=letters.length - 1; i>=0; i--) {
-            let l = new Letter(this.stack, letters[i]);
-            this.letters.push(l);
+            let l = new Letter(this, letters[i]);
+            this.addLetter(l);
         }
         this.letters.at(-1).highlight();
         this.element.appendChild(this.stack);
@@ -138,13 +190,26 @@ class Dispenser {
         this.#initEvents();
     }
 
+    updateHighlight() {
+        this.letters.forEach((letter) => {
+            letter.unhighlight();
+        })
+        if(this.letters.length > 0) {
+            this.letters.at(-1).highlight();
+        }
+    }
+
+    addLetter(letter) {
+        this.letters.push(letter);
+        this.stack.appendChild(letter.element);
+        this.updateHighlight();
+    }
+
     dispenseLetter() {
         if(this.letters.length > 0) {
             let l = this.letters.pop();
             l.removeFromParent();
-            if (this.letters.length > 0) {
-                this.letters.at(-1).highlight();
-            }
+            this.updateHighlight();
             return l;
             
         }
@@ -154,7 +219,7 @@ class Dispenser {
     #initEvents() {
         this.element.addEventListener('click', () => {
             if (this.letters.length > 0) {
-                this.parent.addLetterToWord(this.dispenseLetter().value);
+                this.parent.addLetterToWord(this.dispenseLetter());
             }
         });
     }
@@ -170,11 +235,15 @@ class Letter {
         this.element = document.createElement("div");
         this.element.classList.add("letter");
         this.element.innerText = this.value;
-        this.parent.appendChild(this.element);
     };
+
+    addToParent() {
+        this.parent.addLetter(this);
+    }
 
     removeFromParent() {
         this.element.remove();
+        this.unhighlight();
     }
 
     #isLetter(str) {
@@ -183,6 +252,10 @@ class Letter {
 
     highlight() {
         this.element.classList.add('highlight');
+    }
+
+    unhighlight() {
+        this.element.classList.remove('highlight');
     }
 };
 
