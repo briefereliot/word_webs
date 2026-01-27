@@ -45,21 +45,26 @@ class Scramble {
 
         //Create Buttons div
         this.buttonsDiv = document.createElement("div");
-        this.buttonsDiv.classList.add("buttons-div", "center", "row");
+        this.buttonsDiv.classList.add("buttons-div", "row");
         this.element.appendChild(this.buttonsDiv);
-
-        //Create Enter Button
-        this.enterButton = new HintButton(0,5,"SUBMIT");
-        this.buttonsDiv.appendChild(this.enterButton.element);
-        this.enterButton.element.addEventListener("click", () => {
-            this.#submitWord();
-            this.enterButton.setProgress(5);
-        });
 
         //Create Undo Button
         this.undoButton = document.createElement("button");
         this.undoButton.innerText = "UNDO";
         this.buttonsDiv.appendChild(this.undoButton);
+
+        //Create discard Button
+        this.discardButton = document.createElement("button");
+        this.discardButton.innerText = "DISCARD";
+        this.buttonsDiv.appendChild(this.discardButton);
+
+        //Create Enter Button
+        this.enterButton = new HintButton(0,5,"SUBMIT");
+        this.element.appendChild(this.enterButton.element);
+        this.enterButton.element.addEventListener("click", () => {
+            this.#submitWord();
+            this.enterButton.setProgress(5);
+        });
     }
 
     addDispenser(letters) {
@@ -183,11 +188,11 @@ class Letter {
 
 const testCard = document.getElementById("test");
 const s1 = new Scramble(testCard);
-s1.addDispenser('TSIAW');
-s1.addDispenser('LEURC');
-s1.addDispenser('YRIAF');
-s1.addDispenser('TSOHG');
-s1.addDispenser('AMGAM');
+s1.addDispenser('ZERME');
+s1.addDispenser('ONETO');
+s1.addDispenser('ANTRR');
+s1.addDispenser('ERPOA');
+s1.addDispenser('DHBKY');
 
 setTimeout(() => {
     const carousel = document.getElementById("carousel");
