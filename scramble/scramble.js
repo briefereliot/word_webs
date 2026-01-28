@@ -136,7 +136,7 @@ class Scramble {
             this.addScore(wordScore);
         } else {
             console.log(`${this.currentWord} is not a valid word`);
-                    let popUp = new StatusPopUp(this.element, "NOT IN WORD LIST");
+                    let popUp = new StatusPopUp(this.element, "NOT IN WORD LIST", 1);
         }
         this.enterButton.setProgress(5);
         this.history.push(this.currentWord);
@@ -259,6 +259,14 @@ class Letter {
     }
 };
 
+const testCard2 = document.getElementById("test2");
+const s2 = new Scramble(testCard2);
+s2.addDispenser('AREMI');
+s2.addDispenser('RLOOS');
+s2.addDispenser('DHETT');
+s2.addDispenser('STNVP');
+s2.addDispenser('IGITB');
+
 const testCard = document.getElementById("test");
 const s1 = new Scramble(testCard);
 s1.addDispenser('ZERME');
@@ -266,10 +274,5 @@ s1.addDispenser('ONETO');
 s1.addDispenser('ANTRR');
 s1.addDispenser('ERPOA');
 s1.addDispenser('DHBKY');
-
-setTimeout(() => {
-    const carousel = document.getElementById("carousel");
-    carousel.scrollTo(carousel.scrollWidth, 0);
-}, 500);
 
 

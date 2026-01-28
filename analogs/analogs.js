@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a13 = new Analogs(carousel, 'JOINED BY O', false);
+a13.addAllAndShuffle(false, 'inc','me','earl','be','rest','ration','tramp','line');
+
 const a12 = new Analogs(carousel, 'LABLED', false);
 a12.addAllAndShuffle(false, 'PDO', 'champagne', 'USDA', 'beef', 'FCC', 'laptop', 'NFPA', 'propane');
 
@@ -299,7 +302,4 @@ a7.addAllAndShuffle(false, 'bit', 'byte', 'beat', 'measure', 'pound', 'ton', 'mi
 
 const testGame6 = new Analogs(carousel, 'WHAT IT DOES', false);
 testGame6.addAllAndShuffle(false, 'ram', 'graze', 'brick', 'charge', 'Dodge', 'drive', 'batter', 'hit');
-
-const testGame5 = new Analogs(carousel, 'IN OTHER WORDS', false);
-testGame5.addAllAndShuffle(true, 'wizard', 'expert', 'wand', 'duster', 'goat', 'greatest', 'coat', 'smother');
 
