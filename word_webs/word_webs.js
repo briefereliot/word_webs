@@ -272,6 +272,10 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
+const w57 = new Web(carousel, "A  T", "ABET", "THURSDAY, JANUARY 29TH", "HOW THE MANOSPHERE DESCRIBES MUSIC THEY DON\'T LIKE");
+w57.addThread('2341',1);
+w57.addThread('2314',2);
+
 const w56 = new Web(carousel, "   CAT", "OMICAT", "WEDNESDAY, JANUARY 28TH", "IT'S FIT FOR A MICROSCOPIC CASTLE.");
 w56.addThread('561234',1);
 w56.addThread('2156',2);

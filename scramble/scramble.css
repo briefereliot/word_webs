@@ -9,6 +9,10 @@
     }
 }
 
+body {
+    touch-action: manipulation;
+}
+
 .game {
     display: flex;
     flex-direction: column;
