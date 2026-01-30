@@ -259,6 +259,14 @@ class Letter {
     }
 };
 
+const testCard4 = document.getElementById("test4");
+const s4 = new Scramble(testCard4);
+s4.addDispenser('PBIUS');
+s4.addDispenser('REIIY');
+s4.addDispenser('ETVTO');
+s4.addDispenser('NOEAY');
+s4.addDispenser('COXHD');
+
 const testCard3 = document.getElementById("test3");
 const s3 = new Scramble(testCard3);
 s3.addDispenser('DOTIO');
