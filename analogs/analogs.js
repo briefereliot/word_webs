@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a14 = new Analogs(carousel, 'ANIMAL ACTION', false);
+a14.addAllAndShuffle(false, 'duck', 'dive', 'hog', 'barrel', 'ant', 'march', 'deer', 'vault');
+
 const a13 = new Analogs(carousel, 'JOINED BY O', false);
 a13.addAllAndShuffle(false, 'inc','me','earl','be','rest','ration','tramp','line');
 
