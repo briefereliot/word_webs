@@ -6,6 +6,7 @@
     --word-webs: rgb(184, 156, 0);
     --analogs: rgb(154, 75, 170);
     --scramble:  rgb(57, 146, 105);
+    --micro_scramble:  rgb(57, 136, 146);
 }
 
 @media (prefers-color-scheme: light) {
@@ -17,6 +18,7 @@
         --word-webs: gold;
         --analogs: rgb(255, 124, 246);
         --scramble:  rgb(105, 219, 166);
+        --micro_scramble:  rgb(129, 218, 230);
     }
 }
 
@@ -130,6 +132,7 @@ li::scroll-marker:target-current {
 
 #heading {
     background-color: var(--highlight);
+    text-align: center;
 }
 
 .analogs {
@@ -181,7 +184,8 @@ li::scroll-marker:target-current {
 
 h1 {
     font-size: 3rem;
-    margin: -1rem;
+    margin: -0.5rem;
+    line-height: 1;
 }
 
 h2 {
@@ -249,4 +253,25 @@ button:disabled {
 
 :has( > div.label-card) {
     margin-bottom: 1.5rem;
+}
+
+:has( > div.blur) {
+    position: relative;
+}
+
+.blur {
+    box-sizing: border-box;
+    background-color: rgb(255 255 255 / 10%);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

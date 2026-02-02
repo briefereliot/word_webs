@@ -3,6 +3,43 @@
 
 //------------CLASSES------------
 
+
+//Start button with blured background
+//Rembember to startFunction.bind(this) when passing start function to avoid
+//losing "this" context
+export class StartPopup {
+    constructor(parent, startFunction, text = "I'm Ready") {
+        this.parent = parent;
+        this.startFunction = startFunction;
+        this.element = document.createElement('div');
+        this.element.classList.add('blur');
+        this.buttonElement = document.createElement('button');
+        this.buttonElement.innerText = text;
+        this.element.appendChild(this.buttonElement)
+        this.parent.appendChild(this.element);
+        this.buttonElement.addEventListener('click', () => {
+            this.element.remove();
+            this.startFunction();
+        })
+    }
+}
+
+export class BluredPopup {
+    constructor(parent) {
+        this.parent = parent;
+        this.element = document.createElement('div');
+        this.element.classList.add('blur');
+    }
+
+    show() {
+        this.parent.appendChild(this.element);
+    }
+
+    hide() {
+        this.element.remove();
+    }
+}
+
 //Status Popup
 export class StatusPopUp {
     constructor(parent, text, durationSeconds = 3) {
