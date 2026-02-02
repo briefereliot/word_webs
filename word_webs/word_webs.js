@@ -272,6 +272,11 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
+const w61 = new Web(carousel, "  RE", "OGRE", "MONDAY, FEBRUARY 2ND", "R RATED SHREK");
+w61.addSolution('GORE');
+w61.addThread('2134', 2);
+w61.addThread('1234', 1);
+
 const w60 = new Web(carousel, " AD  ", "EADST", "SUNDAY, FEBRUARY 1ST", "ASKING YOUR COWORKER TO COVER YOUR SHIFT WHILE YOU RECOVER FROM YOUR RUN-IN WITH THE COPS");
 w60.addThread('45123', 1);
 w60.addThread('52413', 2);

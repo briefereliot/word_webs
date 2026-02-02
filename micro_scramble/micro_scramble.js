@@ -1,10 +1,9 @@
 import { GameCard, HintButton, shuffle, StatusPopUp, StartPopup, BluredPopup} from '../game_components.js';
 
 class Scramble {
-    constructor(parent, dispenserStrings = [],  svgNS = 'http://www.w3.org/2000/svg') {
+    constructor(parent, title, dispenserStrings = []) {
         
         //Init instance variables
-        this.svgNS = svgNS;
         this.parent = parent;
         this.won = false;
         this.score = 0;
@@ -12,6 +11,7 @@ class Scramble {
         this.dispensers = [];
         this.currentWord = "";
         this.history = [];
+        this.title = title;
 
         //Load dictionary
         this.baseURL = window.location.protocol + window.location.host;
@@ -26,6 +26,9 @@ class Scramble {
 
         //Create Start button
         this.startButton = new StartPopup(this.parent.parentNode, this.start.bind(this));
+        this.titleP = document.createElement("p");
+        this.titleP.innerText =this.title ;
+        this.startButton.element.prepend(this.titleP);
 
         //Create current word
         this.currentWordElement = document.createElement("p");
@@ -300,14 +303,20 @@ class Letter {
     }
 };
 
+const feb2 = document.getElementById("feb2");
+const s3 = new Scramble(feb2, "MONDAY, FEBRUARY 2ND\nSCRAMBLE #3");
+s3.addDispenser('CUB');
+s3.addDispenser('HLE');
+s3.addDispenser('BYO');
+
 const testCard8 = document.getElementById("test8");
-const s8 = new Scramble(testCard8);
+const s8 = new Scramble(testCard8, "SUNDAY, FEBRUARY 1ST\nSCRAMBLE #2");
 s8.addDispenser('ENA');
 s8.addDispenser('AST');
 s8.addDispenser('CDN');
 
 const testCard7 = document.getElementById("test7");
-const s7 = new Scramble(testCard7);
+const s7 = new Scramble(testCard7, "SATURDAY, JANUARY 31ST\nSCRAMBLE #1");
 s7.addDispenser('ELU');
 s7.addDispenser('RSE');
 s7.addDispenser('CIV');
