@@ -272,6 +272,10 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
+const w62 = new Web(carousel, " LO ", "OLOC", "TUESDAY, FEBRUARY 3RD", "THAT WAS [CRAZY]!");
+w62.addThread('2143', 1);
+w62.addThread('4132', 2);
+
 const w61 = new Web(carousel, "  RE", "OGRE", "MONDAY, FEBRUARY 2ND", "R RATED SHREK");
 w61.addSolution('GORE');
 w61.addThread('2134', 2);
@@ -300,16 +304,6 @@ w56.addThread('2156',2);
 const w55 = new Web(carousel, "A RE ", "ATRET", "TUESDAY, JANUARY 27TH", "REWARDING YOURSELF WITH FRENCH FRIES, SAY");
 w55.addThread('21543', 1);
 w55.addThread('23415', 2);
-
-const w54 = new Web(carousel, "A T  ", "ARTSY", "MONDAY, JANUARY 26TH", "A SMOKER'S ETSY SEARCH");
-w54.addThread('12345', 1);
-w54.addThread('32154', 2);
-
-const w53 = new Web(carousel, "  KC ", "LSKCA", "SUNDAY, JANUARY 25TH", "_____ _____! LITE BEER'S NEW TAGLINE.");
-w53.addThread('15432', 1);
-w53.addThread('34512', 2);
-
-const b5 = new Web(carousel, "", "X", "NO SUNDAY BONUS THIS WEEK", "SUBMIT YOUR PUZZLES TO SUBMISSIONS@PLAYWORDWEBS.COM FOR A CHANCE TO BE FEATURED AS THE SUNDAY BONUS.", [], true);
 
 
 /*setTimeout(() => {
