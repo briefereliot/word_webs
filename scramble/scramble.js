@@ -259,6 +259,14 @@ class Letter {
     }
 };
 
+const feb4 = document.getElementById("feb4");
+const s8 = new Scramble(feb4);
+s8.addDispenser('EDBTL');
+s8.addDispenser('AFOIO');
+s8.addDispenser('BLUPI');
+s8.addDispenser('FCESC');
+s8.addDispenser('RNCRA');
+
 const feb3 = document.getElementById("feb3");
 const s7 = new Scramble(feb3);
 s7.addDispenser('UBINO');
@@ -306,13 +314,5 @@ s2.addDispenser('RLOOS');
 s2.addDispenser('DHETT');
 s2.addDispenser('STNVP');
 s2.addDispenser('IGITB');
-
-const testCard = document.getElementById("test");
-const s1 = new Scramble(testCard);
-s1.addDispenser('ZERME');
-s1.addDispenser('ONETO');
-s1.addDispenser('ANTRR');
-s1.addDispenser('ERPOA');
-s1.addDispenser('DHBKY');
 
 

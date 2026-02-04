@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a15 = new Analogs(carousel, 'KEEP THE EE\'S', false);
+a15.addAllAndShuffle(true, 'cups', 'Pacific Rim', 'beast', 'plates', 'Mike Myers', 'pieces', 'exoskeleton', 'Verne Troyer')
+
 const a14 = new Analogs(carousel, 'ANIMAL ACTION', false);
 a14.addAllAndShuffle(false, 'duck', 'dive', 'hog', 'barrel', 'ant', 'march', 'deer', 'vault');
 
@@ -296,13 +299,4 @@ a10.addAllAndShuffle(false, 'ball', 'pool', 'cue', 'table', 'racket', 'court', '
 
 const a9 = new Analogs(carousel, 'SAID LIKE THIS:', false);
 a9.addAllAndShuffle(false, 'sugar', 'shook', 'receipt', 'sweet', 'colonel', 'churn', 'zucchini', 'key');
-
-const a8 = new Analogs(carousel, 'HOMOPHONES OF ANTONYMS', false);
-a8.addAllAndShuffle(false, 'see', 'desert', 'knight', 'day', 'waist', 'save', 'prophet', 'lose');
-
-const a7 = new Analogs(carousel, 'SUBDIVIDED', false);
-a7.addAllAndShuffle(false, 'bit', 'byte', 'beat', 'measure', 'pound', 'ton', 'minute', 'degree');
-
-const testGame6 = new Analogs(carousel, 'WHAT IT DOES', false);
-testGame6.addAllAndShuffle(false, 'ram', 'graze', 'brick', 'charge', 'Dodge', 'drive', 'batter', 'hit');
 
