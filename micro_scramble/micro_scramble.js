@@ -303,6 +303,12 @@ class Letter {
     }
 };
 
+const feb5 = document.getElementById("feb5");
+const s6 = new Scramble(feb5, "THURSDAY, FEBRUARY 5TH\nSCRAMBLE #6");
+s6.addDispenser('ETE');
+s6.addDispenser('MMA');
+s6.addDispenser('IDI');
+
 const feb4 = document.getElementById("feb4");
 const s5 = new Scramble(feb4, "WEDNESDAY, FEBRUARY 4TH\nSCRAMBLE #5");
 s5.addDispenser('FSO');
