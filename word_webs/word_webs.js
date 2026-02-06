@@ -272,6 +272,10 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
+const w65 = new Web(carousel, "  T CO", "LETACO", "FRIDAY, FEBRUARY 6TH", "WELL WE MIGHT NOT STRIKE GOLD, BUT WE CAN CERTAINLY ______ ____.");
+w65.addThread('165432', 1);
+w65.addThread('3415', 2);
+
 const w64 = new Web(carousel, "A  T", "AHWT", "THURSDAY, FEBRUARY 5TH", "\"____ ____\" - A CRITIQUE OF PUXSUTAWNEY PHIL'S PERCEPTION.");
 w64.addThread('3214', 1);
 w64.addThread('4213', 2);
@@ -296,18 +300,6 @@ w60.addThread('52413', 2);
 const w59 = new Web(carousel, "E E E ", "ECEDER", "SATURDAY, JANUARY 31ST", "A DIAGNOSIS OF MALE PATTERN BALDNESS");
 w59.addThread('612345', 1);
 w59.addThread('412635', 2);
-
-const w58 = new Web(carousel, "  RE ", "ONREC", "FRIDAY, JANUARY 30TH", "OPERATION _____ _____: THE CIA'S CODENAME FOR THEIR MISSION TO INFILTRATE A WITCH COVEN.");
-w58.addThread('53124', 2);
-w58.addThread('34512', 1);
-
-const w57 = new Web(carousel, "A  T", "ABET", "THURSDAY, JANUARY 29TH", "HOW THE MANOSPHERE DESCRIBES MUSIC THEY DON\'T LIKE");
-w57.addThread('2341',1);
-w57.addThread('2314',2);
-
-const w56 = new Web(carousel, "   CAT", "OMICAT", "WEDNESDAY, JANUARY 28TH", "IT'S FIT FOR A MICROSCOPIC CASTLE.");
-w56.addThread('561234',1);
-w56.addThread('2156',2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");
