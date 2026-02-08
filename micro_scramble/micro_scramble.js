@@ -303,6 +303,18 @@ class Letter {
     }
 };
 
+const feb8 = document.getElementById("feb8");
+const s9 = new Scramble(feb8, "SUNDAY, FEBRUARY 8TH\nSCRAMBLE #9");
+s9.addDispenser('IAL');
+s9.addDispenser('UNV');
+s9.addDispenser('RED');
+
+const feb7 = document.getElementById("feb7");
+const s8 = new Scramble(feb7, "SATURDAY, FEBRUARY 7TH\nSCRAMBLE #8");
+s8.addDispenser('IAR');
+s8.addDispenser('DSC');
+s8.addDispenser('HGE');
+
 const feb6 = document.getElementById("feb6");
 const s7 = new Scramble(feb6, "FRIDAY, FEBRUARY 6TH\nSCRAMBLE #7");
 s7.addDispenser('FIT');

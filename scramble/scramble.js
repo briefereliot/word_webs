@@ -259,6 +259,15 @@ class Letter {
     }
 };
 
+const feb8 = document.getElementById("feb8");
+const s10 = new Scramble(feb8);
+s10.addDispenser('HNING');
+S10.addDispenser('IABIE');
+s10.addDispenser('SYFIC');
+s10.addDispenser('ETBAM');
+s10.addDispenser('FAOLD');
+
+
 const feb5 = document.getElementById("feb6");
 const s9 = new Scramble(feb6);
 s9.addDispenser('RLYET');
@@ -307,13 +316,13 @@ s4.addDispenser('ETVTO');
 s4.addDispenser('NOEAY');
 s4.addDispenser('COXHD');
 
-const testCard3 = document.getElementById("test3");
+/*const testCard3 = document.getElementById("test3");
 const s3 = new Scramble(testCard3);
 s3.addDispenser('DOTIO');
 s3.addDispenser('REONP');
 s3.addDispenser('INHTM');
 s3.addDispenser('OELET');
-s3.addDispenser('PARIS');
+s3.addDispenser('PARIS');*/
 
 /*const testCard2 = document.getElementById("test2");
 const s2 = new Scramble(testCard2);

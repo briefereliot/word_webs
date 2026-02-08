@@ -272,6 +272,14 @@ class Letter {
 
 const carousel = document.getElementById("carousel");
 
+const w67 = new Web(carousel, "  S M", "LASPM", "SUNDAY, FEBRUARY 8TH", "119:105");
+w67.addThread('43215', 1);
+w67.addThread('12543', 2);
+
+const w66 = new Web(carousel, "ER  S", "ERVOS", "SATURDAY, FEBRUARY 7TH", "MARS'S MARVELOUS MACHINES.");
+w66.addThread('51234', 1);
+w66.addThread('24315', 2);
+
 const w65 = new Web(carousel, "  T CO", "LETACO", "FRIDAY, FEBRUARY 6TH", "WELL WE MIGHT NOT STRIKE GOLD, BUT WE CAN CERTAINLY ______ ____.");
 w65.addThread('165432', 1);
 w65.addThread('3415', 2);
@@ -292,14 +300,6 @@ const w61 = new Web(carousel, "  RE", "OGRE", "MONDAY, FEBRUARY 2ND", "R RATED S
 w61.addSolution('GORE');
 w61.addThread('2134', 2);
 w61.addThread('1234', 1);
-
-const w60 = new Web(carousel, " AD  ", "EADST", "SUNDAY, FEBRUARY 1ST", "ASKING YOUR COWORKER TO COVER YOUR SHIFT WHILE YOU RECOVER FROM YOUR RUN-IN WITH THE COPS");
-w60.addThread('45123', 1);
-w60.addThread('52413', 2);
-
-const w59 = new Web(carousel, "E E E ", "ECEDER", "SATURDAY, JANUARY 31ST", "A DIAGNOSIS OF MALE PATTERN BALDNESS");
-w59.addThread('612345', 1);
-w59.addThread('412635', 2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");
