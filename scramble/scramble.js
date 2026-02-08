@@ -262,7 +262,7 @@ class Letter {
 const feb8 = document.getElementById("feb8");
 const s10 = new Scramble(feb8);
 s10.addDispenser('HNING');
-S10.addDispenser('IABIE');
+s10.addDispenser('IABIE');
 s10.addDispenser('SYFIC');
 s10.addDispenser('ETBAM');
 s10.addDispenser('FAOLD');
