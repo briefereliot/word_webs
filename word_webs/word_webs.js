@@ -72,9 +72,10 @@ class Web {
             this.#checkWinCondition();
         });
         //hint button pressed
-        this.card.hintButton.element.addEventListener('click', () => {
+        this.card.addHintFunction(this.#revealOrder.bind(this));
+        /*this.card.hintButton.element.addEventListener('click', () => {
             this.#revealOrder();
-        });
+        });*/
 
         //this.card.addHintFunction(this.#revealOrder);
 
@@ -271,6 +272,10 @@ class Letter {
 //p1.addThread('1246',2);
 
 const carousel = document.getElementById("carousel");
+
+const w68 = new Web(carousel, " OW  LE", "YOWOLLE", "MONDAY, FEBRUARY 9TH", "\"COLOR ME SHOCKED!\" SAID THE SCIENTIST IN RESPONSE TO THE MAMMOTH DISCOVERY.");
+w68.addThread('176543', 1);
+w68.addThread('324561', 2);
 
 const w67 = new Web(carousel, "  S M", "LASPM", "SUNDAY, FEBRUARY 8TH", "119:105");
 w67.addThread('43215', 1);

@@ -68,20 +68,30 @@ export class LabelCard {
 
 //Hint button
 export class HintButton {
-    constructor(delaySeconds = 30, progress = 100, text = 'THROW ME A BONE') {
+    constructor(delaySeconds = 30, progress = 0, text = 'GIVE ME A HINT') {
         this.element = document.createElement('button');
+        this.element.style.visibility = 'visible';
         this.element.textContent = text;
         this.progressValue = progress;
+        this.progressIncrement = 0;
+        if (delaySeconds > 0) {
+            this.progressIncrement = 10/delaySeconds;
+            setInterval(() => {
+                this.incrementProgress(this.progressIncrement);
+            }, 100);
+        }
+        
         this.progressBar = document.createElement('div');
         this.progressBar.classList.add('button-progress');
         this.disable();
-        this.hide();
-        this.setProgress(0);
+        //this.hide();
+        this.setProgress(progress);
         this.element.appendChild(this.progressBar);
-        setTimeout(() => {
+
+        /*setTimeout(() => {
             this.setProgress(progress);
             this.show();
-        }, delaySeconds * 1000);
+        }, delaySeconds * 1000);*/
     }
 
     enable() {
@@ -98,11 +108,16 @@ export class HintButton {
 
     hide() {
         this.element.style.visibility = 'hidden';
+        this.progressBar.style.visibility = 'hidden';
     }
 
     setProgress(value) {
         if(value < 100) {
-            this.progressBar.style.visibility = 'visible';
+            if (this.element.style.visibility === 'visible') {
+                this.progressBar.style.visibility = 'visible';
+            } else {
+                this.progressBar.style.visibility = 'hidden';
+            }
             this.disable();
             if(value > 0) {
                 this.progressBar.style.width = String(value) + '%';
