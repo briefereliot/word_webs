@@ -271,13 +271,19 @@ class StatusPopUp {
         this.parent.appendChild(this.element);
         this.element.showModal();
         setTimeout(() => {
-            this.element.close();
+            this.element.close()
         }, durationSeconds * 1000);
     }
 }
 
 
 const carousel = document.getElementById("carousel");
+
+//const a18 = new Analogs(carousel, 'SAME PLURAL IRREGULARITY', false);
+//a18.addAllAndShuffle(true, 'offspring', 'sheep', 'larva', 'alumna', 'loaf', 'self', 'mouse', 'die');
+
+//const a17 = new Analogs(carousel, 'A DOUBLED-LETTER SANDWICH', false);
+//a17.addAllAndShuffle(false, 'haddock', 'dabbed', 'struggle', 'gallivanting', 'betta', 'tesseract', 'eel', 'efface');
 
 const a16 = new Analogs(carousel, 'ADD YELLOW', false);
 a16.addAllAndShuffle(false, 'flag of Italy', 'flag of Ireland', 'apple', 'orange', 'white', 'lemon', 'period', 'I (India) flag');
