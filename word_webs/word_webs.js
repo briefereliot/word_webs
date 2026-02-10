@@ -297,11 +297,11 @@ LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
 
-const w69 = new Web(carousel, " TI ", "ETID", "TUESDAY, FEBRUARY 10TH", "WHAT THE TIKTOK NUTRITIONIST ORDERED");
+const w69 = new Web(carousel, LSM, 69, " TI ", "ETID", "TUESDAY, FEBRUARY 10TH", "WHAT THE TIKTOK NUTRITIONIST ORDERED");
 w69.addThread('2341', 1);
 w69.addThread('4312', 2);
 
-const w68 = new Web(carousel, " OW  LE", "YOWOLLE", "MONDAY, FEBRUARY 9TH", "\"COLOR ME SHOCKED!\" SAID THE SCIENTIST IN RESPONSE TO THE MAMMOTH DISCOVERY.");
+const w68 = new Web(carousel, LSM, 68, " OW  LE", "YOWOLLE", "MONDAY, FEBRUARY 9TH", "\"COLOR ME SHOCKED!\" SAID THE SCIENTIST IN RESPONSE TO THE MAMMOTH DISCOVERY.");
 w68.addThread('176543', 1);
 w68.addThread('324561', 2);
 

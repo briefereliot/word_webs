@@ -35,6 +35,7 @@ export class localStorageManager {
         if(this.streak === null) {
             this.streak = {};
             this.streak['startID'] = null;
+            this.streak['endID'] = null;
             this.streak['wonIDs'] = [];
             this.streakLength = 0;
         }
