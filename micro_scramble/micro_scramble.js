@@ -303,6 +303,12 @@ class Letter {
     }
 };
 
+const feb10 = document.getElementById("feb10");
+const s11 = new Scramble(feb10, "TUESDAY, FEBRUARY 10TH\nSCRAMBLE #11");
+s11.addDispenser('RCY');
+s11.addDispenser('DOC');
+s11.addDispenser('EMA');
+
 const feb9 = document.getElementById("feb9");
 const s10 = new Scramble(feb9, "MONDAY, FEBRUARY 9TH\nSCRAMBLE #10");
 s10.addDispenser('ABO');
@@ -339,7 +345,7 @@ s5.addDispenser('FSO');
 s5.addDispenser('BRN');
 s5.addDispenser('IRT');
 
-const feb3 = document.getElementById("feb3");
+/*const feb3 = document.getElementById("feb3");
 const s4 = new Scramble(feb3, "TUESDAY, FEBRUARY 3RD\nSCRAMBLE #4");
 s4.addDispenser('RIT');
 s4.addDispenser('ISE');
@@ -361,4 +367,4 @@ const testCard7 = document.getElementById("test7");
 const s1 = new Scramble(testCard7, "SATURDAY, JANUARY 31ST\nSCRAMBLE #1");
 s1.addDispenser('ELU');
 s1.addDispenser('RSE');
-s1.addDispenser('CIV');
+s1.addDispenser('CIV');*/
