@@ -5,38 +5,147 @@
 
 //Used to remember a users progress for a specific game
 export class localStorageManager {
-    constructor(gameName) {
-        this.gameName = gameName;
+    constructor(gameName, currentGameID, lifeTimeDays = 7) {
+        this.currentGameID = currentGameID;
+        this.lifeTimeDays = lifeTimeDays;
+        this.gameKey = String(gameName);
+        this.streakKey = this.gameKey + 'Streak'
         this.gameState = null;
-        if (this.gameState === null) {
-            this
-        }
-        this.streak = [];
+        this.streak = null;
         this.streakLength = 0;
-    }
 
-    #loadFromLocalStorage() {
-        this.gameState = localStorage.getItem(this.gameName);
-        if(this.gameState === null) {
-            this.gameState = [];
-            localStorage.setItem(this.gameName, []);
+        if(this.getRememberChoice()) {
+            this.#loadFromLocalStorage();
+        } else {
+            this.deleteAll();
         }
     }
 
-    getGameStateByID(id) {
+    //Load all game states and streak from local storage
+    //remove all game states past lifeTimeDays age and re-save
+    #loadFromLocalStorage() {
+        this.gameState = JSONParseSafe(localStorage.getItem(this.gameKey));
+        if(this.gameState === null) {
+            this.gameState = {};
+        }
+        console.log(this.gameState);
 
+        
+        this.streak = JSONParseSafe(localStorage.getItem(this.streakKey));
+        if(this.streak === null) {
+            this.streak = {};
+            this.streak['startID'] = null;
+            this.streak['wonIDs'] = [];
+            this.streakLength = 0;
+        }
+        console.log(this.streak);
+        
+        //remove all game states past lifeTimeDays age and re-save
+        Object.keys(this.gameState).forEach((key) => {
+            if(currentGameID - key >= this.lifeTimeDays) {
+                delete this.gameState.key;
+            }
+        });
+
+        //this.#updateStreak();
+        this.saveToLocalStorage();
     }
 
-    setGameStateByID(id) {
+    saveToLocalStorage() {
+        if(this.getRememberChoice) {
+            localStorage.setItem(this.gameKey, JSON.stringify(this.gameState));
+            this.#updateStreak();
+        } else {
+            this.deleteAll();
+        }
+        
+    }
 
+    deleteAll() {
+        localStorage.removeItem(this.gameKey);
+        localStorage.removeItem(this.streakKey);
+    }
+
+    getGameStateByID(id, defaultState = null) {
+        try {
+            return this.gameState[id];
+        } catch (e) {
+            console.error(e);
+            return defaultState;
+        }
+    }
+
+    getWinStateByID(id) {
+        if(this.streak['wonIDs'].includes(id)) {
+            return true
+        }
+        return false;
+    }
+
+    //Does not automatically save new game state to local storage
+    //Must call saveToLocalStorage() to persist changes
+    setGameStateByID(id, state) {
+        if(this.getRememberChoice()) {
+            this.gameState[id] = state;
+        }
     }
 
     getStreakLength() {
-
+        return this.streakLength;
     }
 
-    addGameToStreak() {
+    //Recalculates streak length and persists streak to local storage
+    #updateStreak() {
+        if(this.getRememberChoice()) {
+            let sequentialIDs = this.streak['wonIDs'].sort();
+            for(let i = sequentialIDs.length - 1; i>= 0; i--) {
+                console.log(i);
+                //find the oldest consecutively won 
+                if(this.streak['startID'] - 1 === sequentialIDs[i] || this.streak['startID'] === null) {
+                    this.streak['startID'] = sequentialIDs[i];
+                    console.log(`New streak start: ${sequentialIDs[i]}`);
+                }
+                //purge id's older than life time
+                if(this.currentGameID - sequentialIDs[i] >= this.lifeTimeDays) {
+                    sequentialIDs.splice(i, 1);
+                }
+            }
 
+            
+            this.streakLength = Math.max(this.currentGameID - this.streak['startID'] + 1, 0);
+
+            //Save purged streak object to local storage
+            if(this.getRememberChoice()) {
+                localStorage.setItem(this.streakKey, JSON.stringify(this.streak));
+            } else {
+                this.deleteAll();
+            }
+        }
+    }
+
+    addGameToStreak(id) {
+        console.log(localStorage);
+        if(this.getRememberChoice() && !this.streak['wonIDs'].includes(id)) {
+            this.streak['wonIDs'].push(id);
+            this.#updateStreak();
+        }
+    }
+
+    getRememberChoice() {
+        if(localStorage.getItem('rememberMe') === 'true') {
+            return true;
+        }
+        return false;
+    }
+
+    setRememberChoice(choice = false) {
+        if (choice) {
+            localStorage.setItem('rememberMe', 'true');
+            this.#loadFromLocalStorage();
+        } else {
+            localStorage.setItem('rememberMe', 'false');
+        }
+        
     }
 }
 
@@ -287,4 +396,13 @@ export function shuffle(array) {
         let j = Math.floor(Math.random() * (i+1));
         [array[i], array[j]] = [array[j], array[i]];
     }
+}
+
+export function JSONParseSafe(value, defaultValue = null) {
+        //try {
+            return JSON.parse(value);
+        //} catch (e) {
+        //    console.error(e);
+        //    return defaultValue;
+        //}
 }

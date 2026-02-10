@@ -1,10 +1,12 @@
-import { GameCard, HintButton} from '../game_components.js';
+import { GameCard, HintButton, localStorageManager} from '../game_components.js';
 const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 class Web {
-    constructor(parent, string, answer, dateString, hintString, threads = [],  bonus = false, svgNS = 'http://www.w3.org/2000/svg') {
+    constructor(parent, LSM, id, string, answer, dateString, hintString, threads = [],  bonus = false, svgNS = 'http://www.w3.org/2000/svg') {
+        this.LSM = LSM;
         this.svgNS = svgNS;
         this.parent = parent;
+        this.id = id;
         this.numLetters = string.length;
         this.answer = []
         this.answer.push(answer);
@@ -19,7 +21,6 @@ class Web {
         this.card.setBottomText('CLUE: ' + hintString);
         this.card.showTopText();
         this.card.showBottomText();
-        console.log(string.length);
         for(let i = 0; i < string.length; i++) {
             let x = this.#getLetterX(i);
             let y = this.#getLetterY(i);
@@ -43,6 +44,9 @@ class Web {
         //this.window.parentElement.appendChild(this.hintButton);
 
         this.#initEvents();
+        if(this.LSM.getWinStateByID(this.id)) {
+            this.#showSolution();
+        }
     }
 
     addThread(thread,pattern = 1) {
@@ -94,6 +98,8 @@ class Web {
         if(this.answer.includes(string)) {
             this.won = true;
             this.card.win();
+            this.LSM.addGameToStreak(this.id);
+            console.log(`STREAK LENGTH: ${this.LSM.getStreakLength()}`);
             //this.hintButton.disabled = true;
             for(let n = 0; n < 3; n++) {
                 for(let i = 0; i < this.letters.length; i++) {
@@ -119,6 +125,16 @@ class Web {
                 this.card.gameElement.appendChild(congrats);
             },150*this.letters.length+150*2*(this.letters.length+2));
         };
+    }
+
+    #showSolution() {
+        this.won = true;
+        this.card.win();
+        for(let i = 0; i < this.letters.length; i++) {
+            this.letters[i].setValue(this.answer[0][i]);
+            this.letters[i].turnGold();
+            this.letters[i].disable();
+        }
     }
 
     #revealOrder() {
@@ -228,6 +244,11 @@ class Letter {
         }
     }
 
+    setValue(value) {
+        this.value = value;
+        this.textBox.value = value;
+    }
+
     #stylize() {
         this.textBox.setAttribute("type", "text");
         this.textBox.setAttribute("size", "1");
@@ -271,37 +292,40 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
+const LSM = new localStorageManager('ww', 68, 7);
+LSM.setRememberChoice(true);
+
 const carousel = document.getElementById("carousel");
 
-const w68 = new Web(carousel, " OW  LE", "YOWOLLE", "MONDAY, FEBRUARY 9TH", "\"COLOR ME SHOCKED!\" SAID THE SCIENTIST IN RESPONSE TO THE MAMMOTH DISCOVERY.");
+const w68 = new Web(carousel, LSM, 68, " OW  LE", "YOWOLLE", "MONDAY, FEBRUARY 9TH", "\"COLOR ME SHOCKED!\" SAID THE SCIENTIST IN RESPONSE TO THE MAMMOTH DISCOVERY.");
 w68.addThread('176543', 1);
 w68.addThread('324561', 2);
 
-const w67 = new Web(carousel, "  S M", "LASPM", "SUNDAY, FEBRUARY 8TH", "119:105");
+const w67 = new Web(carousel, LSM, 67,  "  S M", "LASPM", "SUNDAY, FEBRUARY 8TH", "119:105");
 w67.addThread('43215', 1);
 w67.addThread('12543', 2);
 
-const w66 = new Web(carousel, "ER  S", "ERVOS", "SATURDAY, FEBRUARY 7TH", "MARS'S MARVELOUS MACHINES.");
+const w66 = new Web(carousel, LSM, 66,  "ER  S", "ERVOS", "SATURDAY, FEBRUARY 7TH", "MARS'S MARVELOUS MACHINES.");
 w66.addThread('51234', 1);
 w66.addThread('24315', 2);
 
-const w65 = new Web(carousel, "  T CO", "LETACO", "FRIDAY, FEBRUARY 6TH", "WELL WE MIGHT NOT STRIKE GOLD, BUT WE CAN CERTAINLY ______ ____.");
+const w65 = new Web(carousel, LSM, 65,  "  T CO", "LETACO", "FRIDAY, FEBRUARY 6TH", "WELL WE MIGHT NOT STRIKE GOLD, BUT WE CAN CERTAINLY ______ ____.");
 w65.addThread('165432', 1);
 w65.addThread('3415', 2);
 
-const w64 = new Web(carousel, "A  T", "AHWT", "THURSDAY, FEBRUARY 5TH", "\"____ ____\" - A CRITIQUE OF PUXSUTAWNEY PHIL'S PERCEPTION.");
+const w64 = new Web(carousel, LSM, 64,  "A  T", "AHWT", "THURSDAY, FEBRUARY 5TH", "\"____ ____\" - A CRITIQUE OF PUXSUTAWNEY PHIL'S PERCEPTION.");
 w64.addThread('3214', 1);
 w64.addThread('4213', 2);
 
-const w63 = new Web(carousel, "SG R ", "SGARB", "WEDNESDAY, FEBRUARY 4TH", "THE EMPORER SHOWS OFF HIS NEW CLOTHES.");
+const w63 = new Web(carousel, LSM, 63,  "SG R ", "SGARB", "WEDNESDAY, FEBRUARY 4TH", "THE EMPORER SHOWS OFF HIS NEW CLOTHES.");
 w63.addThread('54321', 1);
 w63.addThread('23451', 2);
 
-const w62 = new Web(carousel, " LO ", "OLOC", "TUESDAY, FEBRUARY 3RD", "THAT WAS [CRAZY]!");
+const w62 = new Web(carousel, LSM, 62,  " LO ", "OLOC", "TUESDAY, FEBRUARY 3RD", "THAT WAS [CRAZY]!");
 w62.addThread('2143', 1);
 w62.addThread('4132', 2);
 
-const w61 = new Web(carousel, "  RE", "OGRE", "MONDAY, FEBRUARY 2ND", "R RATED SHREK");
+const w61 = new Web(carousel, LSM, 61,  "  RE", "OGRE", "MONDAY, FEBRUARY 2ND", "R RATED SHREK");
 w61.addSolution('GORE');
 w61.addThread('2134', 2);
 w61.addThread('1234', 1);
