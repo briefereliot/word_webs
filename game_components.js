@@ -3,6 +3,42 @@
 
 //------------CLASSES------------
 
+//Used to remember a users progress for a specific game
+export class localStorageManager {
+    constructor(gameName) {
+        this.gameName = gameName;
+        this.gameState = null;
+        if (this.gameState === null) {
+            this
+        }
+        this.streak = [];
+        this.streakLength = 0;
+    }
+
+    #loadFromLocalStorage() {
+        this.gameState = localStorage.getItem(this.gameName);
+        if(this.gameState === null) {
+            this.gameState = [];
+            localStorage.setItem(this.gameName, []);
+        }
+    }
+
+    getGameStateByID(id) {
+
+    }
+
+    setGameStateByID(id) {
+
+    }
+
+    getStreakLength() {
+
+    }
+
+    addGameToStreak() {
+
+    }
+}
 
 //Start button with blured background
 //Rembember to startFunction.bind(this) when passing start function to avoid
