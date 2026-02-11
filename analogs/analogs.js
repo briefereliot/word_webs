@@ -282,8 +282,8 @@ const carousel = document.getElementById("carousel");
 //const a18 = new Analogs(carousel, 'SAME PLURAL IRREGULARITY', false);
 //a18.addAllAndShuffle(true, 'offspring', 'sheep', 'larva', 'alumna', 'loaf', 'self', 'mouse', 'die');
 
-//const a17 = new Analogs(carousel, 'A DOUBLED-LETTER SANDWICH', false);
-//a17.addAllAndShuffle(false, 'haddock', 'dabbed', 'struggle', 'gallivanting', 'betta', 'tesseract', 'eel', 'efface');
+const a17 = new Analogs(carousel, 'A DOUBLED-LETTER SANDWICH', false);
+a17.addAllAndShuffle(false, 'haddock', 'dabbed', 'struggle', 'gallivanting', 'betta', 'tesseract', 'eel', 'efface');
 
 const a16 = new Analogs(carousel, 'ADD YELLOW', false);
 a16.addAllAndShuffle(false, 'flag of Italy', 'flag of Ireland', 'apple', 'orange', 'white', 'lemon', 'period', 'I (India) flag');
@@ -303,9 +303,9 @@ a12.addAllAndShuffle(false, 'PDO', 'champagne', 'USDA', 'beef', 'FCC', 'laptop',
 const a11 = new Analogs(carousel, 'BOTH FOUND IN _', false);
 a11.addAllAndShuffle(true, 'blood', 'coal', 'beer', 'wolves', 'matches', 'words', 'ice', 'houses');
 
-const a10 = new Analogs(carousel, 'HOW THE GAME\'S PLAYED', false);
+/*const a10 = new Analogs(carousel, 'HOW THE GAME\'S PLAYED', false);
 a10.addAllAndShuffle(false, 'ball', 'pool', 'cue', 'table', 'racket', 'court', 'club', 'course');
 
 const a9 = new Analogs(carousel, 'SAID LIKE THIS:', false);
-a9.addAllAndShuffle(false, 'sugar', 'shook', 'receipt', 'sweet', 'colonel', 'churn', 'zucchini', 'key');
+a9.addAllAndShuffle(false, 'sugar', 'shook', 'receipt', 'sweet', 'colonel', 'churn', 'zucchini', 'key');*/
 
