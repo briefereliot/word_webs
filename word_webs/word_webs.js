@@ -1,4 +1,4 @@
-import { GameCard, HintButton, localStorageManager} from '../game_components.js';
+import { GameCard, HintButton, LocalStorageManager} from '../game_components.js';
 const darkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
 class Web {
@@ -292,7 +292,7 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new localStorageManager('ww', 68, 7);
+const LSM = new LocalStorageManager('ww', 68, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");

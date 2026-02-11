@@ -4,7 +4,7 @@
 //------------CLASSES------------
 
 //Used to remember a users progress for a specific game
-export class localStorageManager {
+export class LocalStorageManager {
     constructor(gameName, currentGameID, lifeTimeDays = 7) {
         this.currentGameID = currentGameID;
         this.lifeTimeDays = lifeTimeDays;
@@ -43,7 +43,7 @@ export class localStorageManager {
         
         //remove all game states past lifeTimeDays age and re-save
         Object.keys(this.gameState).forEach((key) => {
-            if(currentGameID - key >= this.lifeTimeDays) {
+            if(this.currentGameID - key >= this.lifeTimeDays) {
                 delete this.gameState.key;
             }
         });
@@ -98,22 +98,40 @@ export class localStorageManager {
     //Recalculates streak length and persists streak to local storage
     #updateStreak() {
         if(this.getRememberChoice()) {
-            let sequentialIDs = this.streak['wonIDs'].sort();
+            let sequentialIDs = this.streak['wonIDs'].sort((a, b) => a - b);
+            let currentStreakLength = 0;
+            let currentStreakStart = null
+            let longestStreak = 0;
             for(let i = sequentialIDs.length - 1; i>= 0; i--) {
                 console.log(i);
                 //find the oldest consecutively won 
-                if(this.streak['startID'] - 1 === sequentialIDs[i] || this.streak['startID'] === null) {
+                /*if(this.streak['startID'] - 1 === sequentialIDs[i] || this.streak['startID'] === null) {
                     this.streak['startID'] = sequentialIDs[i];
                     console.log(`New streak start: ${sequentialIDs[i]}`);
+                }*/
+
+                if(currentStreakStart - 1 === sequentialIDs[i]) {
+                    currentStreakLength++;
+                    currentStreakStart = sequentialIDs[i];
+                } else {
+                    currentStreakLength = 1;
+                    if(this.currentGameID - sequentialIDs[i] <= this.lifeTimeDays){
+                        currentStreakStart = sequentialIDs[i];
+                    }
                 }
+
+                if(currentStreakLength > longestStreak) {
+                    longestStreak = currentStreakLength;
+                }
+                
                 //purge id's older than life time
-                if(this.currentGameID - sequentialIDs[i] >= this.lifeTimeDays) {
+                /*if(this.currentGameID - sequentialIDs[i] >= this.lifeTimeDays) {
                     sequentialIDs.splice(i, 1);
-                }
+                }*/
             }
 
-            
-            this.streakLength = Math.max(this.currentGameID - this.streak['startID'] + 1, 0);
+            this.streakLength = longestStreak;
+            //this.streakLength = Math.max(this.currentGameID - this.streak['startID'] + 1, 0);
 
             //Save purged streak object to local storage
             if(this.getRememberChoice()) {

@@ -1,10 +1,13 @@
-import { LabelCard } from "./game_components.js";
+import { LabelCard, LocalStorageManager } from "./game_components.js";
 
-let wordWebsCard = document.getElementById('word-webs');
-let wordWebsDate = new LabelCard(wordWebsCard, "Feb 10th");
+const wordWebsLSM = new LocalStorageManager("ww", 69, 7);
+wordWebsLSM.setRememberChoice(true);
+const wordWebsCard = document.getElementById('word-webs');
+const wordWebsDate = new LabelCard(wordWebsCard, `Feb 10th, ${wordWebsLSM.getStreakLength()} day streak.`);
 
-let analogsCard = document.getElementById('analogs');
-let analogsDate = new LabelCard(analogsCard, "Feb 7th");
+const analogsCard = document.getElementById('analogs');
+const analogsDate = new LabelCard(analogsCard, "Feb 7th");
 
-let scrambleCard = document.getElementById('scramble');
-let scrambleDate = new LabelCard(scrambleCard, "Feb 10th");
+const scrambleLSM = new LocalStorageManager("ms", 11, 7);
+const scrambleCard = document.getElementById('scramble');
+const scrambleDate = new LabelCard(scrambleCard, `Feb 10th, ${scrambleLSM.getStreakLength()} day streak.`);

@@ -1,10 +1,12 @@
-import { GameCard, HintButton, shuffle, StatusPopUp, StartPopup, BluredPopup} from '../game_components.js';
+import { GameCard, HintButton, shuffle, StatusPopUp, StartPopup, BluredPopup, LocalStorageManager} from '../game_components.js';
 
 class Scramble {
-    constructor(parent, title, dispenserStrings = []) {
+    constructor(parent, LSM, id, title, dispenserStrings = []) {
         
         //Init instance variables
         this.parent = parent;
+        this.LSM = LSM;
+        this.id = id;
         this.won = false;
         this.score = 0;
         this.highScore = 0;
@@ -15,7 +17,6 @@ class Scramble {
 
         //Load dictionary
         this.baseURL = window.location.protocol + window.location.host;
-        console.log(this.baseURL);
         this.dictionaryURL = new URL("dictionary.json", this.baseURL);
         this.dictionary = [];
         this.#loadDictionaryFromUrl(this.dictionaryURL);
@@ -45,12 +46,6 @@ class Scramble {
             this.addDispenser(dispenserStrings[i]);
         }
 
-        //Create Score element
-        /*this.scoreElement = document.createElement("p");
-        this.scoreElement.classList.add("score");
-        this.scoreElement.innerText = "SCORE: 0, BEST: 0";
-        this.element.appendChild(this.scoreElement);*/
-        //Create Timer element
         this.timerElement = document.createElement("p");
         this.timerElement.classList.add("timer");
         this.timerElement.innerText = "0";
@@ -77,20 +72,11 @@ class Scramble {
         this.winTextElement = document.createElement("p");
         this.winPopup.element.appendChild(this.winTextElement);
 
-        //Create discard Button
-        /*this.discardButton = document.createElement("button");
-        this.discardButton.innerText = "DISCARD";
-        this.buttonsDiv.appendChild(this.discardButton);
-        this.discardButton.addEventListener("click", () => {
-            this.#discard();
-        });
-
-        //Create Enter Button
-        this.enterButton = new HintButton(0,5,"SUBMIT");
-        this.element.appendChild(this.enterButton.element);
-        this.enterButton.element.addEventListener("click", () => {
-            this.#submitWord();
-        });*/
+        //Check if already won
+        if(this.LSM.getWinStateByID(this.id)) {
+            this.startButton.element.remove();
+            this.#showSolution();
+        }
     }
 
     start() {
@@ -107,6 +93,14 @@ class Scramble {
         clearInterval(this.timerFunction);
         this.currentWordElement.classList.add('highlight');
         this.winTextElement.innerText = `YOU UNSCRAMBLED \"${this.currentWord}\" IN ${this.winDuration.toFixed(1)} SECONDS!`;
+        const gameData = {
+            "word" : this.currentWord,
+            "time" : this.winDuration.toFixed(1)
+        };
+        this.LSM.addGameToStreak(this.id);
+        this.LSM.setGameStateByID(this.id, gameData);
+        this.LSM.saveToLocalStorage();
+
         setTimeout(() => {
             this.winPopup.show();
         }, 750);
@@ -153,7 +147,6 @@ class Scramble {
                 this.currentWord = this.currentWord.slice(0,-1);
                 this.currentWordElement.textContent = this.currentWord;
             }
-            /*this.enterButton.setProgress(5+24*this.currentWord.length);*/
         }
     }
 
@@ -200,6 +193,16 @@ class Scramble {
             return word.length*2 - 4;
         }
         return 0;
+    }
+
+    #showSolution() {
+        const savedData = this.LSM.getGameStateByID(this.id);
+        if(savedData != null) {
+            this.currentWordElement.textContent = savedData['word'];
+            this.currentWordElement.classList.add('highlight');
+            this.winTextElement.innerText = `YOU UNSCRAMBLED \"${savedData['word']}\" IN ${savedData['time']} SECONDS!`;
+            this.winPopup.show();
+        }
     }
 
     async #loadDictionaryFromUrl(url) {
@@ -303,44 +306,47 @@ class Letter {
     }
 };
 
+const LSM = new LocalStorageManager('ms', 11, 7);
+LSM.setRememberChoice(true);
+
 const feb10 = document.getElementById("feb10");
-const s11 = new Scramble(feb10, "TUESDAY, FEBRUARY 10TH\nSCRAMBLE #11");
+const s11 = new Scramble(feb10, LSM, 11, "TUESDAY, FEBRUARY 10TH\nSCRAMBLE #11");
 s11.addDispenser('RCY');
 s11.addDispenser('DOC');
 s11.addDispenser('EMA');
 
 const feb9 = document.getElementById("feb9");
-const s10 = new Scramble(feb9, "MONDAY, FEBRUARY 9TH\nSCRAMBLE #10");
+const s10 = new Scramble(feb9, LSM, 10, "MONDAY, FEBRUARY 9TH\nSCRAMBLE #10");
 s10.addDispenser('ABO');
 s10.addDispenser('MIN');
 s10.addDispenser('DAL');
 
 const feb8 = document.getElementById("feb8");
-const s9 = new Scramble(feb8, "SUNDAY, FEBRUARY 8TH\nSCRAMBLE #9");
+const s9 = new Scramble(feb8, LSM, 9, "SUNDAY, FEBRUARY 8TH\nSCRAMBLE #9");
 s9.addDispenser('IAL');
 s9.addDispenser('UNV');
 s9.addDispenser('RED');
 
 const feb7 = document.getElementById("feb7");
-const s8 = new Scramble(feb7, "SATURDAY, FEBRUARY 7TH\nSCRAMBLE #8");
+const s8 = new Scramble(feb7, LSM, 8, "SATURDAY, FEBRUARY 7TH\nSCRAMBLE #8");
 s8.addDispenser('IAR');
 s8.addDispenser('DSC');
 s8.addDispenser('HGE');
 
 const feb6 = document.getElementById("feb6");
-const s7 = new Scramble(feb6, "FRIDAY, FEBRUARY 6TH\nSCRAMBLE #7");
+const s7 = new Scramble(feb6, LSM, 7, "FRIDAY, FEBRUARY 6TH\nSCRAMBLE #7");
 s7.addDispenser('FIT');
 s7.addDispenser('ESS');
 s7.addDispenser('RUL');
 
 const feb5 = document.getElementById("feb5");
-const s6 = new Scramble(feb5, "THURSDAY, FEBRUARY 5TH\nSCRAMBLE #6");
+const s6 = new Scramble(feb5, LSM, 6, "THURSDAY, FEBRUARY 5TH\nSCRAMBLE #6");
 s6.addDispenser('ETE');
 s6.addDispenser('MMA');
 s6.addDispenser('IDI');
 
 const feb4 = document.getElementById("feb4");
-const s5 = new Scramble(feb4, "WEDNESDAY, FEBRUARY 4TH\nSCRAMBLE #5");
+const s5 = new Scramble(feb4, LSM, 5, "WEDNESDAY, FEBRUARY 4TH\nSCRAMBLE #5");
 s5.addDispenser('FSO');
 s5.addDispenser('BRN');
 s5.addDispenser('IRT');
