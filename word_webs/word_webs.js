@@ -292,10 +292,14 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new LocalStorageManager('ww', 70, 7);
+const LSM = new LocalStorageManager('ww', 71, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
+
+const w71 = new Web(carousel, LSM, 71, "  RO ", "UTROT", "THURSDAY, FEBRUARY 12TH", "YOU CAN TEACH A MAN TO FISH, BUT YOU CAN'T _____ _____.");
+w71.addThread('21543', 1);
+w71.addThread('23415', 2);
 
 const w70 = new Web(carousel, LSM, 70, "ON  ", "ONOM", "WEDNESDAY, FEBRUARY 11TH", "PHEOBE AND HER SIBLINGS WERE JEALOUS OF GAIA'S ____ ____.");
 w70.addThread('4123', 1);
@@ -320,10 +324,6 @@ w66.addThread('24315', 2);
 const w65 = new Web(carousel, LSM, 65,  "  T CO", "LETACO", "FRIDAY, FEBRUARY 6TH", "WELL WE MIGHT NOT STRIKE GOLD, BUT WE CAN CERTAINLY ______ ____.");
 w65.addThread('165432', 1);
 w65.addThread('3415', 2);
-
-const w64 = new Web(carousel, LSM, 64,  "A  T", "AHWT", "THURSDAY, FEBRUARY 5TH", "\"____ ____\" - A CRITIQUE OF PUXSUTAWNEY PHIL'S PERCEPTION.");
-w64.addThread('3214', 1);
-w64.addThread('4213', 2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");
