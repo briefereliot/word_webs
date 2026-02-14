@@ -325,14 +325,6 @@ const w67 = new Web(carousel, LSM, 67,  "  S M", "LASPM", "SUNDAY, FEBRUARY 8TH"
 w67.addThread('43215', 1);
 w67.addThread('12543', 2);
 
-const w66 = new Web(carousel, LSM, 66,  "ER  S", "ERVOS", "SATURDAY, FEBRUARY 7TH", "MARS'S MARVELOUS MACHINES.");
-w66.addThread('51234', 1);
-w66.addThread('24315', 2);
-
-const w65 = new Web(carousel, LSM, 65,  "  T CO", "LETACO", "FRIDAY, FEBRUARY 6TH", "WELL WE MIGHT NOT STRIKE GOLD, BUT WE CAN CERTAINLY ______ ____.");
-w65.addThread('165432', 1);
-w65.addThread('3415', 2);
-
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");
     carousel.scrollTo(carousel.scrollWidth, 0);
