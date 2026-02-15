@@ -297,6 +297,10 @@ LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
 
+const w74 = new Web(carousel, LSM, 74, " DE  L", "ADENCL", "SUNDAY, FEBRUARY 15TH", "LUMIERE AND YANKEES ARE BOTH A PART OF THE ______ _____.");
+w74.addThread('514263', 2);
+w74.addThread('56123', 1);
+
 const w73 = new Web(carousel, LSM, 73, "  TE ", "OUTER", "SATURDAY, FEBRUARY 14TH", "THE PATH TO NIRVANA");
 w73.addThread('51234', 1);
 w73.addThread('23451', 2);
