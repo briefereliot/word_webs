@@ -292,10 +292,14 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new LocalStorageManager('ww', 75, 7);
+const LSM = new LocalStorageManager('ww', 76, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
+
+const w76 = new Web(carousel, LSM, 76, "SE A ", "SETAL", "TUESDAY, FEBRUARY 17TH", "BILLIONAIRE BACKED BEV'S");
+w76.addThread('15432', 1);
+w76.addThread('32154', 2);
 
 const w75 = new Web(carousel, LSM, 75, "T ID ", "TCIDE", "MONDAY, FEBRUARY 16TH", "\"YOU NEED TO IMPROVE YOUR BIBLIOGRAPHY!\" THE TEACHER PROCLAIMED.");
 w75.addThread('54321', 1);
@@ -320,18 +324,6 @@ w71.addThread('23415', 2);
 const w70 = new Web(carousel, LSM, 70, "ON  ", "ONOM", "WEDNESDAY, FEBRUARY 11TH", "PHEOBE AND HER SIBLINGS WERE JEALOUS OF GAIA'S ____ ____.");
 w70.addThread('4123', 1);
 w70.addThread('4312', 2);
-
-const w69 = new Web(carousel, LSM, 69, " TI ", "ETID", "TUESDAY, FEBRUARY 10TH", "WHAT THE TIKTOK NUTRITIONIST ORDERED");
-w69.addThread('2341', 1);
-w69.addThread('4312', 2);
-
-const w68 = new Web(carousel, LSM, 68, " OW  LE", "YOWOLLE", "MONDAY, FEBRUARY 9TH", "\"COLOR ME SHOCKED!\" SAID THE SCIENTIST IN RESPONSE TO THE MAMMOTH DISCOVERY.");
-w68.addThread('176543', 1);
-w68.addThread('324561', 2);
-
-const w67 = new Web(carousel, LSM, 67,  "  S M", "LASPM", "SUNDAY, FEBRUARY 8TH", "119:105");
-w67.addThread('43215', 1);
-w67.addThread('12543', 2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");

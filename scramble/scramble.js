@@ -259,6 +259,14 @@ class Letter {
     }
 };
 
+const feb17 = document.getElementById("feb17");
+const s14 = new Scramble(feb17);
+s14.addDispenser('ISGAP');
+s14.addDispenser('CDSCT');
+s14.addDispenser('OUENI');
+s14.addDispenser('AFLGT');
+s14.addDispenser('DRYIH');
+
 const feb15 = document.getElementById("feb15");
 const s13 = new Scramble(feb15);
 s13.addDispenser('AOLOD');
@@ -308,7 +316,7 @@ s8.addDispenser('BLUPI');
 s8.addDispenser('FCESC');
 s8.addDispenser('RNCRA');
 
-const feb3 = document.getElementById("feb3");
+/*const feb3 = document.getElementById("feb3");
 const s7 = new Scramble(feb3);
 s7.addDispenser('UBINO');
 s7.addDispenser('VSTIG');
@@ -316,7 +324,7 @@ s7.addDispenser('RTYPN');
 s7.addDispenser('SEVMN');
 s7.addDispenser('EIAED');
 
-/*const testCard6 = document.getElementById("test6");
+const testCard6 = document.getElementById("test6");
 const s6 = new Scramble(testCard6);
 s6.addDispenser('RNANC');
 s6.addDispenser('PZEGD');
