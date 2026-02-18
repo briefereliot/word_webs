@@ -306,8 +306,14 @@ class Letter {
     }
 };
 
-const LSM = new LocalStorageManager('ms', 18, 7);
+const LSM = new LocalStorageManager('ms', 19, 7);
 LSM.setRememberChoice(true);
+
+const feb18 = document.getElementById("feb18");
+const s19 = new Scramble(feb18, LSM, 19, "WEDNESDAY, FEBRUARY 18TH\nSCRAMBLE #18");
+s19.addDispenser('AMD');
+s19.addDispenser('RLO');
+s19.addDispenser('AIL');
 
 const feb17 = document.getElementById("feb17");
 const s18 = new Scramble(feb17, LSM, 18, "TUESDAY, FEBRUARY 17TH\nSCRAMBLE #18");
@@ -351,13 +357,13 @@ s12.addDispenser('EAG');
 s12.addDispenser('RRR');
 s12.addDispenser('ANE');
 
-const feb10 = document.getElementById("feb10");
+/*const feb10 = document.getElementById("feb10");
 const s11 = new Scramble(feb10, LSM, 11, "TUESDAY, FEBRUARY 10TH\nSCRAMBLE #11");
 s11.addDispenser('RCY');
 s11.addDispenser('DOC');
 s11.addDispenser('EMA');
 
-/*const feb9 = document.getElementById("feb9");
+const feb9 = document.getElementById("feb9");
 const s10 = new Scramble(feb9, LSM, 10, "MONDAY, FEBRUARY 9TH\nSCRAMBLE #10");
 s10.addDispenser('ABO');
 s10.addDispenser('MIN');
