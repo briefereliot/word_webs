@@ -300,6 +300,7 @@ const carousel = document.getElementById("carousel");
 const w77 = new Web(carousel, LSM, 77, "  T ", "MATE", "WEDNESDAY, FEBRUARY 18TH", "COWS, CHICKENS, AND PIGS, TO NAME A FEW.");
 w77.addThread('3214', 1);
 w77.addThread('1423', 2);
+w77.addSolution("EATM");
 
 const w76 = new Web(carousel, LSM, 76, "SE A ", "SETAL", "TUESDAY, FEBRUARY 17TH", "BILLIONAIRE BACKED BEV'S");
 w76.addThread('15432', 1);
