@@ -6,7 +6,7 @@ const wordWebsCard = document.getElementById('word-webs');
 const wordWebsDate = new LabelCard(wordWebsCard, `Feb 18th, ${wordWebsLSM.getStreakLength()} day streak.`);
 
 const analogsCard = document.getElementById('analogs');
-const analogsDate = new LabelCard(analogsCard, "Feb 14th");
+const analogsDate = new LabelCard(analogsCard, "Feb 18th");
 
 const scrambleLSM = new LocalStorageManager("ms", 19, 7);
 const scrambleCard = document.getElementById('scramble');
