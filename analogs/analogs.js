@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a19 = new Analogs(carousel, 'A TYPE OF', false);
+a19.addAllAndShuffle(true, 'studio', 'residence', 'rubber', 'bridge', 'repetition', 'draw', 'cloverleaf', 'interchange');
+
 const a18 = new Analogs(carousel, 'SAME PLURAL IRREGULARITY', false);
 a18.addAllAndShuffle(true, 'offspring', 'sheep', 'larva', 'alumna', 'loaf', 'self', 'mouse', 'die');
 
@@ -297,10 +300,10 @@ a14.addAllAndShuffle(false, 'duck', 'dive', 'hog', 'barrel', 'ant', 'march', 'de
 const a13 = new Analogs(carousel, 'JOINED BY O', false);
 a13.addAllAndShuffle(false, 'inc','me','earl','be','rest','ration','tramp','line');
 
-const a12 = new Analogs(carousel, 'LABLED', false);
+/*const a12 = new Analogs(carousel, 'LABLED', false);
 a12.addAllAndShuffle(false, 'PDO', 'champagne', 'USDA', 'beef', 'FCC', 'laptop', 'NFPA', 'propane');
 
-/*const a11 = new Analogs(carousel, 'BOTH FOUND IN _', false);
+const a11 = new Analogs(carousel, 'BOTH FOUND IN _', false);
 a11.addAllAndShuffle(true, 'blood', 'coal', 'beer', 'wolves', 'matches', 'words', 'ice', 'houses');
 
 const a10 = new Analogs(carousel, 'HOW THE GAME\'S PLAYED', false);
