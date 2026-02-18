@@ -280,7 +280,7 @@ class StatusPopUp {
 const carousel = document.getElementById("carousel");
 
 const a19 = new Analogs(carousel, 'A TYPE OF', false);
-a19.addAllAndShuffle(true, 'studio', 'residence', 'rubber', 'bridge', 'repetition', 'draw', 'cloverleaf', 'interchange');
+a19.addAllAndShuffle(false, 'studio', 'residence', 'rubber', 'bridge', 'repetition', 'draw', 'cloverleaf', 'interchange');
 
 const a18 = new Analogs(carousel, 'SAME PLURAL IRREGULARITY', false);
 a18.addAllAndShuffle(true, 'offspring', 'sheep', 'larva', 'alumna', 'loaf', 'self', 'mouse', 'die');
