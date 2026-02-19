@@ -17,7 +17,7 @@ class Scramble {
 
         //Load dictionary
         this.baseURL = window.location.protocol + window.location.host;
-        this.dictionaryURL = new URL("dictionary.json", this.baseURL);
+        this.dictionaryURL = new URL("dictionary2.json", this.baseURL);
         this.dictionary = [];
         this.#loadDictionaryFromUrl(this.dictionaryURL);
 
@@ -306,11 +306,17 @@ class Letter {
     }
 };
 
-const LSM = new LocalStorageManager('ms', 19, 7);
+const LSM = new LocalStorageManager('ms', 20, 7);
 LSM.setRememberChoice(true);
 
+const feb19 = document.getElementById("feb19");
+const s20 = new Scramble(feb19, LSM, 20, "THURSDAY, FEBRUARY 19TH\nSCRAMBLE #20");
+s20.addDispenser('RTE');
+s20.addDispenser('IAT');
+s20.addDispenser('IRS');
+
 const feb18 = document.getElementById("feb18");
-const s19 = new Scramble(feb18, LSM, 19, "WEDNESDAY, FEBRUARY 18TH\nSCRAMBLE #18");
+const s19 = new Scramble(feb18, LSM, 19, "WEDNESDAY, FEBRUARY 18TH\nSCRAMBLE #19");
 s19.addDispenser('AMD');
 s19.addDispenser('RLO');
 s19.addDispenser('AIL');
@@ -351,13 +357,13 @@ s13.addDispenser('ECN');
 s13.addDispenser('TAL');
 s13.addDispenser('SIO');
 
-const feb11 = document.getElementById("feb11");
+/*const feb11 = document.getElementById("feb11");
 const s12 = new Scramble(feb11, LSM, 12, "WEDNESDAY, FEBRUARY 11TH\nSCRAMBLE #12");
 s12.addDispenser('EAG');
 s12.addDispenser('RRR');
 s12.addDispenser('ANE');
 
-/*const feb10 = document.getElementById("feb10");
+const feb10 = document.getElementById("feb10");
 const s11 = new Scramble(feb10, LSM, 11, "TUESDAY, FEBRUARY 10TH\nSCRAMBLE #11");
 s11.addDispenser('RCY');
 s11.addDispenser('DOC');

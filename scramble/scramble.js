@@ -259,6 +259,14 @@ class Letter {
     }
 };
 
+const feb18 = document.getElementById("feb18");
+const s15 = new Scramble(feb18);
+s15.addDispenser('OSSOA');
+s15.addDispenser('WADML');
+s15.addDispenser('RLIIT');
+s15.addDispenser('ICION');
+s15.addDispenser('ONIND');
+
 const feb17 = document.getElementById("feb17");
 const s14 = new Scramble(feb17);
 s14.addDispenser('ISGAP');
