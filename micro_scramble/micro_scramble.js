@@ -17,7 +17,7 @@ class Scramble {
 
         //Load dictionary
         this.baseURL = window.location.protocol + window.location.host;
-        this.dictionaryURL = new URL("dictionary2.json", this.baseURL);
+        this.dictionaryURL = new URL("dictionary.json", this.baseURL);
         this.dictionary = [];
         this.#loadDictionaryFromUrl(this.dictionaryURL);
 
