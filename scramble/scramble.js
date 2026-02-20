@@ -259,117 +259,29 @@ class Letter {
     }
 };
 
-const feb18 = document.getElementById("feb18");
-const s15 = new Scramble(feb18);
-s15.addDispenser('OSSOA');
-s15.addDispenser('WADML');
-s15.addDispenser('RLIIT');
-s15.addDispenser('ICION');
-s15.addDispenser('ONIND');
+const feb20b = document.getElementById("feb20b");
+const s18 = new Scramble(feb20b);
+s18.addDispenser('IEABE');
+s18.addDispenser('TADUK');
+s18.addDispenser('SNKYE');
+s18.addDispenser('NGTRE');
+s18.addDispenser('VIOLR');
 
-const feb17 = document.getElementById("feb17");
-const s14 = new Scramble(feb17);
-s14.addDispenser('ISGAP');
-s14.addDispenser('CDSCT');
-s14.addDispenser('OUENI');
-s14.addDispenser('AFLGT');
-s14.addDispenser('DRYIH');
+const feb20a = document.getElementById("feb20a");
+const s17 = new Scramble(feb20a);
+s17.addDispenser('HLLEV');
+s17.addDispenser('ECBAT');
+s17.addDispenser('TRNRO');
+s17.addDispenser('IPMIE');
+s17.addDispenser('SEGTM');
 
-const feb15 = document.getElementById("feb15");
-const s13 = new Scramble(feb15);
-s13.addDispenser('AOLOD');
-s13.addDispenser('CYSNE');
-s13.addDispenser('RAITE');
-s13.addDispenser('HGUIT');
-s13.addDispenser('EDILD');
+const feb20 = document.getElementById("feb20");
+const s16 = new Scramble(feb20);
+s16.addDispenser('RHEIG');
+s16.addDispenser('IXUIS');
+s16.addDispenser('CTOAP');
+s16.addDispenser('PGRYD');
+s16.addDispenser('YNDSE');
 
-const feb12 = document.getElementById("feb12");
-const s12 = new Scramble(feb12);
-s12.addDispenser('HOLAD');
-s12.addDispenser('TICSE');
-s12.addDispenser('ORIAE');
-s12.addDispenser('ZMAJB');
-s12.addDispenser('NLYST');
-
-const feb10 = document.getElementById("feb10");
-const s11 = new Scramble(feb10);
-s11.addDispenser('URTIE');
-s11.addDispenser('OGRPH');
-s11.addDispenser('HBSND');
-s11.addDispenser('TAEDE');
-s11.addDispenser('POYRB');
-
-const feb8 = document.getElementById("feb8");
-const s10 = new Scramble(feb8);
-s10.addDispenser('HNING');
-s10.addDispenser('IABIE');
-s10.addDispenser('SYFIC');
-s10.addDispenser('ETBAM');
-s10.addDispenser('FAOLD');
-
-
-const feb5 = document.getElementById("feb6");
-const s9 = new Scramble(feb6);
-s9.addDispenser('RLYET');
-s9.addDispenser('EDOWD');
-s9.addDispenser('WECBI');
-s9.addDispenser('HAMNN');
-s9.addDispenser('TBISR');
-
-const feb4 = document.getElementById("feb4");
-const s8 = new Scramble(feb4);
-s8.addDispenser('EDBTL');
-s8.addDispenser('AFOIO');
-s8.addDispenser('BLUPI');
-s8.addDispenser('FCESC');
-s8.addDispenser('RNCRA');
-
-/*const feb3 = document.getElementById("feb3");
-const s7 = new Scramble(feb3);
-s7.addDispenser('UBINO');
-s7.addDispenser('VSTIG');
-s7.addDispenser('RTYPN');
-s7.addDispenser('SEVMN');
-s7.addDispenser('EIAED');
-
-const testCard6 = document.getElementById("test6");
-const s6 = new Scramble(testCard6);
-s6.addDispenser('RNANC');
-s6.addDispenser('PZEGD');
-s6.addDispenser('SOTMI');
-s6.addDispenser('ELROA');
-s6.addDispenser('IDAET');
-
-const testCard5 = document.getElementById("test5");
-const s5 = new Scramble(testCard5);
-s5.addDispenser('BRENI');
-s5.addDispenser('EMOAE');
-s5.addDispenser('TURTE');
-s5.addDispenser('AGLAI');
-s5.addDispenser('HNSPV');
-
-const testCard4 = document.getElementById("test4");
-const s4 = new Scramble(testCard4);
-s4.addDispenser('PBIUS');
-s4.addDispenser('REIIY');
-s4.addDispenser('ETVTO');
-s4.addDispenser('NOEAY');
-s4.addDispenser('COXHD');*/
-
-/*const testCard3 = document.getElementById("test3");
-const s3 = new Scramble(testCard3);
-s3.addDispenser('DOTIO');
-s3.addDispenser('REONP');
-s3.addDispenser('INHTM');
-s3.addDispenser('OELET');
-s3.addDispenser('PARIS');*/
-
-/*const testCard2 = document.getElementById("test2");
-const s2 = new Scramble(testCard2);
-s2.addDispenser('AREMI');
-s2.addDispenser('RLOOS');
-s2.addDispenser('DHETT');
-s2.addDispenser('STNVP');
-s2.addDispenser('IGITB');*/
 
 
