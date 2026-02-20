@@ -3,10 +3,11 @@
     --text: #a0a0a0;
     --disabled: #727272;
     --highlight: rgb(43, 43, 43);
-    --word-webs: rgb(184, 156, 0);
-    --analogs: rgb(154, 75, 170);
-    --scramble:  rgb(75, 148, 68);
-    --micro_scramble:  rgb(53, 141, 192);
+    --micro_scramble:  #FF595E;
+    --word-webs: #FFCA3A;
+    --scramble:  #8AC926;
+    --game_five: #1982C4;
+    --analogs: #6A4C93;
 }
 
 @media (prefers-color-scheme: light) {
@@ -15,10 +16,11 @@
         --text: black;
         --disabled:#929292;
         --highlight: rgb(182, 182, 182);
-        --word-webs: gold;
-        --analogs: rgb(255, 124, 246);
-        --scramble:  rgb(124, 219, 105);
-        --micro_scramble:  rgb(129, 198, 230);
+        --micro_scramble:  #FF595E;
+        --word-webs: #FFCA3A;
+        --scramble:  #8AC926;
+        --game_five: #1982C4;
+        --analogs: #6A4C93;
     }
 }
 
