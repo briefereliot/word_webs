@@ -163,11 +163,17 @@ button {
 @media (prefers-color-scheme: dark) {
     .highlight {
         color: var(--bg);
+        border-color: var(--border);
     }
 }
 
 .score {
     margin-bottom: 0.5rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    padding-top: 0.5rem;
 }
 
 p {

@@ -164,6 +164,7 @@ button {
 @media (prefers-color-scheme: dark) {
     .highlight {
         color: var(--bg);
+        border-color: var(--border);
     }
 }
 

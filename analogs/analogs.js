@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a20 = new Analogs(carousel, 'PUT TWO AND TWO TOGETHER', false);
+a20.addAllAndShuffle(false, 'high', 'iron', 'down on all', 'poster', 'a thing or', 'faced', 'some', 'way');
+
 const a19 = new Analogs(carousel, 'A TYPE OF', false);
 a19.addAllAndShuffle(false, 'studio', 'residence', 'rubber', 'bridge', 'repetition', 'draw', 'cloverleaf', 'interchange');
 
@@ -297,10 +300,10 @@ a15.addAllAndShuffle(true, 'cups', 'Pacific Rim', 'beast', 'plates', 'Mike Myers
 const a14 = new Analogs(carousel, 'ANIMAL ACTION', false);
 a14.addAllAndShuffle(false, 'duck', 'dive', 'hog', 'barrel', 'ant', 'march', 'deer', 'vault');
 
-const a13 = new Analogs(carousel, 'JOINED BY O', false);
+/*const a13 = new Analogs(carousel, 'JOINED BY O', false);
 a13.addAllAndShuffle(false, 'inc','me','earl','be','rest','ration','tramp','line');
 
-/*const a12 = new Analogs(carousel, 'LABLED', false);
+const a12 = new Analogs(carousel, 'LABLED', false);
 a12.addAllAndShuffle(false, 'PDO', 'champagne', 'USDA', 'beef', 'FCC', 'laptop', 'NFPA', 'propane');
 
 const a11 = new Analogs(carousel, 'BOTH FOUND IN _', false);

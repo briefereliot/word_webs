@@ -292,10 +292,14 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new LocalStorageManager('ww', 79, 7);
+const LSM = new LocalStorageManager('ww', 80, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
+
+const w80 = new Web(carousel, LSM, 80, " P  T", "SPART", "SATURDAY, FEBRUARY 21ST", "A RATCHET AND HOOKS ARE SOME.");
+w80.addThread('15432', 1);
+w80.addThread('23451', 2);
 
 const w79 = new Web(carousel, LSM, 79, "TI   ", "TIHSE", "FRIDAY, FEBRUARY 20TH", "THE INFAMOUS _____ _____, WHEN THIEVES STOLE A SOLID GOLD TOILET FROM A PALACE IN ENGLAND.");
 w79.addThread('43215', 1);
@@ -321,18 +325,6 @@ w75.addThread('23154', 2);
 const w74 = new Web(carousel, LSM, 74, " DE  L", "ADENCL", "SUNDAY, FEBRUARY 15TH", "LUMIERE AND YANKEES ARE BOTH A PART OF THE ______ _____.");
 w74.addThread('514263', 2);
 w74.addThread('56123', 1);
-
-const w73 = new Web(carousel, LSM, 73, "  TE ", "OUTER", "SATURDAY, FEBRUARY 14TH", "THE PATH TO NIRVANA");
-w73.addThread('51234', 1);
-w73.addThread('23451', 2);
-
-const w72 = new Web(carousel, LSM, 72, "AT  ", "ATGO", "FRIDAY, FEBRUARY 13TH", "A ROMAN MOUNTAINEER");
-w72.addThread('2431', 2);
-w72.addThread('3412', 1);
-
-const w71 = new Web(carousel, LSM, 71, "  RO ", "UTROT", "THURSDAY, FEBRUARY 12TH", "YOU CAN TEACH A MAN TO FISH, BUT YOU CAN'T _____ _____.");
-w71.addThread('21543', 1);
-w71.addThread('23415', 2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");

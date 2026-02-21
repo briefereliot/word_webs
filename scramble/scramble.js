@@ -145,6 +145,10 @@ class Scramble {
     }
 
     #discard() {
+        let wordScore = this.#getWordScore(this.currentWord);
+        if(wordScore > 0) {
+            this.addScore(wordScore);
+        }
         this.enterButton.setProgress(5);
         this.history.push(this.currentWord);
         this.currentWord = "";

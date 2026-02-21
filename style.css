@@ -3,11 +3,12 @@
     --text: #a0a0a0;
     --disabled: #727272;
     --highlight: rgb(43, 43, 43);
+    --border: #38383b;
     --micro_scramble:  #FF595E;
     --word-webs: #FFCA3A;
     --scramble:  #8AC926;
-    --game_five: #1982C4;
-    --analogs: #6A4C93;
+    --analogs: #2d8bc5;
+    --game_five: #7756a5;
 }
 
 @media (prefers-color-scheme: light) {
@@ -16,11 +17,12 @@
         --text: black;
         --disabled:#929292;
         --highlight: rgb(182, 182, 182);
+        --border: black;
         --micro_scramble:  #FF595E;
         --word-webs: #FFCA3A;
         --scramble:  #8AC926;
-        --game_five: #1982C4;
-        --analogs: #6A4C93;
+        --analogs: #2d8bc5;
+        --game_five: #7756a5;
     }
 }
 
@@ -98,7 +100,7 @@ li::scroll-marker {
   width: 0.5rem;
   height: 0.5rem;
   background-color: transparent;
-  border: 2px solid var(--text);
+  border: 2px solid var(--border);
   border-radius: 50%;
 }
 
@@ -128,7 +130,7 @@ li::scroll-marker:target-current {
     padding: 1rem;
     border-width: 4px;
     border-radius: 1rem;
-    border-color: var(--text);
+    border-color: var(--border);
     border-style: solid;
 }
 
@@ -149,6 +151,11 @@ li::scroll-marker:target-current {
     background-color: var(--scramble);
 }
 
+.scramble > h1 {
+    font-size: 2.5rem;
+    padding-top: 0.5rem;
+}
+
 .micro-scramble {
     background-color: var(--micro_scramble);
 }
@@ -160,7 +167,6 @@ li::scroll-marker:target-current {
 @media (prefers-color-scheme: dark) {
     #heading, .analogs, .word-webs, .scramble, .micro-scramble{
         color: var(--bg);
-        border-color: var(--text);
     }
 }
 
@@ -216,7 +222,7 @@ button {
     position: relative;
     background-color: var(--highlight);
     color: var(--text);
-    border: 2px solid var(--text);
+    border: 2px solid var(--border);
     font-size: 1rem;
     font-weight: 900;
     border-radius: 0.5rem;
@@ -229,7 +235,6 @@ button {
     button {
         background-color: var(--highlight);
         color: var(--bg);
-        border-color: var(--text);
     }
 }
 
@@ -291,7 +296,7 @@ button:disabled {
     padding: 1rem;
     width: 100%;
     height: 100%;
-    border-radius: inherit;
+    border-radius: calc(1rem - 4px);
     z-index: 1;
     display: flex;
     justify-content: center;
