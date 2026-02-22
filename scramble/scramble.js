@@ -263,6 +263,18 @@ class Letter {
     }
 };
 
+const feb22 = document.getElementById("feb22");
+const s19 = new Scramble(feb22);
+s19.addDispenser('USTID');
+s19.addDispenser('RSTLY');
+s19.addDispenser('NGLEF');
+s19.addDispenser('JOGRA');
+s19.addDispenser('EADUL');
+//readjusting -> sold -> gratefully
+//jungle -> stride -> softly -> gradual -> 0.5612069121833578
+//jungle -> roasts -> grated -> fluidly -> 0.5412972130047689
+//jungle -> storage -> druids -> flatly -> 0.14192460425393028
+
 const feb20b = document.getElementById("feb20b");
 const s18 = new Scramble(feb20b);
 s18.addDispenser('IEABE');
