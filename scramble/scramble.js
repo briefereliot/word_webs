@@ -263,6 +263,17 @@ class Letter {
     }
 };
 
+const feb23 = document.getElementById("feb23");
+const s20 = new Scramble(feb23);
+s20.addDispenser('CITSH');
+s20.addDispenser('OGLAU');
+s20.addDispenser('OLAED');
+s20.addDispenser('MPITR');
+s20.addDispenser('NOISL');
+//compilations -> goliaths -> ruled
+//coming -> topsoil -> trials -> hauled -> 0.3989
+//cooling -> taoism -> plaits -> hurled -> 0.0200
+
 const feb22 = document.getElementById("feb22");
 const s19 = new Scramble(feb22);
 s19.addDispenser('USTID');
