@@ -263,6 +263,17 @@ class Letter {
     }
 };
 
+const feb24 = document.getElementById("feb24");
+const s21 = new Scramble(feb24);
+s21.addDispenser('OEDCW');
+s21.addDispenser('COTES');
+s21.addDispenser('MRAES');
+s21.addDispenser('SNUPH');
+s21.addDispenser('ICSCE');
+//comics -> treason -> cusped -> eschew -> 0.1576
+//isomer -> conduct -> spaces -> eschew
+//microseconds -> teacups -> eschew -> 0.0447
+
 const feb23 = document.getElementById("feb23");
 const s20 = new Scramble(feb23);
 s20.addDispenser('CITSH');
