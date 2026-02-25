@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a21 = new Analogs(carousel, 'NATURAL EPONYMS', false);
+a21.addAllAndShuffle(false, 'tree', 'bank', 'butterfly', 'radio', 'penguin', 'the White House', 'vertebrate', 'book');
+
 const a20 = new Analogs(carousel, 'PUT TWO AND TWO TOGETHER', false);
 a20.addAllAndShuffle(false, 'high', 'iron', 'down on all', 'poster', 'a thing or', 'faced', 'some', 'way');
 
@@ -297,7 +300,7 @@ a16.addAllAndShuffle(false, 'flag of Italy', 'flag of Ireland', 'apple', 'orange
 const a15 = new Analogs(carousel, 'KEEP THE EE\'S', false);
 a15.addAllAndShuffle(true, 'cups', 'Pacific Rim', 'beast', 'plates', 'Mike Myers', 'pieces', 'exoskeleton', 'Verne Troyer');
 
-const a14 = new Analogs(carousel, 'ANIMAL ACTION', false);
+/*const a14 = new Analogs(carousel, 'ANIMAL ACTION', false);
 a14.addAllAndShuffle(false, 'duck', 'dive', 'hog', 'barrel', 'ant', 'march', 'deer', 'vault');
 
 /*const a13 = new Analogs(carousel, 'JOINED BY O', false);

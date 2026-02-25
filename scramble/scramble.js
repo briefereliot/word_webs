@@ -263,6 +263,17 @@ class Letter {
     }
 };
 
+const feb25 = document.getElementById("feb25");
+const s22 = new Scramble(feb25);
+s22.addDispenser('EIHAN');
+s22.addDispenser('OIIPA');
+s22.addDispenser('MVMEN');
+s22.addDispenser('LUTST');
+s22.addDispenser('TQDYE');
+//motive -> liquid -> payment -> hasten -> 0.625
+//movement -> liquidity -> pheasant -> 0.437
+//move -> mile -> thin -> quit -> sandy -> peat -> 0.71
+
 const feb24 = document.getElementById("feb24");
 const s21 = new Scramble(feb24);
 s21.addDispenser('OEDCW');

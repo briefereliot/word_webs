@@ -306,8 +306,14 @@ class Letter {
     }
 };
 
-const LSM = new LocalStorageManager('ms', 25, 7);
+const LSM = new LocalStorageManager('ms', 26, 7);
 LSM.setRememberChoice(true);
+
+const feb25 = document.getElementById("feb25");
+const s26 = new Scramble(feb25, LSM, 26, "WEDNESDAY, FEBRUARY 25TH\nSCRAMBLE #26");
+s26.addDispenser('UPN');
+s26.addDispenser('SBE');
+s26.addDispenser('OAS');
 
 const feb24 = document.getElementById("feb24");
 const s25 = new Scramble(feb24, LSM, 25, "TUESDAY, FEBRUARY 24TH\nSCRAMBLE #25");
@@ -345,116 +351,3 @@ s20.addDispenser('RTE');
 s20.addDispenser('IAT');
 s20.addDispenser('IRS');
 
-const feb18 = document.getElementById("feb18");
-const s19 = new Scramble(feb18, LSM, 19, "WEDNESDAY, FEBRUARY 18TH\nSCRAMBLE #19");
-s19.addDispenser('AMD');
-s19.addDispenser('RLO');
-s19.addDispenser('AIL');
-
-const feb17 = document.getElementById("feb17");
-const s18 = new Scramble(feb17, LSM, 18, "TUESDAY, FEBRUARY 17TH\nSCRAMBLE #18");
-s18.addDispenser('CRT');
-s18.addDispenser('EIN');
-s18.addDispenser('ASA');
-
-/*const feb16 = document.getElementById("feb16");
-const s17 = new Scramble(feb16, LSM, 17, "MONDAY, FEBRUARY 16TH\nSCRAMBLE #17");
-s17.addDispenser('HET');
-s17.addDispenser('CMI');
-s17.addDispenser('SRY');
-
-const feb15 = document.getElementById("feb15");
-const s16 = new Scramble(feb15, LSM, 16, "SUNDAY, FEBRUARY 15TH\nSCRAMBLE #16");
-s16.addDispenser('ROD');
-s16.addDispenser('EUR');
-s16.addDispenser('PCE');
-
-const feb14 = document.getElementById("feb14");
-const s15 = new Scramble(feb14, LSM, 15, "SATURDAY, FEBRUARY 14TH\nSCRAMBLE #15");
-s15.addDispenser('BRT');
-s15.addDispenser('SUC');
-s15.addDispenser('SIP');
-
-const feb13 = document.getElementById("feb13");
-const s14 = new Scramble(feb13, LSM, 14, "FRIDAY, FEBRUARY 13TH\nSCRAMBLE #14");
-s14.addDispenser('EEN');
-s14.addDispenser('NLI');
-s14.addDispenser('GGT');
-
-const feb12 = document.getElementById("feb12");
-const s13 = new Scramble(feb12, LSM, 13, "THURSDAY, FEBRUARY 12TH\nSCRAMBLE #13");
-s13.addDispenser('ECN');
-s13.addDispenser('TAL');
-s13.addDispenser('SIO');
-
-/*const feb11 = document.getElementById("feb11");
-const s12 = new Scramble(feb11, LSM, 12, "WEDNESDAY, FEBRUARY 11TH\nSCRAMBLE #12");
-s12.addDispenser('EAG');
-s12.addDispenser('RRR');
-s12.addDispenser('ANE');
-
-const feb10 = document.getElementById("feb10");
-const s11 = new Scramble(feb10, LSM, 11, "TUESDAY, FEBRUARY 10TH\nSCRAMBLE #11");
-s11.addDispenser('RCY');
-s11.addDispenser('DOC');
-s11.addDispenser('EMA');
-
-const feb9 = document.getElementById("feb9");
-const s10 = new Scramble(feb9, LSM, 10, "MONDAY, FEBRUARY 9TH\nSCRAMBLE #10");
-s10.addDispenser('ABO');
-s10.addDispenser('MIN');
-s10.addDispenser('DAL');
-
-const feb8 = document.getElementById("feb8");
-const s9 = new Scramble(feb8, LSM, 9, "SUNDAY, FEBRUARY 8TH\nSCRAMBLE #9");
-s9.addDispenser('IAL');
-s9.addDispenser('UNV');
-s9.addDispenser('RED');
-
-const feb7 = document.getElementById("feb7");
-const s8 = new Scramble(feb7, LSM, 8, "SATURDAY, FEBRUARY 7TH\nSCRAMBLE #8");
-s8.addDispenser('IAR');
-s8.addDispenser('DSC');
-s8.addDispenser('HGE');
-
-const feb6 = document.getElementById("feb6");
-const s7 = new Scramble(feb6, LSM, 7, "FRIDAY, FEBRUARY 6TH\nSCRAMBLE #7");
-s7.addDispenser('FIT');
-s7.addDispenser('ESS');
-s7.addDispenser('RUL');
-
-const feb5 = document.getElementById("feb5");
-const s6 = new Scramble(feb5, LSM, 6, "THURSDAY, FEBRUARY 5TH\nSCRAMBLE #6");
-s6.addDispenser('ETE');
-s6.addDispenser('MMA');
-s6.addDispenser('IDI');
-
-const feb4 = document.getElementById("feb4");
-const s5 = new Scramble(feb4, LSM, 5, "WEDNESDAY, FEBRUARY 4TH\nSCRAMBLE #5");
-s5.addDispenser('FSO');
-s5.addDispenser('BRN');
-s5.addDispenser('IRT');
-
-const feb3 = document.getElementById("feb3");
-const s4 = new Scramble(feb3, "TUESDAY, FEBRUARY 3RD\nSCRAMBLE #4");
-s4.addDispenser('RIT');
-s4.addDispenser('ISE');
-s4.addDispenser('DON');
-
-const feb2 = document.getElementById("feb2");
-const s3 = new Scramble(feb2, "MONDAY, FEBRUARY 2ND\nSCRAMBLE #3");
-s3.addDispenser('CUB');
-s3.addDispenser('HLE');
-s3.addDispenser('BYO');
-
-const testCard8 = document.getElementById("test8");
-const s2 = new Scramble(testCard8, "SUNDAY, FEBRUARY 1ST\nSCRAMBLE #2");
-s2.addDispenser('ENA');
-s2.addDispenser('AST');
-s2.addDispenser('CDN');
-
-const testCard7 = document.getElementById("test7");
-const s1 = new Scramble(testCard7, "SATURDAY, JANUARY 31ST\nSCRAMBLE #1");
-s1.addDispenser('ELU');
-s1.addDispenser('RSE');
-s1.addDispenser('CIV');*/

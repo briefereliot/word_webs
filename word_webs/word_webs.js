@@ -292,10 +292,14 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new LocalStorageManager('ww', 83, 7);
+const LSM = new LocalStorageManager('ww', 84, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
+
+const w84 = new Web(carousel, LSM, 84, "E R  ", "ESRUN", "WEDNESDAY, FEBRUARY 25TH", "EVERYONE KNOWS DOCTORS HAVE BAD HANDWRITING, BUT HAVE YOU HEARD OF _____ _____?");
+w84.addThread('54321', 1);
+w84.addThread('34512', 2);
 
 const w83 = new Web(carousel, LSM, 83, " RY ", "URYB", "TUESDAY, FEBRUARY 24TH", "A PIRATES TREASURE");
 w83.addThread('4123', 1);
@@ -321,10 +325,7 @@ const w78 = new Web(carousel, LSM, 78, " A I U E", "LATITUDE", "THURSDAY, FEBRUA
 w78.addThread('12345678', 1);
 w78.addThread('21543678', 2);
 
-const w77 = new Web(carousel, LSM, 77, "  T ", "MATE", "WEDNESDAY, FEBRUARY 18TH", "COWS, CHICKENS, AND PIGS, TO NAME A FEW.");
-w77.addThread('3214', 1);
-w77.addThread('1423', 2);
-w77.addSolution("EATM");
+
 
 
 
