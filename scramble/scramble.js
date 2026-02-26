@@ -263,6 +263,16 @@ class Letter {
     }
 };
 
+const feb26 = document.getElementById("feb26");
+const s23 = new Scramble(feb26);
+s23.addDispenser('PAEMY');
+s23.addDispenser('ERSRE');
+s23.addDispenser('COIEH');
+s23.addDispenser('IGNAR');
+s23.addDispenser('OTNAT');
+//cooperating -> seminary -> reheat -> 0.237
+//poetic -> oranges -> marine -> hearty -> 0.683
+
 const feb25 = document.getElementById("feb25");
 const s22 = new Scramble(feb25);
 s22.addDispenser('EIHAN');
