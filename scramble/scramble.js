@@ -263,6 +263,17 @@ class Letter {
     }
 };
 
+const feb27 = document.getElementById("feb27");
+const s24 = new Scramble(feb27);
+s24.addDispenser('AERIE');
+s24.addDispenser('LNOST');
+s24.addDispenser('DNEML');
+s24.addDispenser('CERNB');
+s24.addDispenser('ISIPS');
+//dancer -> linens -> mobiles -> priest -> 0.61
+//iceland -> sniper -> melons -> tribes -> 0.27
+//discernable -> innermost -> piles
+
 const feb26 = document.getElementById("feb26");
 const s23 = new Scramble(feb26);
 s23.addDispenser('PAEMY');
@@ -334,13 +345,13 @@ s17.addDispenser('TRNRO');
 s17.addDispenser('IPMIE');
 s17.addDispenser('SEGTM');
 
-const feb20 = document.getElementById("feb20");
+/*const feb20 = document.getElementById("feb20");
 const s16 = new Scramble(feb20);
 s16.addDispenser('RHEIG');
 s16.addDispenser('IXUIS');
 s16.addDispenser('CTOAP');
 s16.addDispenser('PGRYD');
 s16.addDispenser('YNDSE');
-
+*/
 
 
