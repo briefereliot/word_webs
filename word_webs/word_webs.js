@@ -292,10 +292,14 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new LocalStorageManager('ww', 86, 7);
+const LSM = new LocalStorageManager('ww', 87, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
+
+const w87 = new Web(carousel, LSM, 87, "  RE  TI", "VEREACTI", "SATURDAY, FEBRUARY 28TH", "THE DIFFERENCE BETWEEN ARTISTS AND CRITICS.");
+w87.addThread('63457812', 2);
+w87.addThread('34567812', 1);
 
 const w86 = new Web(carousel, LSM, 86, "  ET ", "ABETS", "FRIDAY, FEBRUARY 27TH", "LET THE DJ COOK.");
 w86.addThread('21543', 1);
@@ -320,10 +324,6 @@ w82.addThread('34512', 2);
 const w81 = new Web(carousel, LSM, 81, "  EA ", "OCEAN", "SUNDAY, FEBRUARY 22ND", "TAHITIAN TRIBAL TRANSPORT");
 w81.addThread('12345', 1);
 w81.addThread('24513', 2);
-
-const w80 = new Web(carousel, LSM, 80, " P  T", "SPART", "SATURDAY, FEBRUARY 21ST", "A RATCHET AND HOOKS ARE SOME.");
-w80.addThread('15432', 1);
-w80.addThread('23451', 2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");

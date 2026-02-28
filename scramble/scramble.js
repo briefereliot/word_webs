@@ -263,6 +263,16 @@ class Letter {
     }
 };
 
+const feb28 = document.getElementById("feb28");
+const s25 = new Scramble(feb28);
+s25.addDispenser('SAINE');
+s25.addDispenser('ERECK');
+s25.addDispenser('TITPE');
+s25.addDispenser('RMLBC');
+s25.addDispenser('FAAED');
+//frames -> retail -> cabinet -> pecked -> 0.70
+//streamline -> fabricate -> pecked -> 0.36
+
 const feb27 = document.getElementById("feb27");
 const s24 = new Scramble(feb27);
 s24.addDispenser('AERIE');
@@ -329,7 +339,7 @@ s19.addDispenser('EADUL');
 //jungle -> roasts -> grated -> fluidly -> 0.5412972130047689
 //jungle -> storage -> druids -> flatly -> 0.14192460425393028
 
-const feb20b = document.getElementById("feb20b");
+/*const feb20b = document.getElementById("feb20b");
 const s18 = new Scramble(feb20b);
 s18.addDispenser('IEABE');
 s18.addDispenser('TADUK');
@@ -337,7 +347,7 @@ s18.addDispenser('SNKYE');
 s18.addDispenser('NGTRE');
 s18.addDispenser('VIOLR');
 
-const feb20a = document.getElementById("feb20a");
+/*const feb20a = document.getElementById("feb20a");
 const s17 = new Scramble(feb20a);
 s17.addDispenser('HLLEV');
 s17.addDispenser('ECBAT');
