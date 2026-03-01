@@ -263,6 +263,16 @@ class Letter {
     }
 };
 
+const mar1 = document.getElementById("mar1");
+const s26 = new Scramble(mar1);
+s26.addDispenser('NEAST');
+s26.addDispenser('ESIEN');
+s26.addDispenser('CTRPO');
+s26.addDispenser('OORMD');
+s26.addDispenser('STHAE');
+//contest -> easiest -> orphan -> modest -> 0.65
+//necessitate -> harpoon -> stormed
+
 const feb28 = document.getElementById("feb28");
 const s25 = new Scramble(feb28);
 s25.addDispenser('SAINE');
@@ -327,7 +337,7 @@ s20.addDispenser('NOISL');
 //coming -> topsoil -> trials -> hauled -> 0.3989
 //cooling -> taoism -> plaits -> hurled -> 0.0200
 
-const feb22 = document.getElementById("feb22");
+/*const feb22 = document.getElementById("feb22");
 const s19 = new Scramble(feb22);
 s19.addDispenser('USTID');
 s19.addDispenser('RSTLY');
