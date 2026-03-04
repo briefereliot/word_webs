@@ -279,6 +279,9 @@ class StatusPopUp {
 
 const carousel = document.getElementById("carousel");
 
+const a23 = new Analogs(carousel, 'VERBS ARE ON THE MENU', false);
+a23.addAllAndShuffle(false, 'hut', 'stick', 'house', 'cake', 'shack', 'shake', 'castle', 'slide');
+
 const a22 = new Analogs(carousel, 'GOES INSIDE', false);
 a22.addAllAndShuffle(false, 'poker', 'hearth', 'blind', 'pot', 'hunter', 'blind', 'pot', 'bowl');
 
