@@ -263,6 +263,17 @@ class Letter {
     }
 };
 
+const mar5 = document.getElementById("mar5");
+const s27 = new Scramble(mar5);
+s27.addDispenser('NSICM');
+s27.addDispenser('KIATU');
+s27.addDispenser('DERLY');
+s27.addDispenser('ISRUS');
+s27.addDispenser('WHELO');
+//whisked -> linear -> suitor -> clumsy -> 0.37
+//whisker -> denial -> suitor -> clumsy
+//whisk -> inelastic -> murderously
+
 const mar1 = document.getElementById("mar1");
 const s26 = new Scramble(mar1);
 s26.addDispenser('NEAST');
@@ -326,7 +337,7 @@ s21.addDispenser('ICSCE');
 //isomer -> conduct -> spaces -> eschew
 //microseconds -> teacups -> eschew -> 0.0447
 
-const feb23 = document.getElementById("feb23");
+/*const feb23 = document.getElementById("feb23");
 const s20 = new Scramble(feb23);
 s20.addDispenser('CITSH');
 s20.addDispenser('OGLAU');

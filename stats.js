@@ -10,7 +10,7 @@ const wordWebsCard = document.getElementById('word-webs');
 const wordWebsDate = new LabelCard(wordWebsCard, `Mar 5th, ${wordWebsLSM.getStreakLength()} day streak.`);
 
 const scrambleCard = document.getElementById('scramble');
-const scrambleDate = new LabelCard(scrambleCard, "Mar 1st");
+const scrambleDate = new LabelCard(scrambleCard, "Mar 5th");
 
 const analogsCard = document.getElementById('analogs');
 const analogsDate = new LabelCard(analogsCard, "Mar 4th");
