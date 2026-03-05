@@ -292,10 +292,14 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new LocalStorageManager('ww', 89, 7);
+const LSM = new LocalStorageManager('ww', 90, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
+
+const w90 = new Web(carousel, LSM, 90, "L   E", "LATSE", "THURSDAY, MARCH 5TH", "STORIES YOU'VE HEARD A THOUSAND TIMES BEFORE");
+w90.addThread('43215', 1);
+w90.addThread('32154', 2);
 
 const w89 = new Web(carousel, LSM, 89, "  AC", "MEAC", "WEDNESDAY, MARCH 4TH", "\"IT'S THE BEST PEPPER SPRAY THIS SIDE OF THE MISSIPPI!\"");
 w89.addThread('3412', 1);
