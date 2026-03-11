@@ -306,50 +306,52 @@ class Letter {
     }
 };
 
-const LSM = new LocalStorageManager('ms', 32, 7);
+const LSM = new LocalStorageManager('ms', 38, 7);
 LSM.setRememberChoice(true);
 
+const mar11 = document.getElementById("mar11");
+const s38 = new Scramble(mar11, LSM, 38, "WEDNESDAY, MARCH 11TH\nSCRAMBLE #38");
+s38.addDispenser('SHT');
+s38.addDispenser('NCR');
+s38.addDispenser('PIE');
+
+const mar10 = document.getElementById("mar10");
+const s37 = new Scramble(mar10, LSM, 37, "TUESDAY, MARCH 10TH\nSCRAMBLE #37");
+s37.addDispenser('ITE');
+s37.addDispenser('ARB');
+s37.addDispenser('RAG');
+
+const mar9 = document.getElementById("mar9");
+const s36 = new Scramble(mar9, LSM, 36, "MONDAY, MARCH 9TH\nSCRAMBLE #36");
+s36.addDispenser('ING');
+s36.addDispenser('UAL');
+s36.addDispenser('BLI');
+
+const mar8 = document.getElementById("mar8");
+const s35 = new Scramble(mar8, LSM, 35, "SUNDAY, MARCH 8TH\nSCRAMBLE #35");
+s35.addDispenser('SHL');
+s35.addDispenser('HEO');
+s35.addDispenser('OUD');
+
+const mar7 = document.getElementById("mar7");
+const s34 = new Scramble(mar7, LSM, 34, "SATURDAY, MARCH 7TH\nSCRAMBLE #34");
+s34.addDispenser('MOO');
+s34.addDispenser('PHS');
+s34.addDispenser('ARU');
+
+const mar6 = document.getElementById("mar6");
+const s33 = new Scramble(mar6, LSM, 33, "FRIDAY, MARCH 6TH\nSCRAMBLE #33");
+s33.addDispenser('ORD');
+s33.addDispenser('UPS');
+s33.addDispenser('CBA');
+
 const mar5 = document.getElementById("mar5");
-const s32 = new Scramble(mar5, LSM, 32, "WEDNESDAY, MARCH 4TH\nSCRAMBLE #31");
+const s32 = new Scramble(mar5, LSM, 32, "THURSDAY, MARCH 5TH\nSCRAMBLE #32");
 s32.addDispenser('STU');
 s32.addDispenser('ITI');
 s32.addDispenser('NTE');
 
-const mar4 = document.getElementById("mar4");
-const s31 = new Scramble(mar4, LSM, 31, "WEDNESDAY, MARCH 4TH\nSCRAMBLE #31");
-s31.addDispenser('LND');
-s31.addDispenser('UNA');
-s31.addDispenser('PNE');
 
-const mar1 = document.getElementById("mar1");
-const s30 = new Scramble(mar1, LSM, 30, "SUNDAY, MARCH 1ST\nSCRAMBLE #30");
-s30.addDispenser('SHR');
-s30.addDispenser('IEE');
-s30.addDispenser('BOP');
-
-const feb28 = document.getElementById("feb28");
-const s29 = new Scramble(feb28, LSM, 29, "SATURDAY, FEBRUARY 28TH\nSCRAMBLE #29");
-s29.addDispenser('RAG');
-s29.addDispenser('PAE');
-s29.addDispenser('DIS');
-
-const feb27 = document.getElementById("feb27");
-const s28 = new Scramble(feb27, LSM, 28, "FRIDAY, FEBRUARY 27TH\nSCRAMBLE #28");
-s28.addDispenser('RPR');
-s28.addDispenser('INT');
-s28.addDispenser('EET');
-
-const feb26 = document.getElementById("feb26");
-const s27 = new Scramble(feb26, LSM, 27, "THRUSDAY, FEBRUARY 26TH\nSCRAMBLE #27");
-s27.addDispenser('PES');
-s27.addDispenser('USI');
-s27.addDispenser('ATO');
-
-const feb25 = document.getElementById("feb25");
-const s26 = new Scramble(feb25, LSM, 26, "WEDNESDAY, FEBRUARY 25TH\nSCRAMBLE #26");
-s26.addDispenser('UPN');
-s26.addDispenser('SBE');
-s26.addDispenser('OAS');
 
 
 

@@ -292,47 +292,40 @@ class Letter {
 //p1.addThread('56123',1);
 //p1.addThread('1246',2);
 
-const LSM = new LocalStorageManager('ww', 90, 7);
+const LSM = new LocalStorageManager('ww', 96, 7);
 LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
+
+const w96 = new Web(carousel, LSM, 96, "   ER", "GNEER", "WEDNESDAY, MARCH 11TH", "MAKER OF CLOROPHYLL");
+w96.addThread('15432', 1);
+w96.addThread('1324', 2);
+
+const w95 = new Web(carousel, LSM, 95, "  SE ", "TTSEA", "TUESDAY, MARCH 10TH", "THE UN SECURITY COUNCIL HAS FIFTEEN");
+w95.addThread('32514', 2);
+w95.addThread('3451', 1);
+
+const w94 = new Web(carousel, LSM, 94, "A G L", "ARGEL", "MONDAY, MARCH 9TH", "DESCRIPTIONS OF A CROWN");
+w94.addThread('51234', 1);
+w94.addThread('24315', 2);
+
+const w93 = new Web(carousel, LSM, 93, "I   RB", "ITSORB", "SUNDAY, MARCH 8TH", "THE RESTAURANT AT THE END OF THE UNIVERSE");
+w93.addThread('45612', 1);
+w93.addThread('613254', 2);
+
+const w92 = new Web(carousel, LSM, 92, "   HT", "RIGHT", "SATURDAY, MARCH 7TH", "SOMETHING A FORESTER CHECKS FOR");
+w92.addThread('12345', 1);
+w92.addThread('32154', 2);
+
+const w91 = new Web(carousel, LSM, 91, " W R D", "SWORLD", "FRIDAY, MARCH 6TH", "NO KINGS, BUT WHAT ABOUT _____ _____?");
+w91.addThread('23456', 1);
+w91.addThread('53461', 2);
 
 const w90 = new Web(carousel, LSM, 90, "L   E", "LATSE", "THURSDAY, MARCH 5TH", "STORIES YOU'VE HEARD A THOUSAND TIMES BEFORE");
 w90.addThread('43215', 1);
 w90.addThread('32154', 2);
 
-const w89 = new Web(carousel, LSM, 89, "  AC", "MEAC", "WEDNESDAY, MARCH 4TH", "\"IT'S THE BEST PEPPER SPRAY THIS SIDE OF THE MISSIPPI!\"");
-w89.addThread('3412', 1);
-w89.addThread('1342', 2);
 
-const w88 = new Web(carousel, LSM, 88, "P   ", "POLY", "SUNDAY, MARCH 1ST", "FISHING FOR A THIRD WITH ONLY HALF THE PICTURE");
-w88.addThread('1234', 1);
-w88.addThread('1324', 2);
-w88.addSolution('PLOY');
-
-const w87 = new Web(carousel, LSM, 87, "  RE  TI", "VEREACTI", "SATURDAY, FEBRUARY 28TH", "THE DIFFERENCE BETWEEN ARTISTS AND CRITICS.");
-w87.addThread('63457812', 2);
-w87.addThread('34567812', 1);
-
-const w86 = new Web(carousel, LSM, 86, "  ET ", "ABETS", "FRIDAY, FEBRUARY 27TH", "LET THE DJ COOK.");
-w86.addThread('21543', 1);
-w86.addThread('23145', 2);
-
-const w85 = new Web(carousel, LSM, 85, "L E ", "LIEV", "THURSDAY, FEBRUARY 26TH", "AN OIL COMPANY'S GREEN-WASHING CAMPAIGN");
-w85.addThread('3421', 2);
-w85.addThread('4321', 1);
-
-const w84 = new Web(carousel, LSM, 84, "E R  ", "ESRUN", "WEDNESDAY, FEBRUARY 25TH", "EVERYONE KNOWS DOCTORS HAVE BAD HANDWRITING, BUT HAVE YOU HEARD OF _____ _____?");
-w84.addThread('54321', 1);
-w84.addThread('34512', 2);
-
-const w83 = new Web(carousel, LSM, 83, " RY ", "URYB", "TUESDAY, FEBRUARY 24TH", "A PIRATES TREASURE");
-w83.addThread('4123', 1);
-w83.addThread('2143', 2);
-
-const w82 = new Web(carousel, LSM, 82, " H  R", "THMIR", "MONDAY, FEBRUARY 23RD", "WHEN YOUR FRIENDS LAUGH AT YOUR NEW HAIRCUT");
-w82.addThread('1543', 1);
-w82.addThread('34512', 2);
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");
