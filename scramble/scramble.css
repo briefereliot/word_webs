@@ -11,6 +11,14 @@
 
 body {
     touch-action: manipulation;
+    /*prevent text selection*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari, Chrome, Android */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standard syntax */
+    cursor: default; /* Optional: changes the cursor from a text-selection caret to a default arrow */
 }
 
 .game {

@@ -1,11 +1,15 @@
-import { GameCard, HintButton, shuffle, StatusPopUp} from '../game_components.js';
+import { GameCard, HintButton, StatusPopUp} from '../game_components.js';
 
 class Scramble {
-    constructor(parent, dispenserStrings = [],  svgNS = 'http://www.w3.org/2000/svg') {
+
+    static parent = undefined;
+
+    constructor(title, dispenserStrings = [], parent = undefined) {
         
         //Init instance variables
-        this.svgNS = svgNS;
-        this.parent = parent;
+        if(parent == undefined) this.parent = Scramble.parent;
+        else this.parent = parent;
+        this.title = title;
         this.won = false;
         this.score = 0;
         this.highScore = 0;
@@ -21,20 +25,21 @@ class Scramble {
         this.#loadDictionaryFromUrl(this.dictionaryURL);
 
         //Create game element
-        this.element = document.createElement("div");
-        this.element.classList.add("scramble-game");
+        this.card = new GameCard(this.parent, false, false);
+        this.card.setTopText(this.title);
+        this.card.showTopText();
+        this.card.gameElement.classList.add("scramble-game");
 
         //Create current word
         this.currentWordElement = document.createElement("p");
         this.currentWordElement.classList.add("current-word");
         this.currentWordElement.innerText = "_";
-        this.element.appendChild(this.currentWordElement);
-        this.parent.appendChild(this.element);
+        this.card.gameElement.appendChild(this.currentWordElement);
 
         //Create dispensers
         this.dispensersDiv = document.createElement("div");
         this.dispensersDiv.classList.add("dispensers-div");
-        this.element.appendChild(this.dispensersDiv);
+        this.card.gameElement.appendChild(this.dispensersDiv);
         for(let i = 0; i < dispenserStrings.length; i++) {
             this.addDispenser(dispenserStrings[i]);
         }
@@ -43,12 +48,12 @@ class Scramble {
         this.scoreElement = document.createElement("p");
         this.scoreElement.classList.add("score");
         this.scoreElement.innerText = "SCORE: 0, BEST: 0";
-        this.element.appendChild(this.scoreElement);
+        this.card.gameElement.appendChild(this.scoreElement);
 
         //Create Buttons div
         this.buttonsDiv = document.createElement("div");
         this.buttonsDiv.classList.add("buttons-div", "row");
-        this.element.appendChild(this.buttonsDiv);
+        this.card.gameElement.appendChild(this.buttonsDiv);
 
         //Create Undo Button
         this.undoButton = document.createElement("button");
@@ -68,7 +73,7 @@ class Scramble {
 
         //Create Enter Button
         this.enterButton = new HintButton(0,5,"SUBMIT");
-        this.element.appendChild(this.enterButton.element);
+        this.card.gameElement.appendChild(this.enterButton.element);
         this.enterButton.element.addEventListener("click", () => {
             this.#submitWord();
         });
@@ -136,7 +141,7 @@ class Scramble {
             this.addScore(wordScore);
         } else {
             console.log(`${this.currentWord} is not a valid word`);
-                    let popUp = new StatusPopUp(this.element, "NOT IN WORD LIST", 1);
+                    let popUp = new StatusPopUp(this.card.gameElement, "NOT IN WORD LIST", 1);
         }
         this.enterButton.setProgress(5);
         this.history.push(this.currentWord);
@@ -263,8 +268,17 @@ class Letter {
     }
 };
 
-const mar5 = document.getElementById("mar5");
-const s27 = new Scramble(mar5);
+const carousel = document.getElementById("carousel");
+Scramble.parent = carousel;
+
+const s28 = new Scramble("THURSDAY, MARCH 12TH\nBIG SCRAMBLE #28");
+s28.addDispenser('RANMS');
+s28.addDispenser('ONLYC');
+s28.addDispenser('GERAE');
+s28.addDispenser('ENLDO');
+s28.addDispenser('ETISO');
+
+const s27 = new Scramble("THURSDAY, MARCH 5TH\nBIG SCRAMBLE #27");
 s27.addDispenser('NSICM');
 s27.addDispenser('KIATU');
 s27.addDispenser('DERLY');
@@ -274,8 +288,7 @@ s27.addDispenser('WHELO');
 //whisker -> denial -> suitor -> clumsy
 //whisk -> inelastic -> murderously
 
-const mar1 = document.getElementById("mar1");
-const s26 = new Scramble(mar1);
+const s26 = new Scramble("SUNDAY, MARCH 1ST\nBIG SCRAMBLE #26");
 s26.addDispenser('NEAST');
 s26.addDispenser('ESIEN');
 s26.addDispenser('CTRPO');
@@ -284,7 +297,7 @@ s26.addDispenser('STHAE');
 //contest -> easiest -> orphan -> modest -> 0.65
 //necessitate -> harpoon -> stormed
 
-const feb28 = document.getElementById("feb28");
+/*const feb28 = document.getElementById("feb28");
 const s25 = new Scramble(feb28);
 s25.addDispenser('SAINE');
 s25.addDispenser('ERECK');

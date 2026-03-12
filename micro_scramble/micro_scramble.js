@@ -1,11 +1,17 @@
 import { GameCard, HintButton, shuffle, StatusPopUp, StartPopup, BluredPopup, LocalStorageManager} from '../game_components.js';
 
 class Scramble {
-    constructor(parent, LSM, id, title, dispenserStrings = []) {
+
+    static parent = undefined;
+    static LSM = undefined;
+
+    constructor(id, title, dispenserStrings = [], parent = undefined, LSM = undefined,) {
         
         //Init instance variables
-        this.parent = parent;
-        this.LSM = LSM;
+        if(parent == undefined) this.parent = Scramble.parent;
+        else this.parent = parent;
+        if(LSM == undefined) this.LSM = Scramble.LSM;
+        else this.LSM = LSM;
         this.id = id;
         this.won = false;
         this.score = 0;
@@ -21,12 +27,14 @@ class Scramble {
         this.dictionary = [];
         this.#loadDictionaryFromUrl(this.dictionaryURL);
 
-        //Create game element
-        this.element = document.createElement("div");
-        this.element.classList.add("scramble-game");
+        //Create DOM elements
+        this.card = new GameCard(this.parent, false, false);
+        this.card.setTopText(this.title);
+        this.card.showTopText();
+        this.card.gameElement.classList.add("scramble-game");
 
         //Create Start button
-        this.startButton = new StartPopup(this.parent.parentNode, this.start.bind(this));
+        this.startButton = new StartPopup(this.card.element, this.start.bind(this));
         this.titleP = document.createElement("p");
         this.titleP.innerText =this.title ;
         this.startButton.element.prepend(this.titleP);
@@ -35,13 +43,12 @@ class Scramble {
         this.currentWordElement = document.createElement("p");
         this.currentWordElement.classList.add("current-word");
         this.currentWordElement.innerText = "_";
-        this.element.appendChild(this.currentWordElement);
-        this.parent.appendChild(this.element);
+        this.card.gameElement.appendChild(this.currentWordElement);
 
         //Create dispensers
         this.dispensersDiv = document.createElement("div");
         this.dispensersDiv.classList.add("dispensers-div");
-        this.element.appendChild(this.dispensersDiv);
+        this.card.gameElement.appendChild(this.dispensersDiv);
         for(let i = 0; i < dispenserStrings.length; i++) {
             this.addDispenser(dispenserStrings[i]);
         }
@@ -49,7 +56,7 @@ class Scramble {
         this.timerElement = document.createElement("p");
         this.timerElement.classList.add("timer");
         this.timerElement.innerText = "0";
-        this.element.appendChild(this.timerElement);
+        this.card.gameElement.appendChild(this.timerElement);
         this.startTime = 0;
         this.winDuration = 0;
         this.timerFunction = null;
@@ -57,7 +64,7 @@ class Scramble {
         //Create Buttons div
         this.buttonsDiv = document.createElement("div");
         this.buttonsDiv.classList.add("buttons-div", "row");
-        this.element.appendChild(this.buttonsDiv);
+        this.card.gameElement.appendChild(this.buttonsDiv);
 
         //Create Undo Button
         this.undoButton = document.createElement("button");
@@ -68,7 +75,7 @@ class Scramble {
         });
 
         //Create win popup
-        this.winPopup = new BluredPopup(this.parent.parentNode);
+        this.winPopup = new BluredPopup(this.card.element);
         this.winTextElement = document.createElement("p");
         this.winPopup.element.appendChild(this.winTextElement);
 
@@ -306,47 +313,52 @@ class Letter {
     }
 };
 
+const carousel = document.getElementById("carousel")
+
 const LSM = new LocalStorageManager('ms', 39, 7);
 LSM.setRememberChoice(true);
 
+Scramble.parent = carousel;
+Scramble.LSM = LSM;
+
 const mar12 = document.getElementById("mar12");
-const s39 = new Scramble(mar12, LSM, 39, "THURSDAY, MARCH 12TH\nSCRAMBLE #39");
+const s39 = new Scramble(39, "THURSDAY, MARCH 12TH\nSCRAMBLE #39");
 s39.addDispenser('GGG');
 s39.addDispenser('RET');
 s39.addDispenser('AAE');
 
 const mar11 = document.getElementById("mar11");
-const s38 = new Scramble(mar11, LSM, 38, "WEDNESDAY, MARCH 11TH\nSCRAMBLE #38");
+const s38 = new Scramble(38, "WEDNESDAY, MARCH 11TH\nSCRAMBLE #38");
 s38.addDispenser('SHT');
 s38.addDispenser('NCR');
 s38.addDispenser('PIE');
 
 const mar10 = document.getElementById("mar10");
-const s37 = new Scramble(mar10, LSM, 37, "TUESDAY, MARCH 10TH\nSCRAMBLE #37");
+const s37 = new Scramble(37, "TUESDAY, MARCH 10TH\nSCRAMBLE #37");
 s37.addDispenser('ITE');
 s37.addDispenser('ARB');
 s37.addDispenser('RAG');
 
 const mar9 = document.getElementById("mar9");
-const s36 = new Scramble(mar9, LSM, 36, "MONDAY, MARCH 9TH\nSCRAMBLE #36");
+const s36 = new Scramble(36, "MONDAY, MARCH 9TH\nSCRAMBLE #36");
 s36.addDispenser('ING');
 s36.addDispenser('UAL');
 s36.addDispenser('BLI');
 
 const mar8 = document.getElementById("mar8");
-const s35 = new Scramble(mar8, LSM, 35, "SUNDAY, MARCH 8TH\nSCRAMBLE #35");
+const s35 = new Scramble(35, "SUNDAY, MARCH 8TH\nSCRAMBLE #35");
 s35.addDispenser('SHL');
 s35.addDispenser('HEO');
 s35.addDispenser('OUD');
 
 const mar7 = document.getElementById("mar7");
-const s34 = new Scramble(mar7, LSM, 34, "SATURDAY, MARCH 7TH\nSCRAMBLE #34");
+const s34 = new Scramble(34, "SATURDAY, MARCH 7TH\nSCRAMBLE #34");
 s34.addDispenser('MOO');
 s34.addDispenser('PHS');
 s34.addDispenser('ARU');
 
 const mar6 = document.getElementById("mar6");
-const s33 = new Scramble(mar6, LSM, 33, "FRIDAY, MARCH 6TH\nSCRAMBLE #33");
+const s33 = new Scramble(33, "FRIDAY, MARCH 6TH\nSCRAMBLE #33");
 s33.addDispenser('ORD');
 s33.addDispenser('UPS');
 s33.addDispenser('CBA');
