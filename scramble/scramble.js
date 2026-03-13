@@ -455,7 +455,7 @@ class Letter {
 };
 
 
-const LSM = new LocalStorageManager('ms', 39, 7);
+const LSM = new LocalStorageManager('bs', 39, 7);
 LSM.setRememberChoice(true);
 Scramble.LSM = LSM;
 
