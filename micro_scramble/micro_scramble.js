@@ -1,4 +1,4 @@
-import { GameCard, HintButton, shuffle, StatusPopUp, StartPopup, BluredPopup, LocalStorageManager} from '../game_components.js';
+import { GameCard, StatusPopUp, StartPopup, BluredPopup, LocalStorageManager} from '../game_components.js';
 
 class Scramble {
 

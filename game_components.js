@@ -28,7 +28,6 @@ export class LocalStorageManager {
         if(this.gameState === null) {
             this.gameState = {};
         }
-        console.log(this.gameState);
 
         
         this.streak = JSONParseSafe(localStorage.getItem(this.streakKey));
@@ -39,7 +38,6 @@ export class LocalStorageManager {
             this.streak['wonIDs'] = [];
             this.streakLength = 0;
         }
-        console.log(this.streak);
         
         //remove all game states past lifeTimeDays age and re-save
         Object.keys(this.gameState).forEach((key) => {
@@ -69,6 +67,7 @@ export class LocalStorageManager {
 
     getGameStateByID(id, defaultState = null) {
         try {
+            if(this.gameState[id] == undefined) return defaultState;
             return this.gameState[id];
         } catch (e) {
             console.error(e);
@@ -103,7 +102,6 @@ export class LocalStorageManager {
             let currentStreakStart = null
             let longestStreak = 0;
             for(let i = sequentialIDs.length - 1; i>= 0; i--) {
-                console.log(i);
                 //find the oldest consecutively won 
                 /*if(this.streak['startID'] - 1 === sequentialIDs[i] || this.streak['startID'] === null) {
                     this.streak['startID'] = sequentialIDs[i];
@@ -143,7 +141,6 @@ export class LocalStorageManager {
     }
 
     addGameToStreak(id) {
-        console.log(localStorage);
         if(this.getRememberChoice() && !this.streak['wonIDs'].includes(id)) {
             this.streak['wonIDs'].push(id);
             this.#updateStreak();

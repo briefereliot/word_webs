@@ -288,7 +288,7 @@ button:disabled {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background-color: rgb(255 255 255 / 10%);
+    background-color: color-mix(in srgb, var(--bg) 50%, transparent);
     backdrop-filter: blur(10px);
     position: absolute;
     top: 0;

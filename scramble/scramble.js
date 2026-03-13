@@ -1,14 +1,20 @@
-import { GameCard, HintButton, StatusPopUp} from '../game_components.js';
+import { GameCard, HintButton, StatusPopUp, BluredPopup, LocalStorageManager, StartPopup} from '../game_components.js';
 
 class Scramble {
 
     static parent = undefined;
+    static LSM = undefined;
+    static xMark = "☒";
+    static checkMark = "☑";
 
-    constructor(title, dispenserStrings = [], parent = undefined) {
+    constructor(id, title, solution = undefined, solutionFour = undefined, solutionThree = undefined, dispenserStrings = [], parent = undefined, LSM = undefined) {
         
         //Init instance variables
         if(parent == undefined) this.parent = Scramble.parent;
         else this.parent = parent;
+        if(LSM == undefined) this.LSM = Scramble.LSM;
+        else this.LSM = LSM;
+        this.id = id;
         this.title = title;
         this.won = false;
         this.score = 0;
@@ -16,10 +22,20 @@ class Scramble {
         this.dispensers = [];
         this.currentWord = "";
         this.history = [];
+        this.gameState = this.LSM.getGameStateByID(this.id, {
+            foundSolution : false,
+            solution : "",
+            foundSolutionFour : false,
+            solutionFour : "",
+            foundSolutionThree : false,
+            solutionThree : "",
+            longestWord : "___"
+        });
+
+        console.log(this.gameState);
 
         //Load dictionary
         this.baseURL = window.location.protocol + window.location.host;
-        console.log(this.baseURL);
         this.dictionaryURL = new URL("dictionary.json", this.baseURL);
         this.dictionary = [];
         this.#loadDictionaryFromUrl(this.dictionaryURL);
@@ -29,6 +45,108 @@ class Scramble {
         this.card.setTopText(this.title);
         this.card.showTopText();
         this.card.gameElement.classList.add("scramble-game");
+
+        //Create Stats Popup
+        this.statsPopup = new BluredPopup(this.card.element);
+        this.titleP = document.createElement("p");
+        this.titleP.innerText =this.title ;
+
+        //Longest Word
+        this.longestWordP = document.createElement("p");
+        this.longestWordP.innerText = `LONGEST WORD: ${this.gameState.longestWord}`;
+
+        //Any Solution
+        this.foundSolutionP = document.createElement("p");
+        this.foundSolutionP.innerText = "☒ FIND A SOLUTION";
+        if(this.gameState.foundSolution) this.foundSolutionP.innerText = "☑ FOUND A SOLUTION";
+        this.solutionP = document.createElement("p");
+        this.solutionButton = document.createElement("button");
+        this.solutionButton.innerText = "REVEAL SOLUTION";
+        this.solutionP.hidden = true;
+        this.solutionButton.hidden = true;
+        if(this.gameState.solution != "") {
+            this.solutionP.innerText = this.gameState.solution;
+            this.solutionP.hidden = false;
+        } else if(solution != undefined){
+            this.solutionP.innerText = solution;
+            this.solutionButton.addEventListener('click', () => {
+                this.solutionButton.hidden = true;
+                this.solutionP.hidden = false;
+            });
+            this.solutionButton.hidden = false;
+        }
+
+        //Four word solution
+        this.foundFourSolutionP = document.createElement("p");
+        this.foundFourSolutionP.innerText = "☒ FIND A FOUR WORD SOLUTION";
+        if(this.gameState.foundSolutionFour) this.foundFourSolutionP.innerText = "☑ FOUND A FOUR WORD SOLUTION";
+        this.solutionFourP = document.createElement("p");
+        this.solutionFourButton = document.createElement("button");
+        this.solutionFourButton.innerText = "REVEAL SOLUTION";
+        this.solutionFourP.hidden = true;
+        this.solutionFourButton.hidden = true;
+        if(this.gameState.solutionFour != "") {
+            this.solutionFourP.innerText = this.gameState.solutionFour;
+            this.solutionFourP.hidden = false;
+        } else if(solutionFour != undefined){
+            this.solutionFourP.innerText = solutionFour;
+            this.solutionFourButton.addEventListener('click', () => {
+                this.solutionFourButton.hidden = true;
+                this.solutionFourP.hidden = false;
+            });
+            this.solutionFourButton.hidden = false;
+        }
+
+        //Three word solution
+        this.foundThreeSolutionP = document.createElement("p");
+        this.foundThreeSolutionP.innerText = "☒ FIND A THREE WORD SOLUTION";
+        if(this.gameState.foundSolutionThree) this.foundThreeSolutionP.innerText = "☑ FOUND A THREE WORD SOLUTION";
+        this.solutionThreeP = document.createElement("p");
+        this.solutionThreeButton = document.createElement("button");
+        this.solutionThreeButton.innerText = "REVEAL SOLUTION";
+        this.solutionThreeP.hidden = true;
+        this.solutionThreeButton.hidden = true;
+        if(this.gameState.solutionThree != "") {
+            this.solutionThreeP.innerText = this.gameState.solutionThree;
+            this.solutionThreeP.hidden = false;
+        } else if(solutionThree != undefined){
+            this.solutionThreeP.innerText = solutionThree;
+            this.solutionThreeButton.addEventListener('click', () => {
+                this.solutionThreeButton.hidden = true;
+                this.solutionThreeP.hidden = false;
+            });
+            this.solutionThreeButton.hidden = false;
+        }
+
+        this.statsCloseButton = document.createElement("button");
+        this.statsCloseButton.innerText = "CLOSE";
+        this.statsCloseButton.addEventListener('click', () => {
+            this.statsPopup.hide();
+        })
+
+        this.statsPopup.element.append(this.titleP);
+        this.statsPopup.element.append(document.createElement("br"));
+
+        this.statsPopup.element.append(this.longestWordP);
+        this.statsPopup.element.append(document.createElement("br"));
+
+        this.statsPopup.element.append(this.foundSolutionP);
+        this.statsPopup.element.append(this.solutionP);
+        this.statsPopup.element.append(this.solutionButton);
+        this.statsPopup.element.append(document.createElement("br"));
+
+        this.statsPopup.element.append(this.foundFourSolutionP);
+        this.statsPopup.element.append(this.solutionFourP);
+        this.statsPopup.element.append(this.solutionFourButton);
+        this.statsPopup.element.append(document.createElement("br"));
+
+        this.statsPopup.element.append(this.foundThreeSolutionP);
+        this.statsPopup.element.append(this.solutionThreeP);
+        this.statsPopup.element.append(this.solutionThreeButton);
+        this.statsPopup.element.append(document.createElement("br"));
+
+        this.statsPopup.element.append(this.statsCloseButton);
+        this.statsPopup.show();
 
         //Create current word
         this.currentWordElement = document.createElement("p");
@@ -55,6 +173,10 @@ class Scramble {
         this.buttonsDiv.classList.add("buttons-div", "row");
         this.card.gameElement.appendChild(this.buttonsDiv);
 
+        this.buttonsDiv2 = document.createElement("div");
+        this.buttonsDiv2.classList.add("buttons-div", "row");
+        this.card.gameElement.appendChild(this.buttonsDiv2);
+
         //Create Undo Button
         this.undoButton = document.createElement("button");
         this.undoButton.innerText = "UNDO";
@@ -73,9 +195,17 @@ class Scramble {
 
         //Create Enter Button
         this.enterButton = new HintButton(0,5,"SUBMIT");
-        this.card.gameElement.appendChild(this.enterButton.element);
+        this.buttonsDiv2.appendChild(this.enterButton.element);
         this.enterButton.element.addEventListener("click", () => {
             this.#submitWord();
+        });
+
+        //Create Stats Button
+        this.statsButton = document.createElement("button");
+        this.statsButton.innerText = "STATS";
+        this.buttonsDiv2.appendChild(this.statsButton);
+        this.statsButton.addEventListener("click", () => {
+            this.statsPopup.show();
         });
     }
 
@@ -102,7 +232,6 @@ class Scramble {
         if(this.history.length > 0) {
             let item = this.history.pop();
             if(typeof item === 'string') {
-                console.log(item);
                 this.addScore(-1 * this.#getWordScore(item));
                 this.currentWord = item;
                 this.currentWordElement.textContent = item;
@@ -119,7 +248,6 @@ class Scramble {
     }
 
     addScore(amount) {
-        console.log(amount);
         this.score += amount;
         if (this.score > this.highScore) {
             this.highScore = this.score;
@@ -129,6 +257,11 @@ class Scramble {
         setTimeout(() => {
                 this.scoreElement.classList.remove('highlight');
         },1000);
+
+        //Update Stats
+        if (this.score > 0) {
+            this.#updateGameState();
+        }
     }
 
     #isLetter(str) {
@@ -137,25 +270,24 @@ class Scramble {
 
     #submitWord() {
         let wordScore = this.#getWordScore(this.currentWord);
+        this.history.push(this.currentWord);
         if(wordScore > 0) {
             this.addScore(wordScore);
         } else {
-            console.log(`${this.currentWord} is not a valid word`);
-                    let popUp = new StatusPopUp(this.card.gameElement, "NOT IN WORD LIST", 1);
+            let popUp = new StatusPopUp(this.card.gameElement, "NOT IN WORD LIST", 1);
         }
         this.enterButton.setProgress(5);
-        this.history.push(this.currentWord);
         this.currentWord = "";
         this.currentWordElement.textContent = "_";
     }
 
     #discard() {
         let wordScore = this.#getWordScore(this.currentWord);
+        this.history.push(this.currentWord);
         if(wordScore > 0) {
             this.addScore(wordScore);
         }
         this.enterButton.setProgress(5);
-        this.history.push(this.currentWord);
         this.currentWord = "";
         this.currentWordElement.textContent = "_";
     }
@@ -165,6 +297,60 @@ class Scramble {
             return word.length*2 - 4;
         }
         return 0;
+    }
+
+    #updateGameState() {
+        var numLettersUsed = 0;
+        var allValidWords = true;
+        const words = this.history.filter(item => typeof item === 'string');
+        for(const word of words) {
+            console.log(word);
+            numLettersUsed += word.length;
+            if(this.#getWordScore(word) === 0) {
+                allValidWords = false;
+                break;
+            }
+        }
+
+        console.log(this.history);
+        console.log(`Num letters used: ${numLettersUsed}`);
+        console.log(`All valid words: ${allValidWords}`);
+
+        if(this.currentWord.length > this.gameState.longestWord.length) {
+            this.gameState.longestWord = this.currentWord;
+            this.longestWordP.innerText = `LONGEST WORD: ${this.gameState.longestWord}`;
+        }
+
+        //Solution Found
+        if(allValidWords && numLettersUsed === 25) {
+            console.log('found solution');
+            if(words.length === 3) {
+                this.gameState.foundSolutionThree = true;
+                this.gameState.solutionThree = words.join(', ');
+                this.solutionThreeP.innerText = words.join(', ');
+                this.solutionThreeP.hidden = false;
+                this.solutionThreeButton.hidden = true;
+                this.foundThreeSolutionP.innerText = "☑ FOUND A THREE WORD SOLUTION";
+            } else if(words.length === 4) {
+                this.gameState.foundSolutionFour = true;
+                this.gameState.solutionFour = words.join(', ');
+                this.solutionFourP.innerText = words.join(', ');
+                this.solutionFourP.hidden = false;
+                this.solutionFourButton.hidden = true;
+                this.foundFourSolutionP.innerText = "☑ FOUND A FOUR WORD SOLUTION";
+            } else {
+                this.gameState.foundSolution = true;
+                this.gameState.solution = words.join(', ');
+                this.solutionP.innerText = words.join(', ');
+                this.solutionP.hidden = false;
+                this.solutionButton.hidden = true;
+                this.foundSolutionP.innerText = "☑ FOUND A SOLUTION";
+            }
+            this.statsPopup.show();
+        }
+
+        this.LSM.setGameStateByID(this.id, this.gameState);
+        this.LSM.saveToLocalStorage();
     }
 
     async #loadDictionaryFromUrl(url) {
@@ -268,17 +454,22 @@ class Letter {
     }
 };
 
+
+const LSM = new LocalStorageManager('ms', 39, 7);
+LSM.setRememberChoice(true);
+Scramble.LSM = LSM;
+
 const carousel = document.getElementById("carousel");
 Scramble.parent = carousel;
 
-const s28 = new Scramble("THURSDAY, MARCH 12TH\nBIG SCRAMBLE #28");
+const s28 = new Scramble(28, "THURSDAY, MARCH 12TH\nBIG SCRAMBLE #28");
 s28.addDispenser('RANMS');
 s28.addDispenser('ONLYC');
 s28.addDispenser('GERAE');
 s28.addDispenser('ENLDO');
 s28.addDispenser('ETISO');
 
-const s27 = new Scramble("THURSDAY, MARCH 5TH\nBIG SCRAMBLE #27");
+const s27 = new Scramble(27, "THURSDAY, MARCH 5TH\nBIG SCRAMBLE #27", undefined, "whisked, linear, suitor, clumsy", "whisk, inelastic, murderously");
 s27.addDispenser('NSICM');
 s27.addDispenser('KIATU');
 s27.addDispenser('DERLY');
@@ -288,7 +479,7 @@ s27.addDispenser('WHELO');
 //whisker -> denial -> suitor -> clumsy
 //whisk -> inelastic -> murderously
 
-const s26 = new Scramble("SUNDAY, MARCH 1ST\nBIG SCRAMBLE #26");
+const s26 = new Scramble(26, "SUNDAY, MARCH 1ST\nBIG SCRAMBLE #26", undefined, undefined, "necessitate, harpoon, stormed");
 s26.addDispenser('NEAST');
 s26.addDispenser('ESIEN');
 s26.addDispenser('CTRPO');
