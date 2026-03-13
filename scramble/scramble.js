@@ -323,7 +323,7 @@ class Scramble {
 
         //Solution Found
         if(allValidWords && numLettersUsed === 25) {
-            console.log('found solution');
+            this.LSM.addGameToStreak(this.id);
             if(words.length === 3) {
                 this.gameState.foundSolutionThree = true;
                 this.gameState.solutionThree = words.join(', ');
@@ -455,14 +455,22 @@ class Letter {
 };
 
 
-const LSM = new LocalStorageManager('bs', 39, 7);
+const LSM = new LocalStorageManager('bs', 29, 7);
 LSM.setRememberChoice(true);
 Scramble.LSM = LSM;
 
 const carousel = document.getElementById("carousel");
 Scramble.parent = carousel;
 
-const s28 = new Scramble(28, "THURSDAY, MARCH 12TH\nBIG SCRAMBLE #28");
+const s29 = new Scramble(29, "FRIDAY, MARCH 13TH\nBIG SCRAMBLE #29");
+s29.addDispenser('SCLEN');
+s29.addDispenser('OATUM');
+s29.addDispenser('BLTNR');
+s29.addDispenser('EIUBE');
+s29.addDispenser('TOVSO');
+//, undefined, "stoves, cobalt, outline, number", "obstacle, novelist, outnumber"
+
+const s28 = new Scramble(28, "THURSDAY, MARCH 12TH\nBIG SCRAMBLE #28", undefined, "genera, lonely, trained, cosmos", "regeneration, alleys, condoms");
 s28.addDispenser('RANMS');
 s28.addDispenser('ONLYC');
 s28.addDispenser('GERAE');

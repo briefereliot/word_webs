@@ -321,47 +321,40 @@ LSM.setRememberChoice(true);
 Scramble.parent = carousel;
 Scramble.LSM = LSM;
 
-const mar12 = document.getElementById("mar12");
+const s40 = new Scramble(40, "FRIDAY, MARCH 13TH\nSCRAMBLE #40");
+s40.addDispenser('TER');
+s40.addDispenser('IOS');
+s40.addDispenser('INR');
+
 const s39 = new Scramble(39, "THURSDAY, MARCH 12TH\nSCRAMBLE #39");
 s39.addDispenser('GGG');
 s39.addDispenser('RET');
 s39.addDispenser('AAE');
 
-const mar11 = document.getElementById("mar11");
 const s38 = new Scramble(38, "WEDNESDAY, MARCH 11TH\nSCRAMBLE #38");
 s38.addDispenser('SHT');
 s38.addDispenser('NCR');
 s38.addDispenser('PIE');
 
-const mar10 = document.getElementById("mar10");
 const s37 = new Scramble(37, "TUESDAY, MARCH 10TH\nSCRAMBLE #37");
 s37.addDispenser('ITE');
 s37.addDispenser('ARB');
 s37.addDispenser('RAG');
 
-const mar9 = document.getElementById("mar9");
 const s36 = new Scramble(36, "MONDAY, MARCH 9TH\nSCRAMBLE #36");
 s36.addDispenser('ING');
 s36.addDispenser('UAL');
 s36.addDispenser('BLI');
 
-const mar8 = document.getElementById("mar8");
 const s35 = new Scramble(35, "SUNDAY, MARCH 8TH\nSCRAMBLE #35");
 s35.addDispenser('SHL');
 s35.addDispenser('HEO');
 s35.addDispenser('OUD');
 
-const mar7 = document.getElementById("mar7");
 const s34 = new Scramble(34, "SATURDAY, MARCH 7TH\nSCRAMBLE #34");
 s34.addDispenser('MOO');
 s34.addDispenser('PHS');
 s34.addDispenser('ARU');
-
-const mar6 = document.getElementById("mar6");
-const s33 = new Scramble(33, "FRIDAY, MARCH 6TH\nSCRAMBLE #33");
-s33.addDispenser('ORD');
-s33.addDispenser('UPS');
-s33.addDispenser('CBA');
 
 
 
