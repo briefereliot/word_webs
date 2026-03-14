@@ -297,7 +297,11 @@ LSM.setRememberChoice(true);
 
 const carousel = document.getElementById("carousel");
 
-const w98 = new Web(carousel, LSM, 98, "   LA", "NIFLA", "FRIDAY, MARCH 13TH", "THE SRAW THAT BROKE THE CAMEL'S BACK");
+const w99 = new Web(carousel, LSM, 99, "  CA ", "BHCAE", "SATURDAY, MARCH 14TH", "GOES WITH A SUNBURN");
+w99.addThread('15432', 1);
+w99.addThread('4325', 2);
+
+const w98 = new Web(carousel, LSM, 98, "   LA", "NIFLA", "FRIDAY, MARCH 13TH", "THE STRAW THAT BROKE THE CAMEL'S BACK");
 w98.addThread('32154', 1);
 w98.addThread('1524', 2);
 
@@ -320,12 +324,6 @@ w94.addThread('24315', 2);
 const w93 = new Web(carousel, LSM, 93, "I   RB", "ITSORB", "SUNDAY, MARCH 8TH", "THE RESTAURANT AT THE END OF THE UNIVERSE");
 w93.addThread('45612', 1);
 w93.addThread('613254', 2);
-
-const w92 = new Web(carousel, LSM, 92, "   HT", "RIGHT", "SATURDAY, MARCH 7TH", "SOMETHING A FORESTER CHECKS FOR");
-w92.addThread('12345', 1);
-w92.addThread('32154', 2);
-
-
 
 /*setTimeout(() => {
     const carousel = document.getElementById("carousel");

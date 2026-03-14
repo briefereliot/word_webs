@@ -315,11 +315,16 @@ class Letter {
 
 const carousel = document.getElementById("carousel")
 
-const LSM = new LocalStorageManager('ms', 39, 7);
+const LSM = new LocalStorageManager('ms', 41, 7);
 LSM.setRememberChoice(true);
 
 Scramble.parent = carousel;
 Scramble.LSM = LSM;
+
+const s41 = new Scramble(41, "SATURDAY, MARCH 14TH\nSCRAMBLE #41");
+s41.addDispenser('ITE');
+s41.addDispenser('COS');
+s41.addDispenser('OMP');
 
 const s40 = new Scramble(40, "FRIDAY, MARCH 13TH\nSCRAMBLE #40");
 s40.addDispenser('TER');
@@ -350,11 +355,6 @@ const s35 = new Scramble(35, "SUNDAY, MARCH 8TH\nSCRAMBLE #35");
 s35.addDispenser('SHL');
 s35.addDispenser('HEO');
 s35.addDispenser('OUD');
-
-const s34 = new Scramble(34, "SATURDAY, MARCH 7TH\nSCRAMBLE #34");
-s34.addDispenser('MOO');
-s34.addDispenser('PHS');
-s34.addDispenser('ARU');
 
 
 
