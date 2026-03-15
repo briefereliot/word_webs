@@ -455,20 +455,27 @@ class Letter {
 };
 
 
-const LSM = new LocalStorageManager('bs', 29, 7);
+const LSM = new LocalStorageManager('bs', 30, 7);
 LSM.setRememberChoice(true);
 Scramble.LSM = LSM;
 
 const carousel = document.getElementById("carousel");
 Scramble.parent = carousel;
 
-const s29 = new Scramble(29, "FRIDAY, MARCH 13TH\nBIG SCRAMBLE #29");
+const s30 = new Scramble(30, "SUNDAY, MARCH 15TH\nBIG SCRAMBLE #30");
+s30.addDispenser('CRASL');
+s30.addDispenser('TONYO');
+s30.addDispenser('DVLAA');
+s30.addDispenser('EOIGB');
+s30.addDispenser('EPRAL');
+//, undefined, "develop, action, global, arrays", "decorates, lovingly, parabola"
+
+const s29 = new Scramble(29, "FRIDAY, MARCH 13TH\nBIG SCRAMBLE #29", undefined, "stoves, cobalt, outline, number", "obstacle, novelist, outnumber");
 s29.addDispenser('SCLEN');
 s29.addDispenser('OATUM');
 s29.addDispenser('BLTNR');
 s29.addDispenser('EIUBE');
 s29.addDispenser('TOVSO');
-//, undefined, "stoves, cobalt, outline, number", "obstacle, novelist, outnumber"
 
 const s28 = new Scramble(28, "THURSDAY, MARCH 12TH\nBIG SCRAMBLE #28", undefined, "genera, lonely, trained, cosmos", "regeneration, alleys, condoms");
 s28.addDispenser('RANMS');
